@@ -219,6 +219,7 @@
     <Compile Include="Application\Startup\AppStartup.Routes.cs" />
     <Compile Include="Application\Startup\AppStartup.Validators.cs" />
     <Compile Include="Application\Startup\AppStartup.WebApi.cs" />
+    <Compile Include="Areas\Api\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\Api\Controllers\NetchexApiController.cs" />
     <Compile Include="Controllers\Account\AccountController.ChangePassword.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
@@ -366,6 +367,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Onboarding.mdf" />
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\generalFile.png" />

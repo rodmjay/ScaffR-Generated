@@ -11,7 +11,7 @@
 
         public DapperDatabase()
         {
-            connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Local"].ConnectionString);
+            connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Onboarding"].ConnectionString);
             Connection.Open();
         }
 
