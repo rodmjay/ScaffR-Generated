@@ -19,8 +19,21 @@ namespace DemoApplication.Infrastructure.Data
 
     public partial class DataContext : BaseContext<DataContext>
     {
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<Campaign> Campaigns { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
+        public virtual DbSet<Membership> Members { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Shopper> Shoppers { get; set; }
+        public virtual DbSet<ItemContents> ItemContents { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
 
-        public DbSet<Log> Log { get; set; }        
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Organization>().ToTable("Org_Control");
+            modelBuilder.Entity<Profile>().ToTable("Org_Profile");
+            modelBuilder.Entity<Vendor>().ToTable("Vendor");
+        }
     }    
 }
