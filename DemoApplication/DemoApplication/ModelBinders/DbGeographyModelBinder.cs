@@ -8,12 +8,14 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.Data.Entity.Spatial;
+
 namespace DemoApplication.ModelBinders
 {
     #region
 
     using System;
-    using System.Data.Spatial;
     using System.Web.ModelBinding;
     using System.Web.Mvc;
 

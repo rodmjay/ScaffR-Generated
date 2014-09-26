@@ -8,11 +8,13 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.Data.Entity.Spatial;
+
 namespace DemoApplication.Models.Common
 {
     #region
 
-    using System.Data.Spatial;
     using Metadata.Attributes;
 
     #endregion

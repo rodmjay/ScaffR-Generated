@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -53,7 +57,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Services" />
@@ -122,6 +125,41 @@
     <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
     <Compile Include="Interfaces\Membership\IPasswordPolicy.cs" />
     <Compile Include="Interfaces\Notifications\INotificationService.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\AddressType.cs" />
+    <Compile Include="Model\Campaign.cs" />
+    <Compile Include="Model\CampaignInfo.cs" />
+    <Compile Include="Model\CampaignItem.cs" />
+    <Compile Include="Model\CampaignStatus.cs" />
+    <Compile Include="Model\CampaignTemplate.cs" />
+    <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\Inventory.cs" />
+    <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\InvoiceStatus.cs" />
+    <Compile Include="Model\ItemContents.cs" />
+    <Compile Include="Model\ItemDescription.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\Membership.cs" />
+    <Compile Include="Model\MembershipInfo.cs" />
+    <Compile Include="Model\MembershipStatus.cs" />
+    <Compile Include="Model\MembershipType.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderInfo.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\OrderItemInfo.cs" />
+    <Compile Include="Model\OrderItemStatus.cs" />
+    <Compile Include="Model\OrderStatus.cs" />
+    <Compile Include="Model\OrderType.cs" />
+    <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\OrganizationStatus.cs" />
+    <Compile Include="Model\OrganizationType.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\PaymentInfo.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Profile.cs" />
+    <Compile Include="Model\ProfileInfo.cs" />
+    <Compile Include="Model\Shipment.cs" />
+    <Compile Include="Model\Shopper.cs" />
     <Compile Include="Model\User.Photo.cs" />
     <Compile Include="Model\Log.cs" />
     <Compile Include="Interfaces\Photos\IPhotoRequest.cs" />
@@ -154,6 +192,8 @@
     <Compile Include="Model\User.Membership.cs" />
     <Compile Include="Model\User.Profile.cs" />
     <Compile Include="Model\UserClaim.cs" />
+    <Compile Include="Model\Vendor.cs" />
+    <Compile Include="Model\VendorStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Interfaces\Service\IUserAccountService.cs" />
@@ -163,6 +203,7 @@
     <Compile Include="Services\UserNotFoundException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

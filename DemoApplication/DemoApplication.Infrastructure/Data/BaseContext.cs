@@ -8,6 +8,9 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.Data.Entity.Core.Objects;
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -15,7 +18,6 @@ namespace DemoApplication.Infrastructure.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
-    using System.Data.Objects;
     using Core.Interfaces.Data;
     using Core.Model;
 

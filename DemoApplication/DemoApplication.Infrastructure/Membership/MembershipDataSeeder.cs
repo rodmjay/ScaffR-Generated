@@ -44,7 +44,7 @@ namespace DemoApplication.Infrastructure.Membership
                     HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
                     PasswordChanged = DateTime.UtcNow,
                     FailedLoginCount = 0,
-                    Updated = DateTime.UtcNow
+                    LastUpdated = DateTime.UtcNow
                 };
 
             user.Claims.Add(new UserClaim()

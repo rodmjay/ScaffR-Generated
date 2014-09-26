@@ -8,13 +8,15 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.Data.Entity.Core.Objects;
+
 namespace DemoApplication.Core.Interfaces.Data
 {
     #region
 
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Objects;
     using Model;
 
     #endregion

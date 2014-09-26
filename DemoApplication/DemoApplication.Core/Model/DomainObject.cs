@@ -8,6 +8,10 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+
 namespace DemoApplication.Core.Model
 {
     #region
@@ -23,9 +27,11 @@ namespace DemoApplication.Core.Model
         [Key]
         public int Id { get; set; }
 
-        public DateTime? Created { get; set; }
+        [DataMember, Column("Record_Created")]
+        public DateTime Created { get; set; }
 
-        public DateTime? Updated { get; set; }
+        [DataMember, Column("Last_Modified")]
+        public DateTime? LastUpdated { get; set; }
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

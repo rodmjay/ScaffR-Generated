@@ -8,6 +8,9 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using System.Data.Entity;
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -50,7 +53,7 @@ namespace DemoApplication.Infrastructure.Data
         {
             foreach (var entity in entities)
             {
-                entity.Updated = DateTime.UtcNow;
+                entity.LastUpdated = DateTime.UtcNow;
                 entity.Created = !IsPersistent(entity) ? DateTime.UtcNow : entity.Created;
             }
         }
