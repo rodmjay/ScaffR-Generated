@@ -1,0 +1,65 @@
+﻿@model IList<DemoApplication.Core.Model.Contact>
+
+@{
+    ViewBag.Title = "Contacts";
+}
+
+@section AltNav
+{
+    <button class="btn btn-inverse pull-right span2">Add Contact</button>
+}
+
+<div class="row-fluid">
+    <div class="span2">
+        <div class="">
+            <form>
+                <input type="text" class="input-medium" placeholder="Contact ID">
+                <input type="text" class="input-medium" placeholder="Contact Name">
+                <input type="text" class="input-medium" placeholder="Contact Email">
+                <input type="text" class="input-medium" placeholder="Contact Phone">
+
+            </form>
+        </div>
+    </div>
+    <div class="span10">
+        <table class="table">
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer</th>
+                <th>Create Date</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Role</th>
+            </tr>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@contact.Id</td>
+                    <td>@contact.FirstName @contact.LastName</td>
+                    <td>@contact.Created</td>
+                    <td>@contact.Email</td>
+                    <td></td>
+                    <td>(N/A)</td>
+                </tr>
+            }                      
+          
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="row-fluid">
+    <div class="pagination span6 offset2">
+        <ul>
+            <li><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </div>
+</div>

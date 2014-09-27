@@ -29,6 +29,7 @@ namespace DemoApplication.Infrastructure.Data
         public virtual DbSet<ItemContents> ItemContents { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Distributor> Distributors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

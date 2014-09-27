@@ -127,6 +127,7 @@
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
     <Compile Include="Configuration\Storage\StorageElement.cs" />
+    <Compile Include="Contacts\ContactsRepository.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Logging\CodeFirstLogProvider.cs" />
@@ -155,6 +156,10 @@
     <Compile Include="Migrations\201409260443186_ProductsAddedToDbContext.cs" />
     <Compile Include="Migrations\201409260443186_ProductsAddedToDbContext.Designer.cs">
       <DependentUpon>201409260443186_ProductsAddedToDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409270313236_RemovedExplicitRelationshipFromContactForAddresses.cs" />
+    <Compile Include="Migrations\201409270313236_RemovedExplicitRelationshipFromContactForAddresses.Designer.cs">
+      <DependentUpon>201409270313236_RemovedExplicitRelationshipFromContactForAddresses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
@@ -222,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409260443186_ProductsAddedToDbContext.resx">
       <DependentUpon>201409260443186_ProductsAddedToDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409270313236_RemovedExplicitRelationshipFromContactForAddresses.resx">
+      <DependentUpon>201409270313236_RemovedExplicitRelationshipFromContactForAddresses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

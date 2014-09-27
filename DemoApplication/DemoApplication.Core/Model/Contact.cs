@@ -105,18 +105,6 @@ namespace DemoApplication.Core.Model
         [ForeignKey("ProfileId")]
         public Profile Profile { get; set; }
 
-        [DataMember, ForeignKey("AddressId")]
-        public virtual Address Address { get; set; }
-
-        [DataMember, ForeignKey("BillingAddressId")]
-        public virtual Address BillingAddress { get; set; }
-
-        [DataMember, ForeignKey("ShippingAddressId")]
-        public virtual Address ShippingAddress { get; set; }
-
-        [DataMember, ForeignKey("OrgOrWorkAddressId")]
-        public virtual Address OrgOrWorkAddress { get; set; }
-
         public virtual ICollection<Invoice> Invoices { get; set; } 
     }
 }

@@ -15,8 +15,6 @@ namespace DemoApplication.Core.Model
     public class Distributor : DomainObject
     {
         public int Id { get; set; }
-
-
     }
 
     [DataContract,Table("Org_Orders")]
