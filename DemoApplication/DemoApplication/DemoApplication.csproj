@@ -209,6 +209,7 @@
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
     <Compile Include="Controllers\Campaigns\CampaignsController.cs" />
+    <Compile Include="Controllers\Contacts\ContactsController.cs" />
     <Compile Include="Controllers\Home\HomeController.About.cs" />
     <Compile Include="Controllers\Orders\OrdersController.cs" />
     <Compile Include="Controllers\Organizations\OrganizationsController.cs" />
@@ -1413,6 +1414,7 @@
     <Content Include="Views\Organizations\Manager.cshtml" />
     <Content Include="Views\Campaigns\Create.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

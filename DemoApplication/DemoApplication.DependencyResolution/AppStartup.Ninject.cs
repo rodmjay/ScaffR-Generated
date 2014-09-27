@@ -11,6 +11,7 @@
 #region
 
 using DemoApplication.DependencyResolution;
+using DemoApplication.Infrastructure.Contacts;
 
 #endregion
 
@@ -102,6 +103,7 @@ namespace DemoApplication.DependencyResolution
 
             kernel.Bind<IRepository<Log>>().To<LoggingRepository>().InRequestScope();
             kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();
+            kernel.Bind<IRepository<Contact>>().To<ContactsRepository>().InRequestScope();
 
             // security
             kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();

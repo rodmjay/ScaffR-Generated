@@ -8,16 +8,17 @@
 
     <mvcSiteMapNode title="About" controller="Home" action="About" imageUrl="icon-home"/>
 
-    <mvcSiteMapNode title="Manage Team" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
+    <mvcSiteMapNode title="Team" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
       <!--<mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id"/>-->
       <!--<mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>-->
       <!--<mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>-->
     </mvcSiteMapNode>
-    <mvcSiteMapNode title="Manage Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders"/>
-    <mvcSiteMapNode title="Manage Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts"/>
-    <mvcSiteMapNode title="Manage Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns"/>
-    <mvcSiteMapNode title="View Reports" controller="Reports" action="Manager" imageUrl="icon-group" key="ManageReports"/>
-    <mvcSiteMapNode title="View Logs" controller="Logging" action="Manage" key="ViewLogs">
+    <mvcSiteMapNode title="Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders"/>
+    <mvcSiteMapNode title="Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts"/>
+    <mvcSiteMapNode title="Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns"/>
+    <mvcSiteMapNode title="Contacts" controller="Contacts" action="Index" imageUrl="icon-home" key="ManageContacts"/>
+    <mvcSiteMapNode title="Reports" controller="Reports" action="Manager" imageUrl="icon-group" key="ManageReports"/>
+    <mvcSiteMapNode title="Logs" controller="Logging" action="Manage" key="ViewLogs">
       <mvcSiteMapNode title="Success" controller="Logging" action="Success"/>
       <mvcSiteMapNode title="Error" controller="Logging" action="Error" />
       <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" />
