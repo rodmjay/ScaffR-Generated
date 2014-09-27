@@ -6,11 +6,7 @@
 
 @section AltNav
 {
-    <ul class="nav nav-pills pull-right">
-        <li>
-            <a href="@Url.Action("Create", "Products")">Create Product</a>
-        </li>
-    </ul>
+    @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageProducts"), true, false)
 
     
 }

@@ -1,10 +1,13 @@
 ﻿@model DemoApplication.Core.Model.CampaignInfo
 
 @{
-    ViewBag.Title = "Create Campaign";
+    ViewBag.Title = "Campaign Builder";
 }
 
-@using (Html.BeginForm("Create", "Campaigns"))
-{
-    @Html.EditorForModel()
-}
+<h4>Step 1: Choose from our Popular Campaigns</h4>
+
+<hr/>
+
+<div class="">
+    <a href="#" class="btn btn-large btn-inverse">Next: Customize Campaign</a>
+</div>

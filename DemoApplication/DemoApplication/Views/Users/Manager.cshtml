@@ -1,20 +1,15 @@
 ﻿@{
     Layout = "~/Views/Shared/Basic.cshtml";
-    ViewBag.Title = "Organization Details";
+    ViewBag.Title = "Members";
 }
 @model IList<DemoApplication.Core.Model.User>
 
 @section AltNav
 {
-    <ul class="nav nav-pills pull-right">
-        <li>
-            <a href="@Url.Action("Index", "Invitations")">Invite User</a>
-        </li>
-    </ul>
+    @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageUsers"), true, false)
 }
 
 
-<h3>Members</h3>
 <table class="table table-striped">
     <thead>
         <tr>

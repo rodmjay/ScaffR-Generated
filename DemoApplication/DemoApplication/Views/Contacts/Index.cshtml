@@ -6,14 +6,7 @@
 
 @section AltNav
 {
-    <ul class="nav nav-pills pull-right">
-        <li>
-            <a href="@Url.Action("Import","Contacts")">Import Contacts</a>
-        </li>
-        <li>
-            <a href="@Url.Action("Create","Contacts")">Add Contact</a>
-        </li>
-    </ul>
+   @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageContacts"), true, false)
 
     
 }

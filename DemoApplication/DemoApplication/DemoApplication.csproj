@@ -1420,6 +1420,7 @@
     <Content Include="Views\Invitations\Index.cshtml" />
     <Content Include="Views\Contacts\Import.cshtml" />
     <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

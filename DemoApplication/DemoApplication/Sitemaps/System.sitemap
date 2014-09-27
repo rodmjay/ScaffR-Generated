@@ -8,30 +8,35 @@
 
     <mvcSiteMapNode title="About" controller="Home" action="About" imageUrl="icon-home"/>
 
-    <mvcSiteMapNode title="Organization" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
+    <mvcSiteMapNode title="Members" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
       <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" visibility="!*" preservedRouteParameters="id"/>
       <!--<mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>-->
       <!--<mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>-->
-      <mvcSiteMapNode title="Invite New User" controller="Invitations" action="Index" imageUrl="icon-group" visibility="!*"/>
+      <mvcSiteMapNode title="Invite New Member" controller="Invitations" action="Index" imageUrl="icon-group" visibility="Pills,!*"/>
     </mvcSiteMapNode>
-    <mvcSiteMapNode title="Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders"/>
+
+    <mvcSiteMapNode title="Organization" controller="Organizations" action="Manager" imageUrl="icon-group"/>
+    
+    <mvcSiteMapNode title="Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders">
+      <mvcSiteMapNode title="Create Order" controller="Orders" action="Create" imageUrl="icon-group" visibility="Pills,BreadCrumb,!*"/>
+    </mvcSiteMapNode>
     
     <mvcSiteMapNode title="Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts">
-      <mvcSiteMapNode title="New Product" controller="Products" action="Create" imageUrl="icon-group" visibility="BreadCrumb,!*"/>
+      <mvcSiteMapNode title="New Product" controller="Products" action="Create" imageUrl="icon-group" visibility="Pills,BreadCrumb,!*"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns">
-      <mvcSiteMapNode title="New Campaign" controller="Campaigns" action="Create" imageUrl="icon-home" visibility="BreadCrumb,!*"/>
+      <mvcSiteMapNode title="New Campaign" controller="Campaigns" action="Create" imageUrl="icon-home" visibility="Pills,!*"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Contacts" controller="Contacts" action="Index" imageUrl="icon-home" key="ManageContacts">
-      <mvcSiteMapNode title="New Contact" controller="Contacts" action="Create" imageUrl="icon-home" visibility="!*"/>
-      <mvcSiteMapNode title="Import Contacts" controller="Contacts" action="Import" imageUrl="icon-home" visibility="!*"/>
+      <mvcSiteMapNode title="New Contact" controller="Contacts" action="Create" imageUrl="icon-home" visibility="Pills,!*"/>
+      <mvcSiteMapNode title="Import Contacts" controller="Contacts" action="Import" imageUrl="icon-home" visibility="Pills,!*"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Reports" controller="Reports" action="Manager" imageUrl="icon-group" key="ManageReports"/>
     <mvcSiteMapNode title="Logs" controller="Logging" action="Manage" key="ViewLogs">
-      <mvcSiteMapNode title="Success" controller="Logging" action="Success"/>
-      <mvcSiteMapNode title="Error" controller="Logging" action="Error" />
-      <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" />
-      <mvcSiteMapNode title="Warn" controller="Logging" action="Warning"/>
+      <mvcSiteMapNode title="Success" controller="Logging" action="Success" visibility="Pills,!*"/>
+      <mvcSiteMapNode title="Error" controller="Logging" action="Error" visibility="Pills,!*" />
+      <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" visibility="Pills,!*"/>
+      <mvcSiteMapNode title="Warn" controller="Logging" action="Warning" visibility="Pills,!*"/>
     </mvcSiteMapNode>
 
   </mvcSiteMapNode>

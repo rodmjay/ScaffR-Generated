@@ -5,32 +5,34 @@
 
 @section AltNav
 {
-    <ul class="nav nav-pills pull-right">
-        <li>
-            <a href="@Url.Action("Create", "Campaigns")">Create Campaign</a>
-        </li>
-    </ul>
+    @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageCampaigns"), true, false)
 }
 
-@foreach (var campaign in Model)
-{
-    <div class="well">
+<div class="row-fluid">
+    <div class="span12">
+        <h4>My Campaigns:</h4>
+        @foreach (var campaign in Model)
+        {
+            <div class="well">
 
-        <div class="row-fluid">
-            <div class="span1">
-                @campaign.Id
+                <div class="row-fluid">
+                    <div class="span1">
+                        @campaign.Id
+                    </div>
+                    <div class="span11">
+                        @campaign.Name
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span11 offset1">
+                        @campaign.Description
+                    </div>
+                </div>
+
+
             </div>
-            <div class="span11">
-                @campaign.Name
-            </div>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span11 offset1">
-                @campaign.Description
-            </div>
-        </div>
-
-
+        }
     </div>
-}
+</div>
+

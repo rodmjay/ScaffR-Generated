@@ -13,5 +13,10 @@ namespace DemoApplication.Controllers.Orders
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

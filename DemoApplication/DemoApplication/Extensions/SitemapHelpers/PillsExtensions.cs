@@ -31,7 +31,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
         /// <summary>
         /// Source metadata
         /// </summary>
-        private static readonly Dictionary<string, object> PillsSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(PillsExtensions).FullName } };
+        private static readonly Dictionary<string, object> PillsSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", "Pills" } };
 
         /// <summary>
         /// Build a menu, based on the MvcSiteMap
