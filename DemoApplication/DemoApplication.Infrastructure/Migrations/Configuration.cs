@@ -58,6 +58,16 @@ namespace DemoApplication.Infrastructure.Migrations
                 JoinDate = DateTime.UtcNow
             };
 
+            var campaign = new Campaign()
+            {
+                Id = 1,
+                Created = DateTime.UtcNow,
+                LastUpdated = DateTime.UtcNow,
+                Name = "Default Campaign",
+                ProfileId = 1,
+                Description = "Default Campaign used for testing purposes"
+            };
+
             var contact = new Contact()
             {
                 Id = 1,
@@ -73,7 +83,8 @@ namespace DemoApplication.Infrastructure.Migrations
 
             context.Distributors.AddOrUpdate(x => x.Id, distributor);
             context.Profiles.AddOrUpdate(x => x.Id, profile);
-            context.Contacts.AddOrUpdate(x=>x.Id, contact);
+            context.Contacts.AddOrUpdate(x => x.Id, contact);
+            context.Campaigns.AddOrUpdate(x => x.Id, campaign);
             context.SaveChanges();
         }
     }

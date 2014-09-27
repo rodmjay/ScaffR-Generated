@@ -14,8 +14,12 @@
       <!--<mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>-->
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders"/>
-    <mvcSiteMapNode title="Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts"/>
-    <mvcSiteMapNode title="Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns"/>
+    <mvcSiteMapNode title="Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts">
+      <mvcSiteMapNode title="Create" controller="Products" action="Create" imageUrl="icon-group" visibility="BreadCrumb,!*"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns">
+      <mvcSiteMapNode title="Create Campaign" controller="Campaigns" action="Create" imageUrl="icon-home" visibility="BreadCrumb,!*"/>
+    </mvcSiteMapNode>
     <mvcSiteMapNode title="Contacts" controller="Contacts" action="Index" imageUrl="icon-home" key="ManageContacts"/>
     <mvcSiteMapNode title="Reports" controller="Reports" action="Manager" imageUrl="icon-group" key="ManageReports"/>
     <mvcSiteMapNode title="Logs" controller="Logging" action="Manage" key="ViewLogs">

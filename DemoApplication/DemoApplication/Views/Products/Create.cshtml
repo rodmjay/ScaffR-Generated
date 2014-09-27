@@ -1,0 +1,12 @@
+﻿@model DemoApplication.Core.Model.ProductInfo
+
+@{
+    ViewBag.Title = "Create Product";
+    ViewBag.ShowPageHeadingText = false;
+    ViewBag.ShowBreadcrumb = true;
+}
+
+@using (Html.BeginForm("Create", "Products"))
+{
+    @Html.EditorForModel()
+}

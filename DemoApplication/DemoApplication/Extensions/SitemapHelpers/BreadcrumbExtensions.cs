@@ -30,7 +30,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
         /// <summary>
         /// Source metadata
         /// </summary>
-        private static readonly Dictionary<string, object> BreadcrumbSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(BreadcrumbExtensions).FullName } };
+        private static readonly Dictionary<string, object> BreadcrumbSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", "BreadCrumb" } };
 
         /// <summary>
         /// Gets Breadcrumb path for the current request

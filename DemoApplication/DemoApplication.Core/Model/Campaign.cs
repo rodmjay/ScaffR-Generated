@@ -22,6 +22,9 @@ namespace DemoApplication.Core.Model
         [DataMember, Key, Column("Campaign_ID")]
         public int Id { get; set; }
 
+        [DataMember]
+        public string Code { get; set; }
+
         [DataMember, Column("Campaign_Status")]
         public CampaignStatus Status { get; set; }
 

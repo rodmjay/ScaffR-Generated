@@ -157,6 +157,7 @@
     <Compile Include="Model\PaymentInfo.cs" />
     <Compile Include="Model\Prize.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductInfo.cs" />
     <Compile Include="Model\Profile.cs" />
     <Compile Include="Model\ProfileInfo.cs" />
     <Compile Include="Model\Shipment.cs" />

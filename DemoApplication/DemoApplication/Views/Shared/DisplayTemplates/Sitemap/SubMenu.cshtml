@@ -17,8 +17,9 @@
             {
                 if (child.IsActiveNode(ViewContext))
                 {
+                   
                     foreach (var secondchild in child.Children)
-                    {
+                    {                                                
                         <li class="@((secondchild.IsCurrentNode || secondchild.IsInCurrentPath) ? "active" : "")">
                             <a href="@secondchild.Url">@secondchild.Title</a>
                         </li>

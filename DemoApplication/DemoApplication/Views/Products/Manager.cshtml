@@ -1,12 +1,12 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "Manage Products";
+    ViewBag.Title = "Products";
 }
 
 @section AltNav
 {
-    <button class="btn btn-inverse pull-right span2">Create Product</button>
+    <a href="@Url.Action("Create", "Products")" class="btn btn-inverse btn-large pull-right span2">Create Product</a>
 }
 
 <div class="row-fluid">
