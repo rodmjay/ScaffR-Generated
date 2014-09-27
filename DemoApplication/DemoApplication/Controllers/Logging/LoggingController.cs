@@ -16,6 +16,7 @@ namespace DemoApplication.Controllers.Logging
 
     #endregion
 
+    [Authorize(Roles = "Admin,Super Admin")]
     public class LoggingController : Controller
     {
         public ActionResult Manage()

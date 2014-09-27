@@ -1,0 +1,71 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Manage Orders";
+}
+
+@section AltNav
+{
+    <button class="btn btn-inverse pull-right span2">Manual Enter</button>
+}
+
+<div class="row-fluid">
+    <div class="span2">
+        <div class="well well-small">
+            <form>
+                <input type="text" class="input-medium" placeholder="Order ID">
+                <input type="text" class="input-medium" placeholder="Customer Name">
+                <input type="text" class="input-medium" placeholder="Customer Email">
+                <input type="text" class="input-medium" placeholder="Customer Phone">
+
+            </form>
+        </div>    
+    </div>
+    <div class="span10">
+        <table class="table">
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Order Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th># of items</th>
+                <th style="text-align: right">Amount</th>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>Jane Doe</td>
+                <td>1/2/1234</td>
+                <td>250</td>
+                <td>Active</td>
+                <td>12</td>
+                <td style="background-color: #efefef;text-align: right">$100.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="#">download</a>
+                </td>
+                <td colspan="3"></td>
+                <td colspan="1">Summary</td>
+                <td style="background-color: #efefef;text-align: right">$100.00</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="row-fluid">
+    <div class="pagination span6 offset2">
+        <ul>
+            <li><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </div>
+</div>

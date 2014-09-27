@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201409260359199_Fundraiser_Origin.Designer.cs">
       <DependentUpon>201409260359199_Fundraiser_Origin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409260443186_ProductsAddedToDbContext.cs" />
+    <Compile Include="Migrations\201409260443186_ProductsAddedToDbContext.Designer.cs">
+      <DependentUpon>201409260443186_ProductsAddedToDbContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
@@ -215,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409260359199_Fundraiser_Origin.resx">
       <DependentUpon>201409260359199_Fundraiser_Origin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409260443186_ProductsAddedToDbContext.resx">
+      <DependentUpon>201409260443186_ProductsAddedToDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

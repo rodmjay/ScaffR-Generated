@@ -59,7 +59,37 @@ namespace DemoApplication.Infrastructure.Membership
                 Value = "Super Admin"
             });
 
+            var member = new User()
+            {
+                Id = 2,
+                Email = "rodmjay@ideafortune.com",
+                Username = "member",
+                FirstName = "Member",
+                LastName = "Johnson",
+                LastLogin = DateTime.UtcNow,
+                Gender = Gender.Male,
+                Address = "Admin address",
+                PhoneNumber = "555-555-5555",
+                IsLoginAllowed = true,
+                IsAccountClosed = false,
+                IsAccountVerified = true,
+                Created = DateTime.UtcNow,
+                Tenant = "default",
+                // password is "admin"
+                HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                PasswordChanged = DateTime.UtcNow,
+                FailedLoginCount = 0,
+                LastUpdated = DateTime.UtcNow
+            };
+
+            member.Claims.Add(new UserClaim()
+            {
+                Type = ClaimTypes.Role,
+                Value = "Member"
+            });
+
             context.Users.AddOrUpdate(user);
+            context.Users.AddOrUpdate(member);
             context.SaveChanges();
         }
     }

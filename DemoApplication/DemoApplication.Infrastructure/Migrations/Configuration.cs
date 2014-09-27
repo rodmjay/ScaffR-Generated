@@ -8,6 +8,9 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using DemoApplication.Core.Model;
+
 namespace DemoApplication.Infrastructure.Migrations
 {
     #region
@@ -34,7 +37,7 @@ namespace DemoApplication.Infrastructure.Migrations
 
         protected override void Seed(DataContext context)
         {
-            new MembershipDataSeeder().Seed(context);
+            new MembershipDataSeeder().Seed(context);               
         }
     }
 }

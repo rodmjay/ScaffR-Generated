@@ -208,7 +208,12 @@
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
+    <Compile Include="Controllers\Campaigns\CampaignsController.cs" />
     <Compile Include="Controllers\Home\HomeController.About.cs" />
+    <Compile Include="Controllers\Orders\OrdersController.cs" />
+    <Compile Include="Controllers\Organizations\OrganizationsController.cs" />
+    <Compile Include="Controllers\Products\ProductsController.cs" />
+    <Compile Include="Controllers\Reports\ReportsController.cs" />
     <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Account\ChangePasswordFromResetKeyModel.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
@@ -220,7 +225,7 @@
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
     <Compile Include="Controllers\Error\ErrorController.cs" />
-    <Compile Include="Controllers\Home\HomeController.Admin.cs" />
+    <Compile Include="Controllers\Home\HomeController.Manage.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Logging.cs" />
     <Compile Include="Controllers\Logging\LoggingController.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
@@ -238,7 +243,7 @@
     <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\Dropdowns\DropdownController.cs" />
-    <Compile Include="Controllers\Home\HomeController.Index.cs" />
+    <Compile Include="Controllers\Home\HomeController.Dashboard.cs" />
     <Compile Include="Controllers\Users\UsersController.Details.cs" />
     <Compile Include="Controllers\Users\UsersController.Manager.cs" />
     <Compile Include="Controllers\Users\UsersController.cs" />
@@ -1402,6 +1407,12 @@
     <Content Include="Views\Templates\SendPasswordChangeNotice.txt.cshtml" />
     <Content Include="Views\Templates\SendPasswordReset.txt.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Products\Manager.cshtml" />
+    <Content Include="Views\Reports\Manager.cshtml" />
+    <Content Include="Views\Campaigns\Manager.cshtml" />
+    <Content Include="Views\Organizations\Manager.cshtml" />
+    <Content Include="Views\Campaigns\Create.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

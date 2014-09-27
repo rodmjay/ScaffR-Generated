@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Manage Campaigns";
+}
+<p class="clearfix">
+    <button class="btn btn-inverse pull-left span2">Create Campaign</button>
+
+    <button class="btn btn-inverse pull-right span2">Edit</button>
+
+</p>
+<hr/>
+@section AltNav
+{
+
+}
+
+@for (var i = 0; i < 10; i++)
+{
+    <div class="well">
+
+        <div class="row-fluid">
+            <div class="span1">
+                f
+            </div>
+            <div class="span11">
+                Campaign @(i + 1)
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span11 offset1">
+                asdf
+            </div>
+        </div>
+
+
+    </div>
+}

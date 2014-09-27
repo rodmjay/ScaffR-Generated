@@ -1,0 +1,82 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Manage Products";
+}
+
+@section AltNav
+{
+    <button class="btn btn-inverse pull-right span2">Create Product</button>
+}
+
+<div class="row-fluid">
+    <div class="span12">
+        <form class="form-inline">
+            <input type="text" class="input-xlarge" placeholder="Name, Description, Item Code, Product Id">
+            <select style="width:200px">
+                <option>
+                    Active
+                </option>
+                <option>
+                    Inactive
+                </option>
+            </select>
+            <label class="checkbox">
+                <input type="checkbox"> Show Deleted
+            </label>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Quantity On Hand</th>
+        <th>Pieces</th>
+        <th>Item Code</th>
+        <th style="text-align: right">Price</th>
+    </tr>
+    <tr>
+        <td><a href="#">123</a></td>
+        <td><a href="#">Awesome Product # 1</a></td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td style="background-color: #efefef;text-align: right">$100.00</td>
+    </tr>
+    <tr>
+        <td><a href="#">123</a></td>
+        <td><a href="#">Awesome Product # 1</a></td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td style="background-color: #efefef;text-align: right">$100.00</td>
+    </tr>
+    <tr>
+        <td><a href="#">123</a></td>
+        <td><a href="#">Awesome Product # 1</a></td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td>asdf</td>
+        <td style="background-color: #efefef;text-align: right">$100.00</td>
+    </tr>
+</table>
+
+<div class="row-fluid">
+    <div class="pagination span6">
+        <ul>
+            <li><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </div>
+</div>

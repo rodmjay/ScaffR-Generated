@@ -8,35 +8,20 @@
 
     <mvcSiteMapNode title="About" controller="Home" action="About" imageUrl="icon-home"/>
 
-    <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
-      <mvcSiteMapNode title="Change Password" controller="Account" action="ChangePassword" imageUrl="icon-lock"/>
-      <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
-      <mvcSiteMapNode title="Claims" controller="Account" action="Claims" imageUrl="icon-camera"/>
+    <mvcSiteMapNode title="Manage Team" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
+      <!--<mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id"/>-->
+      <!--<mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>-->
+      <!--<mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>-->
     </mvcSiteMapNode>
-
-    <mvcSiteMapNode title="Components" controller="Components" action="Index" imageUrl="icon-user" >
-      <mvcSiteMapNode title="Wizard" controller="Components" action="Wizard"/>
-      <mvcSiteMapNode title="Google Maps" controller="Components" action="GoogleMaps"/>
-      <mvcSiteMapNode title="CKEditor" controller="Components" action="CKEditor"/>
-      <mvcSiteMapNode title="File Upload" controller="Components" action="FileUpload"/>
-      <mvcSiteMapNode title="Videos" controller="Components" action="Video"/>
-      <mvcSiteMapNode title="Dropdown" controller="Components" action="DropDown"/>
-      <mvcSiteMapNode title="Editor Templates" controller="Components" action="EditorTemplates"/>
-      <mvcSiteMapNode title="Logging" controller="Components" action="Logging"/>
-    </mvcSiteMapNode>
-
-    <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
-      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
-        <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id"/>
-        <mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>
-        <mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>
-      </mvcSiteMapNode>
-      <mvcSiteMapNode title="View Logs" controller="Logging" action="Manage" key="ViewLogs">
-        <mvcSiteMapNode title="Success" controller="Logging" action="Success"/>
-        <mvcSiteMapNode title="Error" controller="Logging" action="Error" />
-        <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" />
-        <mvcSiteMapNode title="Warn" controller="Logging" action="Warning"/>
-      </mvcSiteMapNode>
+    <mvcSiteMapNode title="Manage Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders"/>
+    <mvcSiteMapNode title="Manage Products" controller="Products" action="Manager" imageUrl="icon-group" key="ManageProducts"/>
+    <mvcSiteMapNode title="Manage Campaigns" controller="Campaigns" action="Manager" imageUrl="icon-group" key="ManageCampaigns"/>
+    <mvcSiteMapNode title="View Reports" controller="Reports" action="Manager" imageUrl="icon-group" key="ManageReports"/>
+    <mvcSiteMapNode title="View Logs" controller="Logging" action="Manage" key="ViewLogs">
+      <mvcSiteMapNode title="Success" controller="Logging" action="Success"/>
+      <mvcSiteMapNode title="Error" controller="Logging" action="Error" />
+      <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" />
+      <mvcSiteMapNode title="Warn" controller="Logging" action="Warning"/>
     </mvcSiteMapNode>
 
   </mvcSiteMapNode>

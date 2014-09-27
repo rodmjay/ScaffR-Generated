@@ -4,6 +4,20 @@
 
 @Html.Partial("Header")
 
+@if (User.IsInRole("Admin"))
+{
+    <div class="container-fluid">
+        <div class="pull-right">
+            <select>
+                <option>South Hampton Middle School</option>
+                <option>Organization ACME</option>
+            </select>
+        </div>
+    </div>
+}
+
+
+
 @if (ViewBag.ShowMainMenu == true)
 {
     @Html.MvcSiteMap("System").MainMenu(true,3)
@@ -23,35 +37,46 @@
 
     <div class="row-fluid">
         <div class="span12">
-            <div class="page-header clearfix">
-                @if (ViewBag.ShowPageHeadingText == true)
-                { 
-                    <h3 class="pull-left">@Html.GetPageHeadingText()</h3>
-                }
-                @if (IsSectionDefined("AltNav"))
-                {
-                    @RenderSection("AltNav", true)
-                }
+            
+            @if (ViewBag.ShowPageHeadingText == true || IsSectionDefined("AltNav"))
+            {
+                <div class="page-header clearfix">
+                    @if (ViewBag.ShowPageHeadingText == true)
+                    {
+                        <h3 class="pull-left">@Html.GetPageHeadingText()</h3>
+                    }
+                    @if (IsSectionDefined("AltNav"))
+                    {
+                        @RenderSection("AltNav", true)
+                    }
 
-            </div>
+                </div>
+            }
+            else
+            {
+                <br/>
+            }
+            
+
+            
             <div class="row-fluid">
 
                 @if (IsSectionDefined("LeftColumn"))
                 {
                     @:<div class="span3">
 
-                        @RenderSection("LeftColumn", true)
+                    @RenderSection("LeftColumn", true)
                     
                     @:</div>
                     @:<div class="span9">
-                        }
+                }
 
                 @RenderBody()
 
                 @if (IsSectionDefined("LeftColumn"))
                 {
                     @:</div>
-                        }
+                }
 
             </div>
         </div>
