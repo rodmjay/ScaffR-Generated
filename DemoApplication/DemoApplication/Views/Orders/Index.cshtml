@@ -6,7 +6,11 @@
 
 @section AltNav
 {
-    <button class="btn btn-inverse pull-right span2">Manual Enter</button>
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="@Url.Action("Create", "Orders")">Manual Enter</a>
+        </li>
+    </ul>
 }
 
 <div class="row-fluid">
@@ -17,12 +21,11 @@
                 <input type="text" class="input-medium" placeholder="Customer Name">
                 <input type="text" class="input-medium" placeholder="Customer Email">
                 <input type="text" class="input-medium" placeholder="Customer Phone">
-
             </form>
-        </div>    
+        </div>
     </div>
     <div class="span10">
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>Order ID</th>
                 <th>Customer</th>

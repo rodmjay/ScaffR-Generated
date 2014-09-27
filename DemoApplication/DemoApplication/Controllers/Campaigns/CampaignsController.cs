@@ -29,7 +29,6 @@ namespace DemoApplication.Controllers.Campaigns
             return View(campaigns);
         }
 
-        [ShowBreadcrumb(true)]
         public ActionResult Create()
         {
             return View(new CampaignInfo());

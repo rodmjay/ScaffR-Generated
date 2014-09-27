@@ -1,5 +1,10 @@
-﻿@{
-    ViewBag.Title = "Create";
-    ViewBag.ShowPageHeadingText = false;
+﻿@model DemoApplication.Core.Model.CampaignInfo
+
+@{
+    ViewBag.Title = "Create Campaign";
 }
 
+@using (Html.BeginForm("Create", "Campaigns"))
+{
+    @Html.EditorForModel()
+}

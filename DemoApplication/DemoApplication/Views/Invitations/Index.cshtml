@@ -1,0 +1,10 @@
+﻿@model DemoApplication.Core.Model.InvitationInfo
+
+@{
+    ViewBag.Title = "Invite new User";
+}
+
+@using (Html.BeginForm("Index", "Invitations"))
+{
+    @Html.EditorForModel()
+}

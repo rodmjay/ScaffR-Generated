@@ -16,8 +16,7 @@
             @foreach (var child in activeNode.Children)
             {
                 if (child.IsActiveNode(ViewContext))
-                {
-                   
+                {                   
                     foreach (var secondchild in child.Children)
                     {                                                
                         <li class="@((secondchild.IsCurrentNode || secondchild.IsInCurrentPath) ? "active" : "")">

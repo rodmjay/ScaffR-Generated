@@ -29,5 +29,15 @@ namespace DemoApplication.Controllers.Contacts
             return View(list);
         }
 
+        public ActionResult Import()
+        {
+            return View();
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
     }
 }

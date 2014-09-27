@@ -6,17 +6,34 @@
 
 @section AltNav
 {
-    <button class="btn btn-inverse pull-right span2">Add Contact</button>
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="@Url.Action("Import","Contacts")">Import Contacts</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Create","Contacts")">Add Contact</a>
+        </li>
+    </ul>
+
+    
 }
 
 <div class="row-fluid">
     <div class="span2">
         <div class="">
             <form>
+                <select style="width:100%;display:block">
+                    <option>Customers</option>
+                    <option>Distributors</option>
+                </select>
                 <input type="text" class="input-medium" placeholder="Contact ID">
                 <input type="text" class="input-medium" placeholder="Contact Name">
                 <input type="text" class="input-medium" placeholder="Contact Email">
                 <input type="text" class="input-medium" placeholder="Contact Phone">
+                <hr/>
+                <button class="btn btn-small">Save Search</button>
+                <hr/>
+                <button class="btn btn-inverse btn-small">Clear Filters</button>
 
             </form>
         </div>
@@ -24,8 +41,8 @@
     <div class="span10">
         <table class="table">
             <tr>
-                <th>Customer ID</th>
-                <th>Customer</th>
+                <th>Contact ID</th>
+                <th>Name</th>
                 <th>Create Date</th>
                 <th>Email</th>
                 <th>Status</th>

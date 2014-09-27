@@ -1,11 +1,15 @@
 ﻿@model IList<DemoApplication.Core.Model.Campaign>
 @{
-    ViewBag.Title = "Manage Campaigns";
+    ViewBag.Title = "Campaigns";
 }
 
 @section AltNav
 {
-    <a href="@Url.Action("Create", "Campaigns")" class="btn btn-large btn-inverse pull-right span2">Create Campaign</a>
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="@Url.Action("Create", "Campaigns")">Create Campaign</a>
+        </li>
+    </ul>
 }
 
 @foreach (var campaign in Model)

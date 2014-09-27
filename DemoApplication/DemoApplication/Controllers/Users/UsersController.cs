@@ -21,7 +21,7 @@ namespace DemoApplication.Controllers.Users
     /// <summary>
     /// Class UsersController
     /// </summary>
-    [Authorize(Roles = "Admin,Super Admin")]
+    [Authorize(Roles = "Admin,Super Admin,Member")]
     public partial class UsersController : Controller
     {
         protected readonly IUserAccountService UserService;
