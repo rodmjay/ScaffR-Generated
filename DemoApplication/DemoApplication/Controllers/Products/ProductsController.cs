@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using DemoApplication.Core.Model;
+using DemoApplication.Models;
+using DemoApplication.Models.Products;
 
 namespace DemoApplication.Controllers.Products
 {

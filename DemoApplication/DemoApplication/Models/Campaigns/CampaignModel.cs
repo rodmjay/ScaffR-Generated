@@ -6,10 +6,10 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Campaigns
 {
     [DataContract]
-    public class CampaignInfo
+    public class CampaignModel
     {
         [DataMember, Display(Name = "Name")]
         public string Name { get; set; }

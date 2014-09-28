@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Invitations
 {
     public class InvitationInfo
     {

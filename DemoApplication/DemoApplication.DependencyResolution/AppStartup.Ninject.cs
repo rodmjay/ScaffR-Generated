@@ -13,6 +13,7 @@
 using DemoApplication.DependencyResolution;
 using DemoApplication.Infrastructure.Campaigns;
 using DemoApplication.Infrastructure.Contacts;
+using DemoApplication.Infrastructure.Organizations;
 
 #endregion
 
@@ -103,9 +104,12 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             kernel.Bind<IRepository<Log>>().To<LoggingRepository>().InRequestScope();
-            kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();
+            kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();           
+            kernel.Bind<IService<Profile>>().To<OrganizationProfileService>().InRequestScope();
             kernel.Bind<IRepository<Contact>>().To<ContactsRepository>().InRequestScope();
             kernel.Bind<IRepository<Campaign>>().To<CampaignsRepository>().InRequestScope();
+            kernel.Bind<IRepository<Profile>>().To<OrganizationProfileRepository>().InRequestScope();
+            kernel.Bind<IOrganizationService>().To<OrganizationProfileService>().InRequestScope();
 
             // security
             kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();

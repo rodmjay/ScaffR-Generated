@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Orders
 {
     [DataContract]
-    public class OrderItemInfo
+    public class OrderItemModel
     {
         [DataMember]
         public string ProductId { get; set; }

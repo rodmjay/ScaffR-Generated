@@ -243,6 +243,7 @@
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
     <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
+    <Compile Include="Models\Campaigns\CampaignModel.cs" />
     <Compile Include="Models\Common\CreditCardInfo.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\Dropdowns\DropdownController.cs" />
@@ -334,9 +335,18 @@
     <Compile Include="Metadata\Rules\ModelClientValidationVideoRule.cs" />
     <Compile Include="Models\Components\SampleLoggingModel.cs" />
     <Compile Include="Models\Components\EventStatus.cs" />
-    <Compile Include="Models\Orders\OrderInfo.cs" />
-    <Compile Include="Models\Shoppers\ShopperInfo.cs" />
+    <Compile Include="Models\Contacts\ContactModel.cs" />
+    <Compile Include="Models\Invitations\InvitationInfo.cs" />
+    <Compile Include="Models\Members\MembershipInfo.cs" />
+    <Compile Include="Models\Orders\OrderItemModel.cs" />
+    <Compile Include="Models\Orders\CreateOrderModel.cs" />
+    <Compile Include="Models\Organization\OrganizationModel.cs" />
+    <Compile Include="Models\Payments\PaymentInfo.cs" />
+    <Compile Include="Models\Products\ProductInfo.cs" />
+    <Compile Include="Models\Organization\OrganizationProfileModel.cs" />
+    <Compile Include="Models\Shoppers\ShopperModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
+    <Compile Include="Models\Users\UserHistory.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1427,6 +1437,7 @@
     <Content Include="Views\Reports\OrdersByCampaign.cshtml" />
     <Content Include="Views\Reports\OrdersInProgress.cshtml" />
     <Content Include="Views\Reports\CustomersByState.cshtml" />
+    <Content Include="Views\Account\Register2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

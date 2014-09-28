@@ -1,11 +1,11 @@
-﻿using DemoApplication.Core.Model;
-using DemoApplication.Models.Common;
+﻿using DemoApplication.Models.Common;
+using DemoApplication.Models.Contacts;
 
 namespace DemoApplication.Models.Shoppers
 {
-    public class ShopperInfo : ContactInfo
+    public class ShopperModel : ContactModel
     {
-        public ShopperInfo()
+        public ShopperModel()
         {
             this.CreditCard = new CreditCardInfo();
         }

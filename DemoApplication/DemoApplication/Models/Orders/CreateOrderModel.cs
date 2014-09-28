@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
-using DemoApplication.Core.Model;
 using DemoApplication.Models.Shoppers;
 
 #endregion
@@ -12,16 +11,16 @@ using DemoApplication.Models.Shoppers;
 namespace DemoApplication.Models.Orders
 {
     [DataContract]
-    public class OrderInfo
+    public class CreateOrderModel
     {
-        public OrderInfo()
+        public CreateOrderModel()
         {
-            this.OrderItems = new Collection<OrderItemInfo>();
-            this.Shopper = new ShopperInfo();
+            this.OrderItems = new Collection<OrderItemModel>();
+            this.Shopper = new ShopperModel();
         }
 
         [Display(Name = "Shopper Information")]
-        public ShopperInfo Shopper { get; set; }
+        public ShopperModel Shopper { get; set; }
 
         [DataMember, Display(Name = "Details")]
         public string Details { get; set; }
@@ -35,6 +34,6 @@ namespace DemoApplication.Models.Orders
         [DataMember, Display(Name = "Special Instructions")]
         public string OrderInstructions { get; set; }
 
-        public ICollection<OrderItemInfo> OrderItems { get; set; }
+        public ICollection<OrderItemModel> OrderItems { get; set; }
     }
 }

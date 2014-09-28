@@ -282,8 +282,6 @@ namespace DemoApplication.Core.Services
         {
             if (passwordPolicy != null)
             {
-
-
                 if (!passwordPolicy.ValidatePassword(password))
                 {
                     Tracing.Verbose(String.Format("[ValidatePassword] Failed: {0}, {1}, {2}", tenant, username, passwordPolicy.PolicyMessage));

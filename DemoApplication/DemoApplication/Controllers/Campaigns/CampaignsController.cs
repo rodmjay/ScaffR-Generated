@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using DemoApplication.Core.Interfaces.Data;
 using DemoApplication.Core.Model;
 using DemoApplication.Filters;
+using DemoApplication.Models;
+using DemoApplication.Models.Campaigns;
 
 namespace DemoApplication.Controllers.Campaigns
 {
@@ -31,7 +33,7 @@ namespace DemoApplication.Controllers.Campaigns
 
         public ActionResult Create()
         {
-            return View(new CampaignInfo());
+            return View(new CampaignModel());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Payments
 {
     [DataContract]
     public class PaymentInfo

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
-using DemoApplication.Core.Model;
+using DemoApplication.Models;
+using DemoApplication.Models.Invitations;
 
 namespace DemoApplication.Controllers.Invitations
 {

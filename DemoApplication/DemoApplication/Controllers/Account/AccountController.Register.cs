@@ -8,6 +8,9 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using DemoApplication.Models.Organization;
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -35,6 +38,38 @@ namespace DemoApplication.Controllers.Account
         public ActionResult Register()
         {
             return View(new RegisterModel());
+        }
+
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Register2()
+        {
+            return View(new OrganizationProfileModel());
+        }
+
+        /// <summary>
+        /// Registration form.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
+        [HttpPost, AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Register2(OrganizationProfileModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var org = _organizationService.CreateOrganization(model.Name, model.Email, model.OrganizationType);
+                    if (ModelState.Process(org))
+                    {                       
+                        return View("RegisterConfirm", true);
+                    }
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+            return View(model);
         }
 
         /// <summary>

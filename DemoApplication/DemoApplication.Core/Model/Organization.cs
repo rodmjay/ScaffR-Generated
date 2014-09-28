@@ -31,8 +31,5 @@ namespace DemoApplication.Core.Model
         [DataMember, Column("Email_Validated")]
         public bool EmailValidated { get; set; }
 
-        [ForeignKey("DistributorId")]
-        public virtual Distributor Distributor { get; set; }
-
     }
 }

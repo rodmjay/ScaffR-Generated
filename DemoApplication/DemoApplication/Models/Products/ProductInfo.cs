@@ -1,4 +1,4 @@
-﻿namespace DemoApplication.Core.Model
+﻿namespace DemoApplication.Models.Products
 {
     public class ProductInfo
     {

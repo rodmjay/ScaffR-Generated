@@ -11,7 +11,7 @@ using System.Runtime.Serialization;
 
 namespace DemoApplication.Core.Model
 {
-    [DataContract, Table("Org_Campaign"), KnownType(typeof (CampaignInfo))]
+    [DataContract, Table("Org_Campaign")]
     public class Campaign : DomainObject
     {
         public Campaign()

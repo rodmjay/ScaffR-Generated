@@ -28,6 +28,7 @@ namespace DemoApplication.Controllers.Account
         private readonly IAuthenticationService _authenticationService;
         private readonly IMessageBus _messageBus;
         private readonly IMembershipSettings _membershipSettings;
+        private readonly IOrganizationService _organizationService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -36,8 +37,9 @@ namespace DemoApplication.Controllers.Account
         /// <param name="authenticationService">The authentication service.</param>
         /// <param name="messageBus">The message bus.</param>
         /// <param name="membershipSettings"></param>
-        public AccountController(IUserAccountService userService, IAuthenticationService authenticationService, IMessageBus messageBus, IMembershipSettings membershipSettings)
+        public AccountController(IUserAccountService userService, IAuthenticationService authenticationService, IMessageBus messageBus, IMembershipSettings membershipSettings, IOrganizationService organizationService)
         {
+            _organizationService = organizationService;
             _membershipSettings = membershipSettings;
             _messageBus = messageBus;
             _userService = userService;

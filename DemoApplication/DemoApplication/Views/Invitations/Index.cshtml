@@ -1,16 +1,16 @@
-﻿@model DemoApplication.Core.Model.InvitationInfo
+﻿@model DemoApplication.Models.Invitations.InvitationInfo
 
 @{
     ViewBag.Title = "Invite new User";
 }
 
-@using (Html.BeginForm("Index", "Invitations"))
-{
-    @Html.ValidationSummary(true, "Unable to send invitation. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+<form method="POST" action="" class="form-horizontal">
+
+    @Html.ValidationSummary(true, "Unable to send invite. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
 
     @Html.EditorForModel()
 
     <div class="form-actions">
-        <input type="submit" value="Send Invite" class="btn btn-inverse btn-large" />
+        <input type="submit" value="Send Invitation" class="btn btn-inverse btn-large" />
     </div>
-}
+</form>

@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Contacts
 {
-    public class ContactInfo
+    public class ContactModel
     {
         [Required, MaxLength(15), Display(Name = "First Name")]
         public string FirstName { get; set; }

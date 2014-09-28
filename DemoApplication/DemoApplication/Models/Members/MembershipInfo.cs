@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace DemoApplication.Core.Model
+namespace DemoApplication.Models.Members
 {
     [DataContract]
     public class MembershipInfo
