@@ -27,7 +27,5 @@ namespace DemoApplication.Core.Model
 
         [DataMember, Column("Member_Record_No")]
         public string RecordNumber { get; set; }
-
-
     }
 }

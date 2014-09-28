@@ -1,16 +1,29 @@
-@model DemoApplication.Models.Account.RegisterModel
+@model DemoApplication.Models.Account.OrganizationRegistrationModel
 @{
-    ViewBag.Title = "Create a new account";
+    ViewBag.Title = "Create your Organization";
 }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
-{                                 
-    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
-                                   
-    @Html.EditorForModel()         
+<div class="row-fluid">
+    <div class="span6">
+        asdf
+    </div>
+    <div class="span6">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+            @Html.EditorFor(x=>x.OrganizationProfileModel)
+
+            <hr/>
             
-    <div class="form-actions">
-        <input type="submit" value="Create Account" class="btn btn-inverse btn-large" />
-        <input type="reset" value="Clear Form" class="btn btn-large" title="Remove all the data from the form." />
-    </div>                          
-}
+            @Html.EditorFor(x=>x.UserRegistration)
+            
+            <div class="form-actions">
+                <input type="submit" value="Create Organization" class="btn btn-inverse btn-large" />
+                <input type="reset" value="Clear Form" class="btn btn-large" title="Remove all the data from the form." />
+            </div>
+        }
+    </div>
+</div>
+
+

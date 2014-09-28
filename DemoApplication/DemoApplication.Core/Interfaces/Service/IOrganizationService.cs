@@ -5,6 +5,6 @@ namespace DemoApplication.Core.Interfaces.Service
 {
     public interface IOrganizationService : IService<Profile>
     {
-        IValidationContainer<Profile> CreateOrganization(string name, string email, OrganizationType type);
+        IValidationContainer<Profile> CreateOrganization(string name, OrganizationType type);
     }
 }

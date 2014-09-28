@@ -21,7 +21,7 @@ namespace DemoApplication.Infrastructure.Organizations
             Repository = _repository = repository;
         }
 
-        public IValidationContainer<Profile> CreateOrganization(string name, string email, OrganizationType type)
+        public IValidationContainer<Profile> CreateOrganization(string name, OrganizationType type)
         {
             var profile = new Profile()
             {

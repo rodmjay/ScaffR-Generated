@@ -18,8 +18,6 @@ namespace DemoApplication.Core.Model
 
         #region Navigation Properties
 
-
-
         #region Campaigns
 
         public virtual ICollection<Campaign> Campaigns { get; set; }

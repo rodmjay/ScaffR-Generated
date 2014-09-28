@@ -239,6 +239,7 @@
     <Compile Include="Filters\LogFilter.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
     <Compile Include="Filters\ShowPageHeadingText.cs" />
+    <Compile Include="Models\Account\OrganizationRegistrationModel.cs" />
     <Compile Include="Models\Account\VerifyAccountModel.cs" />
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
@@ -343,7 +344,7 @@
     <Compile Include="Models\Organization\OrganizationModel.cs" />
     <Compile Include="Models\Payments\PaymentInfo.cs" />
     <Compile Include="Models\Products\ProductInfo.cs" />
-    <Compile Include="Models\Organization\OrganizationProfileModel.cs" />
+    <Compile Include="Models\Organization\CreateOrganizationProfileModel.cs" />
     <Compile Include="Models\Shoppers\ShopperModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserHistory.cs" />
@@ -1099,9 +1100,6 @@
     <Content Include="Views\Account\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Register.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1437,7 +1435,7 @@
     <Content Include="Views\Reports\OrdersByCampaign.cshtml" />
     <Content Include="Views\Reports\OrdersInProgress.cshtml" />
     <Content Include="Views\Reports\CustomersByState.cshtml" />
-    <Content Include="Views\Account\Register2.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

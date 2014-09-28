@@ -9,6 +9,7 @@
 // ***********************************************************************
 #endregion
 
+using System.Globalization;
 using DemoApplication.Models.Organization;
 
 namespace DemoApplication.Controllers.Account
@@ -30,20 +31,10 @@ namespace DemoApplication.Controllers.Account
     /// </summary>
     public partial class AccountController
     {
-        /// <summary>
-        /// Registration form.
-        /// </summary>
-        /// <returns>ActionResult.</returns>
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Register()
         {
-            return View(new RegisterModel());
-        }
-
-        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
-        public ActionResult Register2()
-        {
-            return View(new OrganizationProfileModel());
+            return View(new OrganizationRegistrationModel());
         }
 
         /// <summary>
@@ -52,16 +43,38 @@ namespace DemoApplication.Controllers.Account
         /// <param name="model">The model.</param>
         /// <returns>ActionResult.</returns>
         [HttpPost, AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
-        public ActionResult Register2(OrganizationProfileModel model)
+        public ActionResult Register(OrganizationRegistrationModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var org = _organizationService.CreateOrganization(model.Name, model.Email, model.OrganizationType);
+                    var org = _organizationService.CreateOrganization(
+                        model.OrganizationProfileModel.Name, 
+                        model.OrganizationProfileModel.OrganizationType);
+
                     if (ModelState.Process(org))
-                    {                       
-                        return View("RegisterConfirm", true);
+                    {
+                        var user = _userService.CreateAccount(
+                            org.Entity.Id.ToString(CultureInfo.InvariantCulture),
+                            model.UserRegistration.Username, 
+                            model.UserRegistration.Password, 
+                            model.UserRegistration.Email, 
+                            model.UserRegistration.FirstName, 
+                            model.UserRegistration.LastName, 
+                            model.UserRegistration.PhoneNumber, 
+                            model.UserRegistration.Address);
+
+                        if (ModelState.Process(user))
+                        {
+                            new MembershipEvent(MembershipEventCode.UserCreated, user.Entity).Raise();
+
+                            if (_membershipSettings.RequireAccountVerification)
+                            {
+                                return View("RegisterSuccess", model.UserRegistration);
+                            }
+                            return View("RegisterConfirm", true);
+                        }          
                     }
                 }
                 catch (ValidationException ex)
@@ -70,39 +83,7 @@ namespace DemoApplication.Controllers.Account
                 }
             }
             return View(model);
-        }
-
-        /// <summary>
-        /// Registration form.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <returns>ActionResult.</returns>
-        [HttpPost, AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
-        public ActionResult Register(RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var user = _userService.CreateAccount(model.Username, model.Password, model.Email,model.FirstName, model.LastName, model.PhoneNumber, model.Address);
-                    if (ModelState.Process(user))
-                    {
-                        new MembershipEvent(MembershipEventCode.UserCreated, user.Entity).Raise();
-
-                        if (_membershipSettings.RequireAccountVerification)
-                        {
-                            return View("RegisterSuccess", model);
-                        }
-                        return View("RegisterConfirm", true);
-                    }                   
-                }
-                catch (ValidationException ex)
-                {
-                    ModelState.AddModelError("", ex.Message);
-                }
-            }
-            return View(model);
-        }
+        }        
 
         /// <summary>
         /// Confirms a new registration

@@ -8,7 +8,7 @@ using DemoApplication.Metadata.Attributes;
 
 namespace DemoApplication.Models.Organization
 {
-    public class OrganizationProfileModel
+    public class CreateOrganizationProfileModel
     {
         [Display(Name="Organization Name")]
         [Textbox(TextboxSize = TextboxSize.Large)]
@@ -16,9 +16,5 @@ namespace DemoApplication.Models.Organization
 
         [Display(Name = "Organization Type")]
         public OrganizationType OrganizationType { get; set; }
-
-        [Display(Name = "Email")]
-        [EmailTextbox]
-        public string Email { get; set; }
     }
 }
