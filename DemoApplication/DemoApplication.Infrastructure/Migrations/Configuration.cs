@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.ObjectModel;
+using System.Security.Claims;
 using DemoApplication.Core.Model;
 
 namespace DemoApplication.Infrastructure.Migrations
@@ -39,8 +40,70 @@ namespace DemoApplication.Infrastructure.Migrations
 
         protected override void Seed(DataContext context)
         {
-            new MembershipDataSeeder().Seed(context);
+            var user = new User()
+            {
+                Id = 1,
+                Email = "ckfrsys1@ideafortune.com",
+                Username = "admin",
+                FirstName = "Steve",
+                LastName = "Kropf",
+                LastLogin = DateTime.UtcNow,
+                Gender = Gender.Male,
+                Address = "123 Main ST",
+                PhoneNumber = "555-555-5555",
+                IsLoginAllowed = true,
+                IsAccountClosed = false,
+                IsAccountVerified = true,
+                Created = DateTime.UtcNow,
+                Tenant = "default",
+                // password is "admin"
+                HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                PasswordChanged = DateTime.UtcNow,
+                FailedLoginCount = 0,
+                LastUpdated = DateTime.UtcNow
+            };
 
+            user.Claims.Add(new UserClaim()
+            {
+                Type = ClaimTypes.Role,
+                Value = "Admin"
+            });
+
+            user.Claims.Add(new UserClaim()
+            {
+                Type = ClaimTypes.Role,
+                Value = "Super Admin"
+            });
+
+            var member = new User()
+            {
+                Id = 2,
+                Email = "rodmjay@ideafortune.com",
+                Username = "member",
+                FirstName = "Rod",
+                LastName = "Johnson",
+                LastLogin = DateTime.UtcNow,
+                Gender = Gender.Male,
+                Address = "Admin address",
+                PhoneNumber = "555-555-5555",
+                IsLoginAllowed = true,
+                IsAccountClosed = false,
+                IsAccountVerified = true,
+                Created = DateTime.UtcNow,
+                Tenant = "default",
+                // password is "admin"
+                HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                PasswordChanged = DateTime.UtcNow,
+                FailedLoginCount = 0,
+                LastUpdated = DateTime.UtcNow
+            };
+
+            member.Claims.Add(new UserClaim()
+            {
+                Type = ClaimTypes.Role,
+                Value = "Member"
+            });
+            
             var distributor = new Distributor()
             {
                 Id=1,
@@ -72,19 +135,22 @@ namespace DemoApplication.Infrastructure.Migrations
             {
                 Id = 1,
                 ProfileId = 1,
-                FirstName = "Rod",
-                LastName = "Johnson",
+                FirstName = "Steve",
+                LastName = "Kropf",
                 OrgOrWorkName = "Christian Kropf",
-                Email = "rod@ideafortune.com",
+                Email = "ckfrsys1@ideafortune.com",
                 Created = DateTime.UtcNow,
                 LastUpdated = DateTime.UtcNow
                 
             };
 
+            context.Users.AddOrUpdate(x=>x.Id,user);
+            context.Users.AddOrUpdate(x=>x.Id,member);
             context.Distributors.AddOrUpdate(x => x.Id, distributor);
             context.Profiles.AddOrUpdate(x => x.Id, profile);
             context.Contacts.AddOrUpdate(x => x.Id, contact);
             context.Campaigns.AddOrUpdate(x => x.Id, campaign);
+
             context.SaveChanges();
         }
     }

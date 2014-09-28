@@ -167,7 +167,6 @@
       <DependentUpon>201409270428160_AddCampaignCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Membership\UserRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />

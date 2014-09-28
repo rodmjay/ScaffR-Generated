@@ -133,6 +133,7 @@
     <Compile Include="Model\CampaignStatus.cs" />
     <Compile Include="Model\CampaignTemplate.cs" />
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\ContactInfo.cs" />
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\InvitationInfo.cs" />
     <Compile Include="Model\Invoice.cs" />
@@ -145,13 +146,13 @@
     <Compile Include="Model\MembershipStatus.cs" />
     <Compile Include="Model\MembershipType.cs" />
     <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\OrderInfo.cs" />
     <Compile Include="Model\OrderItem.cs" />
     <Compile Include="Model\OrderItemInfo.cs" />
     <Compile Include="Model\OrderItemStatus.cs" />
     <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\OrderType.cs" />
     <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\OrganizationInfo.cs" />
     <Compile Include="Model\OrganizationStatus.cs" />
     <Compile Include="Model\OrganizationType.cs" />
     <Compile Include="Model\Payment.cs" />

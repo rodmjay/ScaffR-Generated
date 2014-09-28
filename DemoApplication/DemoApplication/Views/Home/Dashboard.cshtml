@@ -7,86 +7,29 @@
 {
     @section LeftColumn
 {
-    <ul class="nav nav-tabs nav-stacked">
-        <li class="active">
-            <a href="#">Orders By Campaign <span class="label label-warning pull-right">1</span></a>
-        </li>
-        <li>
-            <a href="#">Orders By Status</a>
-        </li>
-        <li>
-            <a href="#">Customers By Location</a>
-        </li>
-    </ul>
+        <ul class="nav nav-tabs nav-stacked" id="myTab">
+            <li class="active"><a href="#OrdersByCampaign">Orders By Campaign</a></li>
+            <li><a href="#OrdersInProgress">Orders In Progress</a></li>
+            <li><a href="#CustomersByState">Customers By State</a></li>
+        </ul>
     }
 
-    <div class="row-fluid">
-        <div class="span6">
-            <h3>Orders By Campaign</h3>
+    <div class="tab-content">
+
+        <div class="tab-pane active" id="OrdersByCampaign">
+            @Html.Partial("~/Views/Reports/OrdersByCampaign.cshtml")
         </div>
-        <div class="span6" style="padding-top: 10px">
-            <form class="form-inline pull-right">
-                <select>
-                    <option>Today</option>
-                    <option>Last Week</option>
-                </select>
-            </form>
+
+        <div class="tab-pane" id="OrdersInProgress">
+            @Html.Partial("~/Views/Reports/OrdersInProgress.cshtml")
+        </div>
+
+        <div class="tab-pane" id="CustomersByState">
+            @Html.Partial("~/Views/Reports/CustomersByState.cshtml")
         </div>
 
     </div>
 
-
-    <br />
-    <table class="table table-bordered">
-        <tr>
-            <td width="20%">ABC</td>
-            <td>
-                <div class="progress progress-warning">
-                    <div class="bar" style="width: 28%;">
-                        &nbsp;
-
-                    </div>
-                </div>
-            </td>
-            <td width="10%">15</td>
-        </tr>
-        <tr>
-            <td>ASDF</td>
-            <td>
-                <div class="progress progress-danger">
-                    <div class="bar" style="width: 25%;">
-                        &nbsp;
-
-                    </div>
-                </div>
-            </td>
-            <td>45</td>
-        </tr>
-        <tr>
-            <td>JKLR</td>
-            <td>
-                <div class="progress">
-                    <div class="bar" style="width: 10%;">
-                        &nbsp;
-
-                    </div>
-                </div>
-            </td>
-            <td>65</td>
-        </tr>
-        <tr>
-            <td>BLADE</td>
-            <td>
-                <div class="progress progress-success">
-                    <div class="bar" style="width: 95%;">
-                        &nbsp;
-
-                    </div>
-                </div>
-            </td>
-            <td>95</td>
-        </tr>
-    </table>
 }
 
 

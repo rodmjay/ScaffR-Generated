@@ -1,3 +1,15 @@
-﻿@{
+﻿@model DemoApplication.Core.Model.OrganizationInfo
+@{
     Layout = "~/Views/Shared/Basic.cshtml";
 }
+
+<form method="POST" action="" class="form-horizontal">
+
+    @Html.ValidationSummary(true, "Unable to update Organization. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <input type="submit" value="Save" class="btn btn-inverse btn-large" />
+    </div>
+</form>

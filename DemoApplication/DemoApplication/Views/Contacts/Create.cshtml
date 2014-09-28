@@ -1,6 +1,16 @@
-﻿@model dynamic
+﻿@model DemoApplication.Core.Model.ContactInfo
 
 @{
     ViewBag.Title = "Create Contact";
 }
 
+<form method="POST" action="" class="form-horizontal">
+
+    @Html.ValidationSummary(true, "Unable to create contact. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <input type="submit" value="Create" class="btn btn-inverse btn-large" />
+    </div>
+</form>
