@@ -14,6 +14,7 @@ using DemoApplication.DependencyResolution;
 using DemoApplication.Infrastructure.Campaigns;
 using DemoApplication.Infrastructure.Contacts;
 using DemoApplication.Infrastructure.Organizations;
+using DemoApplication.Infrastructure.Products;
 
 #endregion
 
@@ -103,13 +104,23 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
+            // generic repositories
             kernel.Bind<IRepository<Log>>().To<LoggingRepository>().InRequestScope();
-            kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();           
-            kernel.Bind<IService<Profile>>().To<OrganizationProfileService>().InRequestScope();
             kernel.Bind<IRepository<Contact>>().To<ContactsRepository>().InRequestScope();
             kernel.Bind<IRepository<Campaign>>().To<CampaignsRepository>().InRequestScope();
             kernel.Bind<IRepository<Profile>>().To<OrganizationProfileRepository>().InRequestScope();
+            kernel.Bind<IRepository<Product>>().To<ProductRepository>().InRequestScope();
+
+            // generic services
+            kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();
+            kernel.Bind<IService<Profile>>().To<OrganizationProfileService>().InRequestScope();
+            kernel.Bind<IService<Campaign>>().To<CampaignService>().InRequestScope();
+            kernel.Bind<IService<Product>>().To<ProductService>().InRequestScope();
+              
+            // custom services
             kernel.Bind<IOrganizationService>().To<OrganizationProfileService>().InRequestScope();
+            kernel.Bind<IProductService>().To<ProductService>().InRequestScope();
+
 
             // security
             kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();

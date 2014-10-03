@@ -9,6 +9,8 @@
     @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageOrders"), true, false)
 }
 
+
+
 <div class="row-fluid">
     <div class="span2">
         <div class="">
@@ -21,6 +23,12 @@
         </div>
     </div>
     <div class="span10">
+        
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab">Order List</a></li>
+            <li><a href="#profile" data-toggle="tab">By Status</a></li>          
+        </ul>
+
         <table class="table table-striped">
             <tr>
                 <th>Order ID</th>

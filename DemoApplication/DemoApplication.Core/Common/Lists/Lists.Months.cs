@@ -20,7 +20,6 @@ namespace DemoApplication.Core.Common.Lists
     {
         public static readonly IDictionary<string, string> MonthDictionary = new Dictionary<string, string> 
         {
-            {"", ""},
             {"January", "01"},
             {"February", "02"},
             {"March", "03"},

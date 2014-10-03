@@ -1,13 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using DemoApplication.Metadata.Attributes;
 
 namespace DemoApplication.Models.Invitations
 {
-    public class InvitationInfo
+    public class InvitationModel
     {
-        [Display(Name = "Full Name")]
+        [Required,Display(Name = "Full Name")]
         public string FullName { get; set; }
 
-        [Display(Name = "Email Address"), DataType(DataType.EmailAddress)]
+        [Required,Display(Name = "Email Address")]
+        [EmailTextbox(TextboxSize = TextboxSize.Large)]
         public string EmailAddress { get; set; }
 
         [Display(Name = "Phone Number"), DataType(DataType.PhoneNumber)]

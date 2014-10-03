@@ -1,6 +1,6 @@
 ﻿namespace DemoApplication.Models.Products
 {
-    public class ProductInfo
+    public class CreateProductModel
     {
         public string Name { get; set; }
     }

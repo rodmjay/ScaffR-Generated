@@ -103,7 +103,36 @@ namespace DemoApplication.Infrastructure.Migrations
                 Type = ClaimTypes.Role,
                 Value = "Member"
             });
-            
+
+            var superAdmin = new User()
+            {
+                Id = 3,
+                Email = "ckfrsys1+super@ideafortune.com",
+                Username = "super",
+                FirstName = "NSA",
+                LastName = "Agent",
+                LastLogin = DateTime.UtcNow,
+                Gender = Gender.Male,
+                Address = "Admin address",
+                PhoneNumber = "555-555-5555",
+                IsLoginAllowed = true,
+                IsAccountClosed = false,
+                IsAccountVerified = true,
+                Created = DateTime.UtcNow,
+                Tenant = "default",
+                // password is "admin"
+                HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                PasswordChanged = DateTime.UtcNow,
+                FailedLoginCount = 0,
+                LastUpdated = DateTime.UtcNow
+            };
+
+            superAdmin.Claims.Add(new UserClaim()
+            {
+                Type = ClaimTypes.Role,
+                Value = "Super Admin"
+            });
+
             var distributor = new Distributor()
             {
                 Id=1,
@@ -145,7 +174,8 @@ namespace DemoApplication.Infrastructure.Migrations
             };
 
             context.Users.AddOrUpdate(x=>x.Id,user);
-            context.Users.AddOrUpdate(x=>x.Id,member);
+            context.Users.AddOrUpdate(x => x.Id, member);
+            context.Users.AddOrUpdate(x => x.Id, superAdmin);
             context.Distributors.AddOrUpdate(x => x.Id, distributor);
             context.Profiles.AddOrUpdate(x => x.Id, profile);
             context.Contacts.AddOrUpdate(x => x.Id, contact);

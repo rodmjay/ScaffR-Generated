@@ -4,18 +4,14 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
             enableLocalization="true">
 
-  <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="MainMenu,!*">
+  <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="icon-home" key="root">
 
     <mvcSiteMapNode title="About" controller="Home" action="About" imageUrl="icon-home"/>
-
+    <mvcSiteMapNode title="Profile" controller="Organizations" action="Manager" imageUrl="icon-group"/>
     <mvcSiteMapNode title="Members" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
-      <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" visibility="!*" preservedRouteParameters="id"/>
-      <!--<mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>-->
-      <!--<mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>-->
-      <mvcSiteMapNode title="Invite New Member" controller="Invitations" action="Index" imageUrl="icon-group" visibility="Pills,!*"/>
-    </mvcSiteMapNode>
-
-    <mvcSiteMapNode title="Organization" controller="Organizations" action="Manager" imageUrl="icon-group"/>
+      <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" visibility="!*" preservedRouteParameters="id"/>    
+      <mvcSiteMapNode title="Create New Member" controller="Invitations" action="Index" imageUrl="icon-group" visibility="Pills,!*"/>
+    </mvcSiteMapNode>   
     
     <mvcSiteMapNode title="Orders" controller="Orders" action="Index" imageUrl="icon-group" key="ManageOrders">
       <mvcSiteMapNode title="Create Order" controller="Orders" action="Create" imageUrl="icon-group" visibility="Pills,BreadCrumb,!*"/>

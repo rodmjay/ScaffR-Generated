@@ -1,35 +1,33 @@
-@{
+﻿@{
     ViewBag.Title = "My Dashboard";
     ViewBag.ShowMainMenu = true;
 }
 
-@if (User.IsInRole("Member") || User.IsInRole("Admin"))
+@if (!User.Identity.IsAuthenticated)
 {
-    @section LeftColumn
-{
-        <ul class="nav nav-tabs nav-stacked" id="myTab">
-            <li class="active"><a href="#OrdersByCampaign">Orders By Campaign</a></li>
-            <li><a href="#OrdersInProgress">Orders In Progress</a></li>
-            <li><a href="#CustomersByState">Customers By State</a></li>
-        </ul>
-    }
-
-    <div class="tab-content">
-
-        <div class="tab-pane active" id="OrdersByCampaign">
-            @Html.Partial("~/Views/Reports/OrdersByCampaign.cshtml")
-        </div>
-
-        <div class="tab-pane" id="OrdersInProgress">
-            @Html.Partial("~/Views/Reports/OrdersInProgress.cshtml")
-        </div>
-
-        <div class="tab-pane" id="CustomersByState">
-            @Html.Partial("~/Views/Reports/CustomersByState.cshtml")
-        </div>
-
-    </div>
-
+    <h2>
+        Welcome to Christian Kropf.  We are a company that specializes in fundraisers.
+    </h2>
+    
+    <p>
+        This is more about Christian Kropf
+    </p>
 }
+else if (User.IsInRole("Admin"))
+{
+    <h1>admin</h1>
+    
+    @Html.Partial("~/Views/Dashboards/AdminDashboard.cshtml")
+}dd
+else if (User.IsInRole("Super Admin"))
+{
+    <h1>super</h1>
 
+    @Html.Partial("~/Views/Dashboards/SuperDashboard.cshtml")
+}
+else if (User.IsInRole("Member"))
+{
+    <h1>member</h1>
 
+    @Html.Partial("~/Views/Dashboards/OrganizationDashboard.cshtml")
+}

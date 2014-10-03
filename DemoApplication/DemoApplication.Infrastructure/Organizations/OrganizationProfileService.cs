@@ -41,5 +41,29 @@ namespace DemoApplication.Infrastructure.Organizations
 
             return validation;
         }
+
+        public IValidationContainer<Profile> UpdateOrganization(string name)
+        {
+            // get the current user's organization id
+            int id = 1089;
+
+            var profile = _repository.GetById(id);
+
+            profile.Name = name;
+            profile.LastUpdated = DateTime.UtcNow;
+
+            var container = profile.GetValidationContainer();
+            if (!container.IsValid)
+                return container;
+
+            _repository.SaveOrUpdate(profile);
+
+            return profile.GetValidationContainer();
+        }
+
+        public IValidationContainer<Profile> GetOrganization(int id)
+        {
+            return GetById(id).GetValidationContainer();
+        }
     }
 }

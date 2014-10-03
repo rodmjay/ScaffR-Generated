@@ -31,7 +31,19 @@
                     @user.Username
                 </td>
                 <td>
-                    @user.LastLogin.GetValueOrDefault(DateTime.MinValue).ToLocalTime()
+                    
+                    @if (!user.LastLogin.HasValue)
+                    {
+<text>
+    
+                    <a href="#">Never, send login invite</a>
+</text>
+                    }
+                    else
+                    {
+                        @user.LastLogin.GetValueOrDefault(DateTime.MinValue).ToLocalTime()
+                    }
+                    
                 </td>
                 <td>
                     @user.IsAccountVerified

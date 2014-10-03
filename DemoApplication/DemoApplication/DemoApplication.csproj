@@ -210,11 +210,16 @@
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
     <Compile Include="Controllers\Campaigns\CampaignsController.cs" />
     <Compile Include="Controllers\Contacts\ContactsController.cs" />
+    <Compile Include="Controllers\Dashboards\DashboardsController.cs" />
     <Compile Include="Controllers\Home\HomeController.About.cs" />
     <Compile Include="Controllers\Invitations\InvitationsController.cs" />
     <Compile Include="Controllers\Orders\OrdersController.cs" />
+    <Compile Include="Controllers\Organizations\OrganizationDetailsModel.cs" />
+    <Compile Include="Controllers\Organizations\OrganizationListModel.cs" />
     <Compile Include="Controllers\Organizations\OrganizationsController.cs" />
-    <Compile Include="Controllers\Products\ProductsController.cs" />
+    <Compile Include="Controllers\Products\ProductsController.Details.cs" />
+    <Compile Include="Controllers\Products\ProductsController.Create.cs" />
+    <Compile Include="Controllers\Products\ProductsController.Manager.cs" />
     <Compile Include="Controllers\Reports\ReportsController.cs" />
     <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Account\ChangePasswordFromResetKeyModel.cs" />
@@ -337,14 +342,16 @@
     <Compile Include="Models\Components\SampleLoggingModel.cs" />
     <Compile Include="Models\Components\EventStatus.cs" />
     <Compile Include="Models\Contacts\ContactModel.cs" />
-    <Compile Include="Models\Invitations\InvitationInfo.cs" />
+    <Compile Include="Models\Invitations\InvitationModel.cs" />
     <Compile Include="Models\Members\MembershipInfo.cs" />
     <Compile Include="Models\Orders\OrderItemModel.cs" />
     <Compile Include="Models\Orders\CreateOrderModel.cs" />
+    <Compile Include="Models\Orders\OrderModel.cs" />
     <Compile Include="Models\Organization\OrganizationModel.cs" />
     <Compile Include="Models\Payments\PaymentInfo.cs" />
-    <Compile Include="Models\Products\ProductInfo.cs" />
+    <Compile Include="Models\Products\CreateProductModel.cs" />
     <Compile Include="Models\Organization\CreateOrganizationProfileModel.cs" />
+    <Compile Include="Models\Products\ProductDetailsModel.cs" />
     <Compile Include="Models\Shoppers\ShopperModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserHistory.cs" />
@@ -1169,9 +1176,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Photo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Dashboard.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1436,6 +1440,13 @@
     <Content Include="Views\Reports\OrdersInProgress.cshtml" />
     <Content Include="Views\Reports\CustomersByState.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Organizations\Index.cshtml" />
+    <Content Include="Views\Organizations\Details.cshtml" />
+    <Content Include="Views\Dashboards\OrganizationDashboard.cshtml" />
+    <Content Include="Views\Dashboards\SuperDashboard.cshtml" />
+    <Content Include="Views\Dashboards\AdminDashboard.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

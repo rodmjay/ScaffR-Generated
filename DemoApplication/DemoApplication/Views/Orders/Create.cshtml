@@ -9,7 +9,11 @@
 
     @Html.ValidationSummary(true, "Unable to create order. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
 
-    @Html.EditorForModel()
+    @Html.EditorFor(x=>x.Shopper)
+    <hr/>
+    @Html.EditorFor(x=>x.Order)
+    <hr />
+    @Html.EditorFor(x=>x.CreditCard)
 
     <div class="form-actions">
         <input type="submit" value="Create" class="btn btn-inverse btn-large" />

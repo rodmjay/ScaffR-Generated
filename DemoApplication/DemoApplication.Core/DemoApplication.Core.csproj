@@ -125,7 +125,9 @@
     <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
     <Compile Include="Interfaces\Membership\IPasswordPolicy.cs" />
     <Compile Include="Interfaces\Notifications\INotificationService.cs" />
+    <Compile Include="Interfaces\Service\ICampaignService.cs" />
     <Compile Include="Interfaces\Service\IOrganizationService.cs" />
+    <Compile Include="Interfaces\Service\IProductService.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressType.cs" />
     <Compile Include="Model\Campaign.cs" />

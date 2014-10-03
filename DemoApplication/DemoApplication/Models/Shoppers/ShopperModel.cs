@@ -7,9 +7,9 @@ namespace DemoApplication.Models.Shoppers
     {
         public ShopperModel()
         {
-            this.CreditCard = new CreditCardInfo();
+            
         }
 
-        public CreditCardInfo CreditCard { get; set; }
+        
     }
 }
