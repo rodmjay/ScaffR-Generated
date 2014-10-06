@@ -125,6 +125,9 @@
     <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
     <Compile Include="Interfaces\Membership\IPasswordPolicy.cs" />
     <Compile Include="Interfaces\Notifications\INotificationService.cs" />
+    <Compile Include="Interfaces\Service\ICampaignService.cs" />
+    <Compile Include="Interfaces\Service\IContactService.cs" />
+    <Compile Include="Interfaces\Service\IOrderService.cs" />
     <Compile Include="Interfaces\Service\IOrganizationService.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressType.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Prize.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductList.cs" />
     <Compile Include="Model\Profile.cs" />
     <Compile Include="Model\Shipment.cs" />
     <Compile Include="Model\Shopper.cs" />
@@ -193,8 +197,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Interfaces\Service\IUserAccountService.cs" />
+    <Compile Include="Services\CampaignService.cs" />
+    <Compile Include="Services\ContactService.cs" />
+    <Compile Include="Interfaces\Service\IProductService.cs" />
     <Compile Include="Services\LoggingService.cs" />
     <Compile Include="Services\NopNotificationService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserAccountService.cs" />
     <Compile Include="Services\UserNotFoundException.cs" />
   </ItemGroup>

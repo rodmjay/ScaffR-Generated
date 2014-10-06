@@ -98,7 +98,7 @@ namespace DemoApplication.Core.Services
             if (String.IsNullOrWhiteSpace(tenant)) return null;
             if (String.IsNullOrWhiteSpace(username)) return null;
 
-            var account = userRepository.GetAll().Where(x => x.Tenant == tenant && x.Username == username).SingleOrDefault();
+            var account = userRepository.GetAll().SingleOrDefault(x => x.Tenant == tenant && x.Username == username);
             if (account == null)
             {
                 Tracing.Verbose(String.Format("[UserAccountService.GetByUsername] failed to locate account: {0}, {1}", tenant, username));
@@ -121,7 +121,7 @@ namespace DemoApplication.Core.Services
             if (String.IsNullOrWhiteSpace(tenant)) return null;
             if (String.IsNullOrWhiteSpace(email)) return null;
 
-            var account = userRepository.GetAll().Where(x => x.Tenant == tenant && x.Email == email).SingleOrDefault();
+            var account = userRepository.GetAll().SingleOrDefault(x => x.Tenant == tenant && x.Email == email);
             if (account == null)
             {
                 Tracing.Verbose(String.Format("[UserAccountService.GetByEmail] failed to locate account: {0}, {1}", tenant, email));
@@ -162,7 +162,7 @@ namespace DemoApplication.Core.Services
 
             if (_settings.UsernamesUniqueAcrossTenants)
             {
-                return this.userRepository.GetAll().Where(x => x.Username == username).Any();
+                return this.userRepository.GetAll().Any(x => x.Username == username);
             }
             else
             {
@@ -173,7 +173,7 @@ namespace DemoApplication.Core.Services
 
                 if (String.IsNullOrWhiteSpace(tenant)) return false;
 
-                return this.userRepository.GetAll().Where(x => x.Tenant == tenant && x.Username == username).Any();
+                return this.userRepository.GetAll().Any(x => x.Tenant == tenant && x.Username == username);
             }
         }
 

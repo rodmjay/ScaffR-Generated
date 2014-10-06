@@ -40,11 +40,6 @@ namespace DemoApplication.Core.Model
         [DataMember, Column("Set_Profit_Margin")]
         public decimal ProfitMargin { get; set; }
 
-        [DataMember, Column("Standard_Campaign")]
-        public bool StandardCampaign { get; set; }
-        
-        public string StandardCampaignTemplate { get; set; }
-
         [DataMember, Column("Sales_Goal")]
         public decimal SalesGoal { get; set; }
 
