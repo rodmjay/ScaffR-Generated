@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Membership
 {
     #region
@@ -18,13 +21,10 @@ namespace DemoApplication.Core.Common.Membership
 
     public enum ChangePasswordStatus
     {
-        [Description("Password was changed successfully")]
-        Success,
+        [Description("Password was changed successfully")] Success,
 
-        [Description("It was not possible change your password, please try again.")]
-        Failure,
+        [Description("It was not possible change your password, please try again.")] Failure,
 
-        [Description("The current password is incorrect or the new password is invalid.")]
-        InvalidPassword
+        [Description("The current password is incorrect or the new password is invalid.")] InvalidPassword
     }
 }

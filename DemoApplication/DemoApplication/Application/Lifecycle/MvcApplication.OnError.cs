@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using DemoApplication.Infrastructure.Logging;
@@ -20,11 +22,11 @@ namespace DemoApplication.Application
     #endregion
 
     public partial class MvcApplication
-	{
+    {
         protected void Application_Error(object sender, EventArgs e)
         {
             var ex = Server.GetLastError();
-            new WebErrorEventEx(ex, this).Raise();                         
+            new WebErrorEventEx(ex, this).Raise();
 
             //var httpContext = ((MvcApplication)sender).Context;
             //var currentController = " ";
@@ -80,5 +82,5 @@ namespace DemoApplication.Application
             //controller.ViewData.Model = new HandleErrorInfo(ex, currentController, currentAction);
             //((IController)controller).Execute(new RequestContext(new HttpContextWrapper(httpContext), routeData));
         }
-	}
+    }
 }

@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
@@ -31,18 +34,18 @@ namespace DemoApplication.Extensions.HtmlHelpers
         public static string GetPageHeadingText(this HtmlHelper helper, string title = null)
         {
             var rules = new List<Func<string>>
+            {
+                () => title,
+                () => helper.ViewBag.Title,
+                () =>
                 {
-                    () => title,
-                    () => helper.ViewBag.Title,
-                    () =>
-                        {
-                          if (SiteMap.CurrentNode != null)
-                          {
-                              return SiteMap.CurrentNode.Title;
-                          }
-                          return null;
-                        }
-                };
+                    if (SiteMap.CurrentNode != null)
+                    {
+                        return SiteMap.CurrentNode.Title;
+                    }
+                    return null;
+                }
+            };
 
             foreach (var rule in rules)
             {
@@ -71,7 +74,7 @@ namespace DemoApplication.Extensions.HtmlHelpers
         /// <param name="helper">The helper.</param>
         /// <returns>System.String.</returns>
         public static string GetPageTitle(this HtmlHelper helper)
-        {            
+        {
             return GetWebsiteTitle(helper) + " - " + GetPageHeadingText(helper);
         }
     }

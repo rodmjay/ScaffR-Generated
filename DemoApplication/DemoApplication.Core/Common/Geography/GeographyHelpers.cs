@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.Data.Entity.Spatial;
@@ -24,7 +26,7 @@ namespace DemoApplication.Core.Common.Geography
         public static DbGeography CreatePoint(double latitude, double longitude)
         {
             var text = string.Format(CultureInfo.InvariantCulture.NumberFormat,
-                                     "POINT({0} {1})", longitude, latitude);
+                "POINT({0} {1})", longitude, latitude);
             // 4326 is most common coordinate system used by GPS/Maps
             return DbGeography.FromText(text, 4326);
         }

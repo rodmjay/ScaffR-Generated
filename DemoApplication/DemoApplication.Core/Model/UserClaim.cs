@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Model
 {
     #region
@@ -22,10 +25,12 @@ namespace DemoApplication.Core.Model
         [Key]
         [Column(Order = 1)]
         public virtual int UserId { get; set; }
+
         [Key]
         [Column(Order = 2)]
         [StringLength(150)]
         public virtual string Type { get; set; }
+
         [Key]
         [Column(Order = 3)]
         [StringLength(150)]

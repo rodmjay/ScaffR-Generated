@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
@@ -26,7 +29,8 @@ namespace DemoApplication.Extensions.HtmlHelpers
         /// <param name="controllerName">Name of the controller.</param>
         /// <param name="extraClasses">The extra classes.</param>
         /// <returns>MvcHtmlString.</returns>
-        public static MvcHtmlString ActiveWhen(this HtmlHelper helper, string actionName, string controllerName, string extraClasses = "")
+        public static MvcHtmlString ActiveWhen(this HtmlHelper helper, string actionName, string controllerName,
+            string extraClasses = "")
         {
             var currentActionName = helper.ViewContext.RouteData.Values["action"].ToString();
             var currentControllerName = helper.ViewContext.RouteData.Values["controller"].ToString();

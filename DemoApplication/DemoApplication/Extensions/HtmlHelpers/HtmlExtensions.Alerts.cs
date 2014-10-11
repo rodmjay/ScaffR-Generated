@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
@@ -23,7 +26,7 @@ namespace DemoApplication.Extensions.HtmlHelpers
     public static partial class HtmlExtensions
     {
         public static MvcHtmlString GetAlerts(this HtmlHelper helper, AlertType alertType, AlertLocation alertLocation)
-        {            
+        {
             var alertData = helper.ViewContext.TempData.InitializeAlertData();
 
             List<string> messages = alertData[alertLocation][alertType];
@@ -55,6 +58,6 @@ namespace DemoApplication.Extensions.HtmlHelpers
             }
 
             return string.Empty.ToMvcHtmlString();
-        }        
+        }
     }
 }

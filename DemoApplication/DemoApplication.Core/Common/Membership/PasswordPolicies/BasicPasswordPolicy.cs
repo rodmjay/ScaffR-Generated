@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Membership.PasswordPolicies
 {
     #region
@@ -29,7 +32,7 @@ namespace DemoApplication.Core.Common.Membership.PasswordPolicies
 
         public string PolicyMessage
         {
-            get 
+            get
             {
                 var sb = new StringBuilder();
                 if (UpperAlphas > 0)
@@ -87,19 +90,22 @@ namespace DemoApplication.Core.Common.Membership.PasswordPolicies
                 non >= NonAlphaNumerics;
         }
 
-        int GetUpperAlphas(string password)
+        private int GetUpperAlphas(string password)
         {
             return password.Count(x => 'A' <= x && x <= 'Z');
         }
-        int GetLowerAlphas(string password)
+
+        private int GetLowerAlphas(string password)
         {
             return password.Count(x => 'a' <= x && x <= 'z');
         }
-        int GetNumerics(string password)
+
+        private int GetNumerics(string password)
         {
             return password.Count(x => '0' <= x && x <= '9');
         }
-        int GetNonAlphaNumerics(string password)
+
+        private int GetNonAlphaNumerics(string password)
         {
             return password.Length - GetUpperAlphas(password) - GetLowerAlphas(password) - GetNumerics(password);
         }

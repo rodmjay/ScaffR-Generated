@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.Data.Entity.Spatial;
@@ -29,7 +31,8 @@ namespace DemoApplication.ModelBinders
             return BindModelImpl(valueProviderResult != null ? valueProviderResult.AttemptedValue : null);
         }
 
-        public bool BindModel(ModelBindingExecutionContext modelBindingExecutionContext, System.Web.ModelBinding.ModelBindingContext bindingContext)
+        public bool BindModel(ModelBindingExecutionContext modelBindingExecutionContext,
+            System.Web.ModelBinding.ModelBindingContext bindingContext)
         {
             var valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
             bindingContext.Model = BindModelImpl(valueProviderResult != null ? valueProviderResult.AttemptedValue : null);
@@ -40,7 +43,7 @@ namespace DemoApplication.ModelBinders
         {
             if (value == null)
             {
-                return (DbGeography)null;
+                return (DbGeography) null;
             }
             string[] latLongStr = value.Split(',');
             // TODO: More error handling here, what if there is more than 2 pieces or less than 2?
@@ -53,12 +56,11 @@ namespace DemoApplication.ModelBinders
     }
 
 
-
     public class EFModelBinderProviderMvc : System.Web.Mvc.IModelBinderProvider
     {
         public System.Web.Mvc.IModelBinder GetBinder(Type modelType)
         {
-            if (modelType == typeof(DbGeography))
+            if (modelType == typeof (DbGeography))
                 return new DbGeographyModelBinder();
             return null;
         }
@@ -66,9 +68,11 @@ namespace DemoApplication.ModelBinders
 
     public class EFModelBinderProviderWebForms : System.Web.ModelBinding.ModelBinderProvider
     {
-        public override System.Web.ModelBinding.IModelBinder GetBinder(ModelBindingExecutionContext modelBindingExecutionContext, System.Web.ModelBinding.ModelBindingContext bindingContext)
+        public override System.Web.ModelBinding.IModelBinder GetBinder(
+            ModelBindingExecutionContext modelBindingExecutionContext,
+            System.Web.ModelBinding.ModelBindingContext bindingContext)
         {
-            if (bindingContext.ModelType == typeof(DbGeography))
+            if (bindingContext.ModelType == typeof (DbGeography))
                 return new DbGeographyModelBinder();
             return null;
         }

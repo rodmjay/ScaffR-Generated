@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Paging
 {
     #region
@@ -32,11 +35,11 @@ namespace DemoApplication.Core.Common.Paging
             this.Count = count;
             this.CurrentPage = currentPage;
             this.PageSize = pageSize;
-            this.PagesCount = count <= pageSize ? 1 : (count / pageSize) + 1;
+            this.PagesCount = count <= pageSize ? 1 : (count/pageSize) + 1;
         }
 
         public Page()
         {
         }
-    } 
+    }
 }

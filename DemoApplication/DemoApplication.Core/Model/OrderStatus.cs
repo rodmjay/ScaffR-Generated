@@ -7,13 +7,10 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum OrderStatus
     {
-        [EnumMember]
-        None = 0,
+        [EnumMember] None = 0,
 
-        [EnumMember]
-        Received = 1,
+        [EnumMember] Received = 1,
 
-        [EnumMember]
-        InProgress = 2
+        [EnumMember] InProgress = 2
     }
 }

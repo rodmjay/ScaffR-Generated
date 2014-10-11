@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.Globalization;
@@ -50,19 +52,19 @@ namespace DemoApplication.Controllers.Account
                 try
                 {
                     var org = _organizationService.CreateOrganization(
-                        model.OrganizationProfileModel.Name, 
+                        model.OrganizationProfileModel.Name,
                         model.OrganizationProfileModel.OrganizationType);
 
                     if (ModelState.Process(org))
                     {
                         var user = _userService.CreateAccount(
                             org.Entity.Id.ToString(CultureInfo.InvariantCulture),
-                            model.UserRegistration.Username, 
-                            model.UserRegistration.Password, 
-                            model.UserRegistration.Email, 
-                            model.UserRegistration.FirstName, 
-                            model.UserRegistration.LastName, 
-                            model.UserRegistration.PhoneNumber, 
+                            model.UserRegistration.Username,
+                            model.UserRegistration.Password,
+                            model.UserRegistration.Email,
+                            model.UserRegistration.FirstName,
+                            model.UserRegistration.LastName,
+                            model.UserRegistration.PhoneNumber,
                             model.UserRegistration.Address);
 
                         if (ModelState.Process(user))
@@ -74,7 +76,7 @@ namespace DemoApplication.Controllers.Account
                                 return View("RegisterSuccess", model.UserRegistration);
                             }
                             return View("RegisterConfirm", true);
-                        }          
+                        }
                     }
                 }
                 catch (ValidationException ex)
@@ -83,7 +85,7 @@ namespace DemoApplication.Controllers.Account
                 }
             }
             return View(model);
-        }        
+        }
 
         /// <summary>
         /// Confirms a new registration

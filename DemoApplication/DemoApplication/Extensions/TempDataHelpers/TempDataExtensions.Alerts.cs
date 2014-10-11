@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.TempDataHelpers
 {
     #region
@@ -21,17 +24,18 @@ namespace DemoApplication.Extensions.TempDataHelpers
 
     public static partial class TempDataDictionaryExtensions
     {
-        public static Dictionary<AlertLocation, Dictionary<AlertType, List<string>>> InitializeAlertData(this TempDataDictionary tempData)
+        public static Dictionary<AlertLocation, Dictionary<AlertType, List<string>>> InitializeAlertData(
+            this TempDataDictionary tempData)
         {
             var dataValue = tempData["AlertData"] as Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>;
             if (dataValue == null)
             {
                 dataValue = new Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>();
-                foreach (AlertLocation loc in Enum.GetValues(typeof(AlertLocation)))
+                foreach (AlertLocation loc in Enum.GetValues(typeof (AlertLocation)))
                 {
                     var locValues = new Dictionary<AlertType, List<string>>();
 
-                    foreach (AlertType alertType in Enum.GetValues(typeof(AlertType)))
+                    foreach (AlertType alertType in Enum.GetValues(typeof (AlertType)))
                     {
                         locValues[alertType] = new List<string>();
                     }
@@ -73,14 +77,11 @@ namespace DemoApplication.Extensions.TempDataHelpers
 
     public enum AlertType
     {
-        [Description("alert-info")]
-        Info,
+        [Description("alert-info")] Info,
 
-        [Description("alert-success")]
-        Success,
+        [Description("alert-success")] Success,
 
-        [Description("alert-error")]
-        Error
+        [Description("alert-error")] Error
     }
 
     public enum AlertLocation

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Models.Account
 {
     #region
@@ -28,7 +31,7 @@ namespace DemoApplication.Models.Account
         [Display(Name = "Password")]
         [PasswordTextbox(TextboxSize = TextboxSize.Medium)]
         public string Password { get; set; }
-        
+
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
 

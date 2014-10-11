@@ -2,7 +2,7 @@ namespace DemoApplication.Infrastructure.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Extendedloggingfields : DbMigration
     {
         public override void Up()
@@ -26,7 +26,7 @@ namespace DemoApplication.Infrastructure.Migrations
             DropColumn("dbo.Logs", "Logger");
             DropColumn("dbo.Logs", "Exception");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Logs", "Exception", c => c.String(maxLength: 2000));

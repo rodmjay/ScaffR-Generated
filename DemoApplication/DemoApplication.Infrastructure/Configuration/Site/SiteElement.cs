@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Site
 {
     #region
@@ -37,21 +40,21 @@ namespace DemoApplication.Infrastructure.Configuration.Site
         [ConfigurationProperty("email", IsRequired = true)]
         public string EmailAddress
         {
-            get { return (string)base["email"]; }
+            get { return (string) base["email"]; }
             set { base["email"] = value; }
         }
 
         [ConfigurationProperty("companyName", IsRequired = true)]
         public string CompanyName
         {
-            get { return (string)base["companyName"]; }
+            get { return (string) base["companyName"]; }
             set { base["companyName"] = value; }
         }
 
         [ConfigurationProperty("websiteName", IsRequired = true)]
         public string WebsiteName
         {
-            get { return (string)base["websiteName"]; }
+            get { return (string) base["websiteName"]; }
             set { base["websiteName"] = value; }
         }
     }

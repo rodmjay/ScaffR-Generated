@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Photos
 {
     /// <summary>
@@ -45,15 +48,9 @@ namespace DemoApplication.Core.Common.Photos
         /// </summary>
         public ImageSizeTypeEnum ImageSizeType
         {
-            get
-            {
-                return (ImageSizeTypeEnum)ImageSizeTypeValue;
-            }
+            get { return (ImageSizeTypeEnum) ImageSizeTypeValue; }
 
-            set
-            {
-                ImageSizeTypeValue = (int)value;
-            }
+            set { ImageSizeTypeValue = (int) value; }
         }
     }
 
@@ -65,22 +62,22 @@ namespace DemoApplication.Core.Common.Photos
         /// <summary>
         /// The extra small.
         /// </summary>
-        ExtraSmall = 1, 
+        ExtraSmall = 1,
 
         /// <summary>
         /// The small.
         /// </summary>
-        Small = 2, 
+        Small = 2,
 
         /// <summary>
         /// The medium.
         /// </summary>
-        Medium = 3, 
+        Medium = 3,
 
         /// <summary>
         /// The large.
         /// </summary>
-        Large = 4, 
+        Large = 4,
 
         /// <summary>
         /// The extra large.

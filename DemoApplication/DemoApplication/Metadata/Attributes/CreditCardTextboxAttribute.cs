@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -24,7 +27,7 @@ namespace DemoApplication.Metadata.Attributes
         public CreditCardTextboxAttribute()
             : base("String")
         {
-            this.DefaultTextboxSize = TextboxSize.Large; 
+            this.DefaultTextboxSize = TextboxSize.Large;
         }
 
         public override string FormatErrorMessage(string name)
@@ -65,17 +68,17 @@ namespace DemoApplication.Metadata.Attributes
                     return false;
                 }
 
-                int digitValue = (digit - '0') * (evenDigit ? 2 : 1);
+                int digitValue = (digit - '0')*(evenDigit ? 2 : 1);
                 evenDigit = !evenDigit;
 
                 while (digitValue > 0)
                 {
-                    checksum += digitValue % 10;
+                    checksum += digitValue%10;
                     digitValue /= 10;
                 }
             }
 
-            return (checksum % 10) == 0;
+            return (checksum%10) == 0;
         }
     }
 }

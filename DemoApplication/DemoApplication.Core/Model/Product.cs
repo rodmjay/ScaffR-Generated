@@ -17,6 +17,6 @@ namespace DemoApplication.Core.Model
         [ForeignKey("ItemContentsId")]
         public virtual ItemContents ItemContents { get; set; }
 
-        public virtual ICollection<Inventory> Inventories { get; set; }  
+        public virtual ICollection<Inventory> Inventories { get; set; }
     }
 }

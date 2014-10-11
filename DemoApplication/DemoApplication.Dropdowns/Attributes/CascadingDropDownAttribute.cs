@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Attributes
 {
     #region
@@ -21,12 +24,13 @@ namespace DemoApplication.Dropdowns.Attributes
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public class CascadingDropDownAttribute : DropDownAttribute
     {
-        public CascadingDropDownAttribute(string parentName, string methodName, params object[] arguments) : 
+        public CascadingDropDownAttribute(string parentName, string methodName, params object[] arguments) :
             this(parentName, methodName, false, arguments)
-        {            
+        {
         }
 
-        public CascadingDropDownAttribute(string parentName, string methodName, bool heirarchy, params object[] arguments) : base(methodName, arguments)
+        public CascadingDropDownAttribute(string parentName, string methodName, bool heirarchy,
+            params object[] arguments) : base(methodName, arguments)
         {
             RequireHeirarchy = heirarchy;
             ParentName = parentName;
@@ -38,7 +42,7 @@ namespace DemoApplication.Dropdowns.Attributes
             var methodInfo = _serviceType.GetMethod(_methodName);
 
             return methodInfo.Invoke(serviceInstance, parentValues) as IEnumerable<SelectListItem>;
-        } 
+        }
 
         public bool RequireHeirarchy { get; set; }
 

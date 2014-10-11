@@ -30,6 +30,5 @@ namespace DemoApplication.Core.Model
 
         [DataMember, Column("Email_Validated")]
         public bool EmailValidated { get; set; }
-
     }
 }

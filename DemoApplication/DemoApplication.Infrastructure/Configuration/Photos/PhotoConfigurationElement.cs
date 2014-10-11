@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Photos
 {
     #region
@@ -28,10 +31,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("providers")]
         public ProviderSettingsCollection Providers
         {
-            get
-            {
-                return (ProviderSettingsCollection)base["providers"];
-            }
+            get { return (ProviderSettingsCollection) base["providers"]; }
         }
 
         /// <summary>
@@ -41,15 +41,9 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("defaultProvider", DefaultValue = "SqlProvider")]
         public string DefaultProvider
         {
-            get
-            {
-                return (string)base["defaultProvider"];
-            }
+            get { return (string) base["defaultProvider"]; }
 
-            set
-            {
-                base["defaultProvider"] = value;
-            }
+            set { base["defaultProvider"] = value; }
         }
 
         /// <summary>
@@ -58,10 +52,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("PhotoResize")]
         public PhotoResizeCollection PhotoResizes
         {
-            get
-            {
-                return (PhotoResizeCollection)base["PhotoResize"];
-            }
+            get { return (PhotoResizeCollection) base["PhotoResize"]; }
         }
     }
 }

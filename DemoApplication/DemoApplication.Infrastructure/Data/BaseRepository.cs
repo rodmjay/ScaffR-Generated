@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -96,7 +99,8 @@ namespace DemoApplication.Infrastructure.Data
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            var data =
+                this.Query.OrderByDescending(k => k.Created).Skip(pageSize*internalPage).Take(pageSize).AsEnumerable();
             return new Page<T>(data, this._dbset.Count(), pageSize, page);
         }
 

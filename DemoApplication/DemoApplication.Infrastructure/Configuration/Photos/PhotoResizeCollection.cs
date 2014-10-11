@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Photos
 {
     #region
@@ -22,7 +25,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
     /// <summary>
     /// The photo resize collection.
     /// </summary>
-    [ConfigurationCollection(typeof(PhotoResizeElement))]
+    [ConfigurationCollection(typeof (PhotoResizeElement))]
     public class PhotoResizeCollection : ConfigurationElementCollection, IPhotoResizeCollection
     {
         /// <summary>
@@ -49,10 +52,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         /// </summary>
         protected override string ElementName
         {
-            get
-            {
-                return PropertyName;
-            }
+            get { return PropertyName; }
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         /// </returns>
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return (PhotoResizeElement)element;
+            return (PhotoResizeElement) element;
         }
 
         /// <summary>
@@ -124,10 +124,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         /// </returns>
         public new IPhotoResize this[string key]
         {
-            get
-            {
-                return (PhotoResizeElement)BaseGet(key);
-            }
+            get { return (PhotoResizeElement) BaseGet(key); }
         }
 
         /// <summary>
@@ -141,10 +138,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         /// </returns>
         public IPhotoResize this[int index]
         {
-            get
-            {
-                return (PhotoResizeElement)BaseGet(index);
-            }
+            get { return (PhotoResizeElement) BaseGet(index); }
 
             set
             {
@@ -153,7 +147,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
                     BaseRemoveAt(index);
                 }
 
-                BaseAdd(index,(PhotoResizeElement) value);
+                BaseAdd(index, (PhotoResizeElement) value);
             }
         }
 

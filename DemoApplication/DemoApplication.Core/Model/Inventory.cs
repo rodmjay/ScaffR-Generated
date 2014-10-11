@@ -7,7 +7,7 @@ namespace DemoApplication.Core.Model
     [DataContract, Table("Inventory")]
     public class Inventory : DomainObject
     {
-        [DataMember,Key]
+        [DataMember, Key]
         public int Id { get; set; }
 
         [DataMember, Column("Item_Control")]

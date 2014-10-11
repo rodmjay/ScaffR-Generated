@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.ComponentModel.DataAnnotations.Schema;
@@ -36,7 +38,7 @@ namespace DemoApplication.Core.Model
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // Override this method to implement custom validation in your entities
-            
+
             // This is only for making it compile... and returning null will give an exception.
             if (false)
                 yield return new ValidationResult("Well, this should not happend...");

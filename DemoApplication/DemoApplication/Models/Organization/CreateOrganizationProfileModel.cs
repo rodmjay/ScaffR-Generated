@@ -10,7 +10,7 @@ namespace DemoApplication.Models.Organization
 {
     public class CreateOrganizationProfileModel
     {
-        [Display(Name="Organization Name")]
+        [Display(Name = "Organization Name")]
         [Textbox(TextboxSize = TextboxSize.Large)]
         public string Name { get; set; }
 

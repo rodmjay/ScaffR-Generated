@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.ActionDescriptorHElpers
 {
     #region
@@ -25,13 +28,15 @@ namespace DemoApplication.Extensions.ActionDescriptorHElpers
             var aName = context.ActionDescriptor.ActionName;
             var cName = context.ActionDescriptor.ControllerDescriptor.ControllerName;
 
-            if (!(controllerName.Equals(cName, StringComparison.InvariantCultureIgnoreCase) && actionName.Equals(aName, StringComparison.InvariantCultureIgnoreCase)))
+            if (
+                !(controllerName.Equals(cName, StringComparison.InvariantCultureIgnoreCase) &&
+                  actionName.Equals(aName, StringComparison.InvariantCultureIgnoreCase)))
             {
                 context.Result = new RedirectToRouteResult(new RouteValueDictionary
-                        {
-                            { "controller", controllerName },
-                            { "action", actionName }                                                 
-                        });
+                {
+                    {"controller", controllerName},
+                    {"action", actionName}
+                });
             }
         }
     }

@@ -14,10 +14,7 @@ namespace DemoApplication.Core.Model
     [DataContract, Table("Org_Campaign")]
     public class Campaign : DomainObject
     {
-        public Campaign()
-        {
-            this.CampaignItems = new Collection<CampaignItem>();
-        }
+        private ICollection<CampaignItem> _campaignItems;
 
         [DataMember, Key, Column("Campaign_ID")]
         public int Id { get; set; }
@@ -91,6 +88,10 @@ namespace DemoApplication.Core.Model
         [DataMember]
         public int ProfileId { get; set; }
 
-        public virtual ICollection<CampaignItem> CampaignItems { get; set; } 
+        public virtual ICollection<CampaignItem> CampaignItems
+        {
+            get { return _campaignItems ?? (_campaignItems = new Collection<CampaignItem>()); }
+            set { _campaignItems = value; }
+        }
     }
 }

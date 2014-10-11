@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Extensions
 {
     #region
@@ -22,7 +25,8 @@ namespace DemoApplication.Dropdowns.Extensions
 
     public static class SelectListExtensions
     {
-        public static IEnumerable<SelectListItem> SetSelected(this IEnumerable<SelectListItem> selectList, object selectedValue)
+        public static IEnumerable<SelectListItem> SetSelected(this IEnumerable<SelectListItem> selectList,
+            object selectedValue)
         {
             selectList = selectList ?? new List<SelectListItem>();
             if (selectedValue == null)
@@ -30,14 +34,15 @@ namespace DemoApplication.Dropdowns.Extensions
             var value = selectedValue.ToString();
             return selectList
                 .Select(m => new SelectListItem
-                                 {
-                                     Selected = string.Equals(value, (string)m.Value),
-                                     Text = m.Text,
-                                     Value = m.Value
-                                 });
+                {
+                    Selected = string.Equals(value, (string) m.Value),
+                    Text = m.Text,
+                    Value = m.Value
+                });
         }
 
-        public static IEnumerable<SelectListItem> GetAutomatedList<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+        public static IEnumerable<SelectListItem> GetAutomatedList<TModel, TProperty>(
+            this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
         {
             return GetAutomatedList(htmlHelper, ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData));
         }
@@ -49,7 +54,7 @@ namespace DemoApplication.Dropdowns.Extensions
 
         public static IEnumerable<SelectListItem> GetAutomatedList(this HtmlHelper helper, string name)
         {
-            return ((IEnumerable<SelectListItem>)helper.ViewData[name]);
+            return ((IEnumerable<SelectListItem>) helper.ViewData[name]);
         }
     }
 }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System;
@@ -25,8 +27,6 @@ namespace DemoApplication.Infrastructure.Migrations
     #endregion
 
     #region
-
-    
 
     #endregion
 
@@ -103,10 +103,10 @@ namespace DemoApplication.Infrastructure.Migrations
                 Type = ClaimTypes.Role,
                 Value = "Member"
             });
-            
+
             var distributor = new Distributor()
             {
-                Id=1,
+                Id = 1,
                 LastUpdated = DateTime.UtcNow,
                 Created = DateTime.UtcNow
             };
@@ -141,11 +141,10 @@ namespace DemoApplication.Infrastructure.Migrations
                 Email = "ckfrsys1@ideafortune.com",
                 Created = DateTime.UtcNow,
                 LastUpdated = DateTime.UtcNow
-                
             };
 
-            context.Users.AddOrUpdate(x=>x.Id,user);
-            context.Users.AddOrUpdate(x=>x.Id,member);
+            context.Users.AddOrUpdate(x => x.Id, user);
+            context.Users.AddOrUpdate(x => x.Id, member);
             context.Distributors.AddOrUpdate(x => x.Id, distributor);
             context.Profiles.AddOrUpdate(x => x.Id, profile);
             context.Contacts.AddOrUpdate(x => x.Id, contact);

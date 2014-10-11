@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -20,26 +23,26 @@ namespace DemoApplication.Metadata.Attributes
 
     public class TextboxAttribute : DataTypeAttribute, IMetadataAware
     {
-        readonly BootstrapInputOptions options = new BootstrapInputOptions();
+        private readonly BootstrapInputOptions options = new BootstrapInputOptions();
 
-        public BootstrapInputOptions Options { get { return options; } }
+        public BootstrapInputOptions Options
+        {
+            get { return options; }
+        }
 
         public TextboxAttribute()
             : this("String")
         {
-
         }
 
         public TextboxAttribute(DataType dataType)
             : base(dataType)
         {
-
         }
 
         public TextboxAttribute(string dataType)
             : base(dataType)
         {
-
         }
 
 

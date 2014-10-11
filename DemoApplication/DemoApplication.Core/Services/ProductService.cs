@@ -12,7 +12,8 @@ namespace DemoApplication.Core.Services
     {
         private readonly IRepository<ProductList> _productListRepository;
 
-        public ProductService(IUnitOfWork unitOfWork, IRepository<Product> productRepository, IRepository<ProductList> productListRepository  ) : base(unitOfWork)
+        public ProductService(IUnitOfWork unitOfWork, IRepository<Product> productRepository,
+            IRepository<ProductList> productListRepository) : base(unitOfWork)
         {
             Repository = productRepository;
             _productListRepository = productListRepository;

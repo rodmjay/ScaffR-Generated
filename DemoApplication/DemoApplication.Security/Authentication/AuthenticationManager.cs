@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authentication
 {
     #region
@@ -28,7 +31,7 @@ namespace DemoApplication.Security.Authentication
             return Transform(incomingPrincipal);
         }
 
-        ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
+        private ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
         {
             return incomingPrincipal;
         }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.Data.Entity;
@@ -60,7 +62,10 @@ namespace DemoApplication.Infrastructure.Data
 
         public static bool IsPersistent(DomainObject entity)
         {
-            var keyAttributedProps = entity.GetType().GetProperties().FirstOrDefault(p => p.GetCustomAttributes(typeof(KeyAttribute), true).Length == 1);
+            var keyAttributedProps =
+                entity.GetType()
+                    .GetProperties()
+                    .FirstOrDefault(p => p.GetCustomAttributes(typeof (KeyAttribute), true).Length == 1);
             return (keyAttributedProps != null) && !keyAttributedProps.GetValue(entity, null).ToString().Equals("0");
         }
 

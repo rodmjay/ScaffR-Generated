@@ -5,6 +5,5 @@ namespace DemoApplication.Core.Model
     [DataContract]
     public class ItemDescription
     {
-
     }
 }

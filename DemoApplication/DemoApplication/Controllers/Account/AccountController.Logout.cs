@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -22,7 +25,7 @@ namespace DemoApplication.Controllers.Account
     /// Class AccountController
     /// </summary>
     public partial class AccountController
-    {        
+    {
         /// <summary>
         /// Logout the existing user.
         /// </summary>
@@ -33,11 +36,11 @@ namespace DemoApplication.Controllers.Account
             if (Request.IsAuthenticated)
             {
                 _messageBus.Publish(new UserLoggedOut(UserProfile.Current));
-                _authenticationService.SignOut();  
+                _authenticationService.SignOut();
                 Session.Abandon();
             }
-                      
+
             return RedirectToAction("Index", "Home");
-        }       
+        }
     }
 }

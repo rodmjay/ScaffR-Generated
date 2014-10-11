@@ -38,6 +38,5 @@ namespace DemoApplication.Controllers.Contacts
         {
             return View();
         }
-
     }
 }

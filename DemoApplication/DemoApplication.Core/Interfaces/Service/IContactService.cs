@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DemoApplication.Core.Interfaces.Validation;
+using DemoApplication.Core.Model;
 
 namespace DemoApplication.Core.Interfaces.Service
 {
     public interface IContactService
     {
+        IValidationContainer<Contact> CreateContact(string firstName, string lastName);
+        IValidationContainer<Contact> UpdateContact(int id, string firstName, string lastName);
     }
 }

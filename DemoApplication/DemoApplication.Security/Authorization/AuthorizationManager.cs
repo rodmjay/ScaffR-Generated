@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authorization
 {
     #region
@@ -21,6 +24,6 @@ namespace DemoApplication.Security.Authorization
         public override bool CheckAccess(AuthorizationContext context)
         {
             return true;
-        }        
+        }
     }
 }

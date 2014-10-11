@@ -2,7 +2,7 @@
 
 @{
     var topLevel = Model.Nodes;
-    var activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));                                                
+    var activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));
 }
 <!--  Need to create a sub menu view to generate menu  -->
 
@@ -16,9 +16,9 @@
             @foreach (var child in activeNode.Children)
             {
                 if (child.IsActiveNode(ViewContext))
-                {                   
+                {
                     foreach (var secondchild in child.Children)
-                    {                                                
+                    {
                         <li class="@((secondchild.IsCurrentNode || secondchild.IsInCurrentPath) ? "active" : "")">
                             <a href="@secondchild.Url">@secondchild.Title</a>
                         </li>

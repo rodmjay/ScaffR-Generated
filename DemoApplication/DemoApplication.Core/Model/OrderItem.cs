@@ -9,10 +9,7 @@ namespace DemoApplication.Core.Model
     [DataContract, Table("Org_Order_Details")]
     public class OrderItem : DomainObject
     {
-        public OrderItem()
-        {
-            this.Shipments = new Collection<Shipment>();
-        }
+        private ICollection<Shipment> _shipments;
 
         [Key, DataMember]
         public int Id { get; set; }
@@ -23,7 +20,7 @@ namespace DemoApplication.Core.Model
         [DataMember, Column("Item_Control_ID")]
         public int ProductId { get; set; }
 
-        [DataMember,Column("Item_Price")]
+        [DataMember, Column("Item_Price")]
         public decimal ItemPrice { get; set; }
 
         [DataMember, Column("Item_Quantity")]
@@ -41,6 +38,10 @@ namespace DemoApplication.Core.Model
         [DataMember, ForeignKey("ProductId")]
         public Product Product { get; set; }
 
-        public virtual ICollection<Shipment> Shipments { get; set; } 
+        public virtual ICollection<Shipment> Shipments
+        {
+            get { return _shipments; }
+            set { _shipments = value; }
+        }
     }
 }

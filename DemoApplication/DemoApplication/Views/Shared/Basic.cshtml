@@ -20,7 +20,7 @@
 
 @if (ViewBag.ShowMainMenu == true)
 {
-    @Html.MvcSiteMap("System").MainMenu(true,3)
+    @Html.MvcSiteMap("System").MainMenu(true, 3)
 }
 
 @if (ViewBag.ShowBreadcrumb == true)
@@ -54,7 +54,6 @@
             }
             else
             {
-              
             }
             
 
@@ -66,7 +65,7 @@
                     @:<div class="span3">
 
                     @RenderSection("LeftColumn", true)
-                    
+
                     @:</div>
                     @:<div class="span9">
                 }
@@ -82,4 +81,3 @@
         </div>
     </div>
 </div>
-

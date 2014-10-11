@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Components
 {
     #region
@@ -21,7 +24,6 @@ namespace DemoApplication.Controllers.Components
 
     public partial class ComponentsController
     {
-
         //private readonly Common.Logging.ILog _logger = Common.Logging.LogManager.GetCurrentClassLogger();
         //
         // GET: /Logging/
@@ -55,16 +57,14 @@ namespace DemoApplication.Controllers.Components
                 {
                     Status = EventStatus.Success
                 }
-
             };
-    
+
             return View(model);
         }
 
-        [HttpPost,AllowAnonymous]
+        [HttpPost, AllowAnonymous]
         public ActionResult Logging(List<SampleLoggingModel> models)
         {
-            
             foreach (var log in models)
             {
                 if (string.IsNullOrEmpty(log.Event))
@@ -93,9 +93,8 @@ namespace DemoApplication.Controllers.Components
 
                 //} 
             }
-             
+
             return RedirectToAction("Logging", "Components");
         }
-        
     }
 }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Extensions
 {
     #region
@@ -60,7 +63,8 @@ namespace DemoApplication.Core.Extensions
             foreach (var pi in entity.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
                 foreach (
-                    var attribute in (ValidationAttribute[])pi.GetCustomAttributes(typeof(ValidationAttribute), false))
+                    var attribute in (ValidationAttribute[]) pi.GetCustomAttributes(typeof (ValidationAttribute), false)
+                    )
                 {
                     if (attribute.IsValid(pi.GetValue(entity, null)))
                     {

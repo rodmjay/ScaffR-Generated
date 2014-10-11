@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.SitemapHelpers
 {
     #region
@@ -30,7 +33,10 @@ namespace DemoApplication.Extensions.SitemapHelpers
         /// <summary>
         /// Source metadata
         /// </summary>
-        private static readonly Dictionary<string, object> BreadcrumbSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", "BreadCrumb" } };
+        private static readonly Dictionary<string, object> BreadcrumbSourceMetadata = new Dictionary<string, object>
+        {
+            {"HtmlHelper", "BreadCrumb"}
+        };
 
         /// <summary>
         /// Gets Breadcrumb path for the current request

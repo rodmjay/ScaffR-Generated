@@ -8,7 +8,6 @@ namespace DemoApplication.Infrastructure.Logging
         public WebErrorEventEx(Exception ex, object eventSource)
             : base(ex.Message, eventSource, ExceptionCodes.GetExceptionCode(ex), ex)
         {
-            
         }
     }
 }

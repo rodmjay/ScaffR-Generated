@@ -6,10 +6,10 @@
 }
 
 var pasteEventName = getPasteEvent() + ".mask",
-	ua = navigator.userAgent,
-	iPhone = /iphone/i.test(ua),
-	android = /android/i.test(ua),
-	caretTimeoutId;
+    ua = navigator.userAgent,
+    iPhone = /iphone/i.test(ua),
+    android = /android/i.test(ua),
+    caretTimeoutId;
 
 $.mask = {
     //Predefined character definitions
@@ -24,7 +24,7 @@ $.mask = {
 
 $.fn.extend({
     //Helper Function for Caret positioning
-    caret: function (begin, end) {
+    caret: function(begin, end) {
         var range;
 
         if (this.length === 0 || this.is(":hidden")) {
@@ -33,7 +33,7 @@ $.fn.extend({
 
         if (typeof begin == 'number') {
             end = (typeof end === 'number') ? end : begin;
-            return this.each(function () {
+            return this.each(function() {
                 if (this.setSelectionRange) {
                     this.setSelectionRange(begin, end);
                 } else if (this.createTextRange) {
@@ -56,16 +56,16 @@ $.fn.extend({
             return { begin: begin, end: end };
         }
     },
-    unmask: function () {
+    unmask: function() {
         return this.trigger("unmask");
     },
-    mask: function (mask, settings) {
+    mask: function(mask, settings) {
         var input,
-			defs,
-			tests,
-			partialPosition,
-			firstNonMaskPos,
-			len;
+            defs,
+            tests,
+            partialPosition,
+            firstNonMaskPos,
+            len;
 
         if (!mask && this.length > 0) {
             input = $(this[0]);
@@ -82,7 +82,7 @@ $.fn.extend({
         partialPosition = len = mask.length;
         firstNonMaskPos = null;
 
-        $.each(mask.split(""), function (i, c) {
+        $.each(mask.split(""), function(i, c) {
             if (c == '?') {
                 len--;
                 partialPosition = i;
@@ -96,16 +96,16 @@ $.fn.extend({
             }
         });
 
-        return this.trigger("unmask").each(function () {
+        return this.trigger("unmask").each(function() {
             var input = $(this),
-				buffer = $.map(
-				mask.split(""),
-				function (c, i) {
-				    if (c != '?') {
-				        return defs[c] ? settings.placeholder : c;
-				    }
-				}),
-				focusText = input.val();
+                buffer = $.map(
+                    mask.split(""),
+                    function(c, i) {
+                        if (c != '?') {
+                            return defs[c] ? settings.placeholder : c;
+                        }
+                    }),
+                focusText = input.val();
 
             function seekNext(pos) {
                 while (++pos < len && !tests[pos]);
@@ -119,13 +119,13 @@ $.fn.extend({
 
             function shiftL(begin, end) {
                 var i,
-					j;
+                    j;
 
                 if (begin < 0) {
                     return;
                 }
 
-                for (i = begin, j = seekNext(end) ; i < len; i++) {
+                for (i = begin, j = seekNext(end); i < len; i++) {
                     if (tests[i]) {
                         if (j < len && tests[i].test(buffer[j])) {
                             buffer[i] = buffer[j];
@@ -143,9 +143,9 @@ $.fn.extend({
 
             function shiftR(pos) {
                 var i,
-					c,
-					j,
-					t;
+                    c,
+                    j,
+                    t;
 
                 for (i = pos, c = settings.placeholder; i < len; i++) {
                     if (tests[i]) {
@@ -163,9 +163,9 @@ $.fn.extend({
 
             function keydownEvent(e) {
                 var k = e.which,
-					pos,
-					begin,
-					end;
+                    pos,
+                    begin,
+                    end;
 
                 //backspace, delete, and escape get special treatment
                 if (k === 8 || k === 46 || (iPhone && k === 127)) {
@@ -181,7 +181,7 @@ $.fn.extend({
                     shiftL(begin, end - 1);
 
                     e.preventDefault();
-                } else if (k == 27) {//escape
+                } else if (k == 27) { //escape
                     input.val(focusText);
                     input.caret(0, checkVal());
                     e.preventDefault();
@@ -190,12 +190,12 @@ $.fn.extend({
 
             function keypressEvent(e) {
                 var k = e.which,
-					pos = input.caret(),
-					p,
-					c,
-					next;
+                    pos = input.caret(),
+                    p,
+                    c,
+                    next;
 
-                if (e.ctrlKey || e.altKey || e.metaKey || k < 32) {//Ignore
+                if (e.ctrlKey || e.altKey || e.metaKey || k < 32) { //Ignore
                     return;
                 } else if (k) {
                     if (pos.end - pos.begin !== 0) {
@@ -242,9 +242,9 @@ $.fn.extend({
             function checkVal(allow) {
                 //try to place characters where they belong
                 var test = input.val(),
-					lastMatch = -1,
-					i,
-					c;
+                    lastMatch = -1,
+                    i,
+                    c;
 
                 for (i = 0, pos = 0; i < len; i++) {
                     if (tests[i]) {
@@ -277,51 +277,51 @@ $.fn.extend({
                 return (partialPosition ? i : firstNonMaskPos);
             }
 
-            input.data($.mask.dataName, function () {
-                return $.map(buffer, function (c, i) {
+            input.data($.mask.dataName, function() {
+                return $.map(buffer, function(c, i) {
                     return tests[i] && c != settings.placeholder ? c : null;
                 }).join('');
             });
 
             if (!input.attr("readonly"))
                 input
-				.one("unmask", function () {
-				    input
-						.unbind(".mask")
-						.removeData($.mask.dataName);
-				})
-				.bind("focus.mask", function () {
-				    clearTimeout(caretTimeoutId);
-				    var pos,
-						moveCaret;
+                    .one("unmask", function() {
+                        input
+                            .unbind(".mask")
+                            .removeData($.mask.dataName);
+                    })
+                    .bind("focus.mask", function() {
+                        clearTimeout(caretTimeoutId);
+                        var pos,
+                            moveCaret;
 
-				    focusText = input.val();
-				    pos = checkVal();
+                        focusText = input.val();
+                        pos = checkVal();
 
-				    caretTimeoutId = setTimeout(function () {
-				        writeBuffer();
-				        if (pos == mask.length) {
-				            input.caret(0, pos);
-				        } else {
-				            input.caret(pos);
-				        }
-				    }, 10);
-				})
-				.bind("blur.mask", function () {
-				    checkVal();
-				    if (input.val() != focusText)
-				        input.change();
-				})
-				.bind("keydown.mask", keydownEvent)
-				.bind("keypress.mask", keypressEvent)
-				.bind(pasteEventName, function () {
-				    setTimeout(function () {
-				        var pos = checkVal(true);
-				        input.caret(pos);
-				        if (settings.completed && pos == input.val().length)
-				            settings.completed.call(input);
-				    }, 0);
-				});
+                        caretTimeoutId = setTimeout(function() {
+                            writeBuffer();
+                            if (pos == mask.length) {
+                                input.caret(0, pos);
+                            } else {
+                                input.caret(pos);
+                            }
+                        }, 10);
+                    })
+                    .bind("blur.mask", function() {
+                        checkVal();
+                        if (input.val() != focusText)
+                            input.change();
+                    })
+                    .bind("keydown.mask", keydownEvent)
+                    .bind("keypress.mask", keypressEvent)
+                    .bind(pasteEventName, function() {
+                        setTimeout(function() {
+                            var pos = checkVal(true);
+                            input.caret(pos);
+                            if (settings.completed && pos == input.val().length)
+                                settings.completed.call(input);
+                        }, 0);
+                    });
             checkVal(); //Perform initial check for existing values
         });
     }

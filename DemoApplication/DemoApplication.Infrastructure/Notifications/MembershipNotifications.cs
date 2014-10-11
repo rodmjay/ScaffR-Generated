@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Notifications
 {
     #region
@@ -65,6 +68,5 @@ namespace DemoApplication.Infrastructure.Notifications
         {
             _controller.SendEmailChangedNotice(user).Deliver();
         }
-
     }
 }

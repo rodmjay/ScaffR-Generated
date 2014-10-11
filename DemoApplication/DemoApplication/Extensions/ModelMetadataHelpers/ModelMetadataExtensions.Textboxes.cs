@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.ModelMetadataHelpers
 {
     #region
@@ -30,7 +33,7 @@ namespace DemoApplication.Extensions.ModelMetadataHelpers
 
             metadata.AdditionalValues.TryGetValue("InputOptions", out options);
 
-            return (BootstrapInputOptions)options;
+            return (BootstrapInputOptions) options;
         }
     }
 }

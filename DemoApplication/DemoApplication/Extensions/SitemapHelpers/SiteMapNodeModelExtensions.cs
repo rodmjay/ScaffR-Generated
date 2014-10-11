@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.SitemapHelpers
 {
     #region
@@ -24,7 +27,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
             bool isRootNode = model.IsRootNode;
             bool isCurrentPath = model.IsInCurrentPath;
             bool isCurrentNode = model.IsCurrentNode;
-            
+
             //bool isCurrentNode = (context.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(model.Action, StringComparison.CurrentCultureIgnoreCase)
             //                     && context.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(model.Controller, StringComparison.InvariantCultureIgnoreCase));
 
@@ -32,7 +35,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
             {
                 return true;
             }
-                
+
 
             if (isCurrentPath && !isRootNode)
             {

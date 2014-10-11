@@ -19,6 +19,6 @@ namespace DemoApplication.Core.Model
         [ForeignKey("PaymentId")]
         public Payment Payment { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; } 
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

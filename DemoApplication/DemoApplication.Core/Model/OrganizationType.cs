@@ -11,7 +11,6 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum OrganizationType
     {
-        [EnumMember]
-        None = 0
+        [EnumMember] None = 0
     }
 }

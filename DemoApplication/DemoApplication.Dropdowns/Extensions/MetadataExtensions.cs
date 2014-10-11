@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Extensions
 {
     #region
@@ -19,8 +22,9 @@ namespace DemoApplication.Dropdowns.Extensions
 
     public static class MetadataExtensions
     {
-        public static ModelMetadata BuildDropdownListenerAttributes(this ModelMetadata metadata, TemplateInfo templateInfo, ref IDictionary<string, object> attributes)
-        {            
+        public static ModelMetadata BuildDropdownListenerAttributes(this ModelMetadata metadata,
+            TemplateInfo templateInfo, ref IDictionary<string, object> attributes)
+        {
             if (metadata.AdditionalValues.ContainsKey("dropdownlistener"))
             {
                 var parentName = metadata.AdditionalValues["dropdownlistener-parent"].ToString();
@@ -35,7 +39,8 @@ namespace DemoApplication.Dropdowns.Extensions
             return metadata;
         }
 
-        public static ModelMetadata BuildDropdownListenerWithSpecificValue(this ModelMetadata metadata, TemplateInfo templateInfo, ref IDictionary<string, object> attributes)
+        public static ModelMetadata BuildDropdownListenerWithSpecificValue(this ModelMetadata metadata,
+            TemplateInfo templateInfo, ref IDictionary<string, object> attributes)
         {
             if (metadata.AdditionalValues.ContainsKey("dropdownlistenerwithspecificvalue"))
             {
@@ -44,15 +49,18 @@ namespace DemoApplication.Dropdowns.Extensions
                 var id = templateInfo.GetFullHtmlFieldId(parentName);
 
                 attributes.Add("data-dropdownlistenerwithspecificvalue", true);
-                attributes.Add("data-dropdownlistenerwithspecificvalue-match", metadata.AdditionalValues["dropdownlistenerwithspecificvalue-match"]);
+                attributes.Add("data-dropdownlistenerwithspecificvalue-match",
+                    metadata.AdditionalValues["dropdownlistenerwithspecificvalue-match"]);
                 attributes.Add("data-dropdownlistenerwithspecificvalue-parent", parentName);
-                attributes.Add("data-dropdownlistenerwithspecificvalue-callback", metadata.AdditionalValues["dropdownlistenerwithspecificvalue-callback"]);
+                attributes.Add("data-dropdownlistenerwithspecificvalue-callback",
+                    metadata.AdditionalValues["dropdownlistenerwithspecificvalue-callback"]);
             }
 
             return metadata;
         }
 
-        public static ModelMetadata GetValue(this ModelMetadata metadata, string value, ref IDictionary<string, object> attrs)
+        public static ModelMetadata GetValue(this ModelMetadata metadata, string value,
+            ref IDictionary<string, object> attrs)
         {
             if (metadata.AdditionalValues.ContainsKey(value))
             {

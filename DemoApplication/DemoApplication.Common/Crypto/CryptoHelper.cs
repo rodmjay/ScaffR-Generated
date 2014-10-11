@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Common
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Common.Crypto
 {
     #region
@@ -53,7 +56,7 @@ namespace DemoApplication.Common.Crypto
                 if (count <= 0) return false;
 
                 hashedPassword = parts[1];
-                
+
                 return Crypto.VerifyHashedPassword(hashedPassword, password, count);
             }
             else
@@ -78,15 +81,16 @@ namespace DemoApplication.Common.Crypto
         }
 
         // from OWASP : https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet
-        const int StartYear = 2000;
-        const int StartCount = 1000;
+        private const int StartYear = 2000;
+        private const int StartCount = 1000;
+
         internal static int GetIterationsFromYear(int year)
         {
             if (year > StartYear)
             {
-                var diff = (year - StartYear) / 2;
-                var mul = (int)Math.Pow(2, diff);
-                int count = StartCount * mul;
+                var diff = (year - StartYear)/2;
+                var mul = (int) Math.Pow(2, diff);
+                int count = StartCount*mul;
                 // if we go negative, then we wrapped (expected in year ~2044). 
                 // Int32.Max is best we can do at this point
                 if (count < 0) count = Int32.MaxValue;

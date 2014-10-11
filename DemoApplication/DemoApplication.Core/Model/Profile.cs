@@ -26,7 +26,7 @@ namespace DemoApplication.Core.Model
         public virtual ICollection<Membership> Members { get; set; }
         public virtual ICollection<Contact> Contacts { get; set; }
 
-        #endregion    
+        #endregion
 
         //public virtual ICollection<Contact> Contacts { get; set; }
 

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Attributes
 {
     #region
@@ -30,7 +33,8 @@ namespace DemoApplication.Dropdowns.Attributes
         private DropdownSize _textboxSize = DropdownSize.XLarge;
 
         public DropDownAttribute(string methodName, params object[] arguments)
-            : this(methodName, "DropDown", DependencyResolver.Current.GetService<IDropdownProvider>().GetType(), arguments)
+            : this(
+                methodName, "DropDown", DependencyResolver.Current.GetService<IDropdownProvider>().GetType(), arguments)
         {
         }
 
@@ -77,7 +81,7 @@ namespace DemoApplication.Dropdowns.Attributes
             var serviceInstance = Activator.CreateInstance(_serviceType);
             var methodInfo = _serviceType.GetMethod(_methodName);
 
-            return methodInfo.Invoke(serviceInstance, new[] { parentValue }) as IEnumerable<SelectListItem>;
+            return methodInfo.Invoke(serviceInstance, new[] {parentValue}) as IEnumerable<SelectListItem>;
         }
 
         public virtual void OnMetadataCreated(ModelMetadata metadata)

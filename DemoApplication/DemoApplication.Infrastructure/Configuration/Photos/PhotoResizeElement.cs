@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Photos
 {
     #region
@@ -28,15 +31,9 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("name")]
         public string Name
         {
-            get
-            {
-                return (string)base["name"];
-            }
+            get { return (string) base["name"]; }
 
-            set
-            {
-                base["name"] = value;
-            }
+            set { base["name"] = value; }
         }
 
         /// <summary>
@@ -45,15 +42,9 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("width")]
         public int Width
         {
-            get
-            {
-                return (int)base["width"];
-            }
+            get { return (int) base["width"]; }
 
-            set
-            {
-                base["width"] = value;
-            }
+            set { base["width"] = value; }
         }
 
         /// <summary>
@@ -62,15 +53,9 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         [ConfigurationProperty("height")]
         public int Height
         {
-            get
-            {
-                return (int)base["height"];
-            }
+            get { return (int) base["height"]; }
 
-            set
-            {
-                base["height"] = value;
-            }
+            set { base["height"] = value; }
         }
     }
 }

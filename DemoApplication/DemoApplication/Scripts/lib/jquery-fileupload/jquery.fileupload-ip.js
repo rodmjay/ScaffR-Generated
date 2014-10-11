@@ -12,7 +12,7 @@
 /*jslint nomen: true, unparam: true, regexp: true */
 /*global define, window, document */
 
-(function (factory) {
+(function(factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
         // Register as an anonymous AMD module:
@@ -30,13 +30,12 @@
             window.canvasToBlob
         );
     }
-}(function ($, loadImage, canvasToBlob) {
+}(function($, loadImage, canvasToBlob) {
     'use strict';
 
     // The File Upload IP version extends the basic fileupload widget
     // with image processing functionality:
     $.widget('blueimpIP.fileupload', $.blueimp.fileupload, {
-
         options: {
             // The regular expression to define which image files are to be
             // resized, given that the browser supports the operation:
@@ -55,8 +54,8 @@
             // The add callback is invoked as soon as files are added to the fileupload
             // widget (via file input selection, drag & drop or add API call).
             // See the basic file upload widget for more information:
-            add: function (e, data) {
-                $(this).fileupload('resize', data).done(function () {
+            add: function(e, data) {
+                $(this).fileupload('resize', data).done(function() {
                     data.submit();
                 });
             }
@@ -64,7 +63,7 @@
 
         // Resizes the image file at the given index and stores the created blob
         // at the original position of the files list, returns a Promise object:
-        _resizeImage: function (files, index, options) {
+        _resizeImage: function(files, index, options) {
             var that = this,
                 file = files[index],
                 deferred = $.Deferred(),
@@ -73,7 +72,7 @@
             options = options || this.options;
             loadImage(
                 file,
-                function (img) {
+                function(img) {
                     var width = img.width,
                         height = img.height;
                     canvas = loadImage.scale(img, {
@@ -84,7 +83,7 @@
                         canvas: true
                     });
                     if (width !== canvas.width || height !== canvas.height) {
-                        canvasToBlob(canvas, function (blob) {
+                        canvasToBlob(canvas, function(blob) {
                             if (!blob.name) {
                                 if (file.type === blob.type) {
                                     blob.name = file.name;
@@ -109,28 +108,28 @@
         // Resizes the images given as files property of the data parameter,
         // returns a Promise object that allows to bind a done handler, which
         // will be invoked after processing all images is done:
-        resize: function (data) {
+        resize: function(data) {
             var that = this,
                 options = $.extend({}, this.options, data),
                 resizeAll = $.type(options.resizeSourceMaxFileSize) !== 'number',
                 isXHRUpload = this._isXHRUpload(options);
-            $.each(data.files, function (index, file) {
+            $.each(data.files, function(index, file) {
                 if (isXHRUpload && that._resizeSupport &&
-                        (options.resizeMaxWidth || options.resizeMaxHeight ||
-                            options.resizeMinWidth || options.resizeMinHeight) &&
-                        (resizeAll || file.size < options.resizeSourceMaxFileSize) &&
-                        options.resizeSourceFileTypes.test(file.type)) {
+                    (options.resizeMaxWidth || options.resizeMaxHeight ||
+                        options.resizeMinWidth || options.resizeMinHeight) &&
+                    (resizeAll || file.size < options.resizeSourceMaxFileSize) &&
+                    options.resizeSourceFileTypes.test(file.type)) {
                     that._processing += 1;
                     if (that._processing === 1) {
                         that.element.addClass('fileupload-processing');
                     }
-                    that._processingQueue = that._processingQueue.pipe(function () {
+                    that._processingQueue = that._processingQueue.pipe(function() {
                         var deferred = $.Deferred();
                         that._resizeImage(
                             data.files,
                             index,
                             options
-                        ).done(function () {
+                        ).done(function() {
                             that._processing -= 1;
                             if (that._processing === 0) {
                                 that.element
@@ -145,7 +144,7 @@
             return this._processingQueue;
         },
 
-        _create: function () {
+        _create: function() {
             $.blueimp.fileupload.prototype._create.call(this);
             this._processing = 0;
             this._processingQueue = $.Deferred().resolveWith(this).promise();

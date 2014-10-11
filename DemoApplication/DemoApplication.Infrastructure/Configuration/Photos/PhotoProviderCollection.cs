@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Photos
 {
     #region
@@ -34,10 +37,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
         /// </returns>
         public new PhotoProvider this[string name]
         {
-            get
-            {
-                return (PhotoProvider)base[name];
-            }
+            get { return (PhotoProvider) base[name]; }
         }
 
         /// <summary>

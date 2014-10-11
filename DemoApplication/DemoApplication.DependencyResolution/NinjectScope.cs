@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.DependencyResolution
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.DependencyResolution
 {
     #region
@@ -65,7 +68,7 @@ namespace DemoApplication.DependencyResolution
         /// </summary>
         public void Dispose()
         {
-            var disposable = (IDisposable)this.ResolutionRoot;
+            var disposable = (IDisposable) this.ResolutionRoot;
             if (disposable != null) disposable.Dispose();
             this.ResolutionRoot = null;
         }

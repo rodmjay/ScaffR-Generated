@@ -11,7 +11,8 @@
     {
         private readonly IRepository<ProductList> _productListRepository;
 
-        public CampaignService(IUnitOfWork unitOfWork, IRepository<ProductList> productListRepository ) : base(unitOfWork)
+        public CampaignService(IUnitOfWork unitOfWork, IRepository<ProductList> productListRepository)
+            : base(unitOfWork)
         {
             _productListRepository = productListRepository;
         }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Configuration.Pipeline
 {
     #region
@@ -22,13 +25,13 @@ namespace DemoApplication.Infrastructure.Configuration.Pipeline
         [ConfigurationProperty("processor", IsRequired = false)]
         public string ProcessorType
         {
-            get { return (string)base["processor"]; }
+            get { return (string) base["processor"]; }
         }
 
-        [ConfigurationProperty("filters", IsDefaultCollection = false)]       
+        [ConfigurationProperty("filters", IsDefaultCollection = false)]
         public ProviderSettingsCollection Filters
         {
-            get { return (ProviderSettingsCollection)this["filters"]; }
+            get { return (ProviderSettingsCollection) this["filters"]; }
         }
     }
 }

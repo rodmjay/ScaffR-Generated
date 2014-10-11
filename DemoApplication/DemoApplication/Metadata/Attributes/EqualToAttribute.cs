@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -63,11 +66,15 @@ namespace DemoApplication.Metadata.Attributes
             PropertyInfo otherPropertyInfo = validationContext.ObjectType.GetProperty(OtherProperty);
             if (otherPropertyInfo == null)
             {
-                return new ValidationResult(String.Format(CultureInfo.CurrentCulture, ValidatorResources.EqualTo_UnknownProperty, OtherProperty), memberNames);
+                return
+                    new ValidationResult(
+                        String.Format(CultureInfo.CurrentCulture, ValidatorResources.EqualTo_UnknownProperty,
+                            OtherProperty), memberNames);
             }
 
             var displayAttribute =
-                otherPropertyInfo.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute;
+                otherPropertyInfo.GetCustomAttributes(typeof (DisplayAttribute), false).FirstOrDefault() as
+                    DisplayAttribute;
 
             if (displayAttribute != null && !string.IsNullOrWhiteSpace(displayAttribute.Name))
             {

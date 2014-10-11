@@ -1,15 +1,15 @@
-﻿(function () {
+﻿(function() {
     var geocoder, autocomplete;
     // Method signature matching $.fn.each()'s, for easy use in the .each loop later.
-    var initialize = function (i, el) {
+    var initialize = function(i, el) {
         geocoder = new google.maps.Geocoder();
-                
+
         // el is the input element that we need to initialize a map for, jQuery-ize it,
         //  and cache that since we'll be using it a few times.
 
         var $address = $(this).closest('.control-group').find('[data-address]');
         var $input = $(el);
-        
+
         // Create the map div and insert it into the page.
         var $map = $('<div>', {
             css: {
@@ -18,8 +18,10 @@
             }
         }).insertAfter($input);
 
-        var parseLatLong = function (value) {
-            if (!value) { return undefined; }
+        var parseLatLong = function(value) {
+            if (!value) {
+                return undefined;
+            }
 
             var values = value.match(/-?\d+\.\d+/g);
 
@@ -58,7 +60,7 @@
             map: map
         });
 
-        var updateMarker = function (updateEvent) {
+        var updateMarker = function(updateEvent) {
             marker.setPosition(updateEvent.latLng);
 
             // This new location might be outside the current viewport, especially
@@ -69,7 +71,7 @@
             $input.val(marker.getPosition().toUrlValue(13));
         };
 
-        var setLocation = function (value) {
+        var setLocation = function(value) {
             var value = new google.maps.LatLng(value.latitude, value.longitude);
 
             updateMarker({ latLng: value });
@@ -88,20 +90,20 @@
         //        }
         //    });
         //}
-        
+
         // wire up autocomplete
         if ($address.length) {
 
             autocomplete = new google.maps.places.Autocomplete($address[0]);
             autocomplete.bindTo('bounds', map);
 
-            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 var place = autocomplete.getPlace();
                 if (place.geometry.viewport) {
                     map.fitBounds(place.geometry.viewport);
                 } else {
                     map.setCenter(place.geometry.location);
-                    map.setZoom(17);  // Why 17? Because it looks good.
+                    map.setZoom(17); // Why 17? Because it looks good.
                 }
 
                 marker.setPosition(place.geometry.location);

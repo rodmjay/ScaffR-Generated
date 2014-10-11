@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Extensions
 {
     #region
@@ -30,7 +33,7 @@ namespace DemoApplication.Security.Extensions
 
             return null;
         }
-        
+
         public static IEnumerable<string> GetValues(this IEnumerable<Claim> claims, string claimType)
         {
             if (claims == null) return Enumerable.Empty<string>();

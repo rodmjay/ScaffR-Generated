@@ -5,14 +5,14 @@ $(".sortableContent .column").sortable({
     items: "> .widget",
     handle: ".head",
     placeholder: "sortablePlaceholder",
-    start: function (event, ui) {
+    start: function(event, ui) {
         $(".sortablePlaceholder").height(ui.item.height());
     },
-    stop: function (event, ui) {
+    stop: function(event, ui) {
         var sorted = '';
-        $(".sortableContent .column").each(function () {
+        $(".sortableContent .column").each(function() {
             sorted += $(this).index() + ': ';
-            $(this).find('.widget').each(function () {
+            $(this).find('.widget').each(function() {
                 sorted += '#' + $(this).attr('id') + ', ';
             });
             sorted += ';<br/>';

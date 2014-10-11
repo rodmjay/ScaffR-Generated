@@ -5,14 +5,14 @@
 
 @if (User.IsInRole("Member") || User.IsInRole("Admin"))
 {
-    @section LeftColumn
+@section LeftColumn
 {
-        <ul class="nav nav-tabs nav-stacked" id="myTab">
-            <li class="active"><a href="#OrdersByCampaign">Orders By Campaign</a></li>
-            <li><a href="#OrdersInProgress">Orders In Progress</a></li>
-            <li><a href="#CustomersByState">Customers By State</a></li>
-        </ul>
-    }
+    <ul class="nav nav-tabs nav-stacked" id="myTab">
+        <li class="active"><a href="#OrdersByCampaign">Orders By Campaign</a></li>
+        <li><a href="#OrdersInProgress">Orders In Progress</a></li>
+        <li><a href="#CustomersByState">Customers By State</a></li>
+    </ul>
+}
 
     <div class="tab-content">
 
@@ -29,7 +29,4 @@
         </div>
 
     </div>
-
 }
-
-

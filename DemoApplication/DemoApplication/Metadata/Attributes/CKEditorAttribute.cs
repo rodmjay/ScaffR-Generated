@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -26,18 +29,15 @@ namespace DemoApplication.Metadata.Attributes
         public CKEditorAttribute()
             : this("CKEditor")
         {
-
         }
 
         public CKEditorAttribute(DataType dataType) : base(dataType)
         {
-            
         }
 
         public CKEditorAttribute(string dataType)
             : base(dataType)
         {
-
         }
 
         public bool UseCKFinder
@@ -63,8 +63,6 @@ namespace DemoApplication.Metadata.Attributes
             metadata.AdditionalValues["class"] = _class;
             metadata.AdditionalValues["ckfinder"] = UseCKFinder.ToString();
             metadata.AdditionalValues["toolbar-config"] = _toolbalConfig;
-
         }
     }
-
 }

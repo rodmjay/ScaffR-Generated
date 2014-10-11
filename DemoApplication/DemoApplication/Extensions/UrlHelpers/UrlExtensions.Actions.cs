@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.UrlHelpers
 {
     #region
@@ -18,7 +21,8 @@ namespace DemoApplication.Extensions.UrlHelpers
 
     public static partial class UrlExtensions
     {
-        public static string AbsoluteAction(this UrlHelper url, string actionName, string controllerName, object routeValues = null)
+        public static string AbsoluteAction(this UrlHelper url, string actionName, string controllerName,
+            object routeValues = null)
         {
             if (url.RequestContext.HttpContext.Request.Url != null)
             {
@@ -27,6 +31,5 @@ namespace DemoApplication.Extensions.UrlHelpers
             }
             return null;
         }
-       
     }
 }

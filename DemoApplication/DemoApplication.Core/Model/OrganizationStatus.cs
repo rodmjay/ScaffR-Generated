@@ -7,13 +7,10 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum OrganizationStatus
     {
-        [EnumMember]
-        None = 0,
+        [EnumMember] None = 0,
 
-        [EnumMember]
-        Active = 1,
+        [EnumMember] Active = 1,
 
-        [EnumMember]
-        Inactive = 2
+        [EnumMember] Inactive = 2
     }
 }

@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authentication
 {
     #region
@@ -53,35 +56,43 @@ namespace DemoApplication.Security.Authentication
             var cp = new ClaimsPrincipal(id);
 
             // claims transform
-            cp = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager.Authenticate(String.Empty, cp);
+            cp =
+                FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager
+                    .Authenticate(String.Empty, cp);
 
             // issue cookie
             var sam = FederatedAuthentication.SessionAuthenticationModule;
             if (sam == null)
                 throw new Exception("SessionAuthenticationModule is not configured and it needs to be.");
 
-            var token = new SessionSecurityToken(cp, isPersistant ?  FormsAuthentication.Timeout : TimeSpan.FromMinutes(SessionHelpers.GetSessionTimeoutInMinutes))
-                {
-                    IsPersistent = isPersistant
-                };
+            var token = new SessionSecurityToken(cp,
+                isPersistant
+                    ? FormsAuthentication.Timeout
+                    : TimeSpan.FromMinutes(SessionHelpers.GetSessionTimeoutInMinutes))
+            {
+                IsPersistent = isPersistant
+            };
             sam.WriteSessionTokenToCookie(token);
 
-            Tracing.Verbose(String.Format("[ClaimsBasedAuthenticationService.Signin] cookie issued: {0}", claims.GetValue(ClaimTypes.NameIdentifier)));
+            Tracing.Verbose(String.Format("[ClaimsBasedAuthenticationService.Signin] cookie issued: {0}",
+                claims.GetValue(ClaimTypes.NameIdentifier)));
         }
 
         public virtual void SignOut()
         {
-            Tracing.Information(String.Format("[ClaimsBasedAuthenticationService.SignOut] called: {0}", ClaimsPrincipal.Current.Claims.GetValue(ClaimTypes.NameIdentifier)));
+            Tracing.Information(String.Format("[ClaimsBasedAuthenticationService.SignOut] called: {0}",
+                ClaimsPrincipal.Current.Claims.GetValue(ClaimTypes.NameIdentifier)));
 
             // clear cookie
             var sam = FederatedAuthentication.SessionAuthenticationModule;
             if (sam == null)
             {
-                Tracing.Verbose("[ClaimsBasedAuthenticationService.Signout] SessionAuthenticationModule is not configured");
+                Tracing.Verbose(
+                    "[ClaimsBasedAuthenticationService.Signout] SessionAuthenticationModule is not configured");
                 throw new Exception("SessionAuthenticationModule is not configured and it needs to be.");
             }
 
-            sam.SignOut();            
+            sam.SignOut();
         }
     }
 }

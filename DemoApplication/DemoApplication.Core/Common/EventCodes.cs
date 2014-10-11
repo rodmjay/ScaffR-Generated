@@ -9,6 +9,5 @@ namespace DemoApplication.Core.Common
     public enum EventCodes : int
     {
         // membership events
-
     }
 }

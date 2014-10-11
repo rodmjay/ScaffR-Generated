@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
@@ -42,12 +45,13 @@ namespace DemoApplication.Extensions.HtmlHelpers
         /// <param name="type">The type.</param>
         /// <param name="classesToAdd">The classes to add.</param>
         /// <returns>IDictionary{System.StringSystem.Object}.</returns>
-        public static IDictionary<string, object> GetTextboxAttributes(this HtmlHelper helper, string type, params string[] classesToAdd)
+        public static IDictionary<string, object> GetTextboxAttributes(this HtmlHelper helper, string type,
+            params string[] classesToAdd)
         {
             var options = helper.ViewData.ModelMetadata.GetOptions();
 
             var attrs = new Dictionary<string, object>();
-            var classes = new List<string> { "text-box" };
+            var classes = new List<string> {"text-box"};
 
             if (!string.IsNullOrEmpty(type))
             {

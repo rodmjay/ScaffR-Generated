@@ -11,6 +11,5 @@ namespace DemoApplication.Controllers.Invitations
         {
             return View(new InvitationInfo());
         }
-
     }
 }

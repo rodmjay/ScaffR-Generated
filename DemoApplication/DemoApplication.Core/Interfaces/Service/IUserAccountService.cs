@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Interfaces.Service
 {
     #region
@@ -35,8 +38,13 @@ namespace DemoApplication.Core.Interfaces.Service
         bool UsernameExists(string tenant, string username);
         bool EmailExists(string email);
         bool EmailExists(string tenant, string email);
-        IValidationContainer<User> CreateAccount(string username, string password, string email, string firstName, string lastName, string phone, string address);
-        IValidationContainer<User> CreateAccount(string tenant, string username, string password, string email, string firstName, string lastName, string phone, string address);
+
+        IValidationContainer<User> CreateAccount(string username, string password, string email, string firstName,
+            string lastName, string phone, string address);
+
+        IValidationContainer<User> CreateAccount(string tenant, string username, string password, string email,
+            string firstName, string lastName, string phone, string address);
+
         IValidationContainer<User> VerifyAccount(string key);
         bool CancelNewAccount(string key);
         bool DeleteAccount(string username);

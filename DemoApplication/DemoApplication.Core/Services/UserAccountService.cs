@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Services
 {
     #region
@@ -30,9 +33,9 @@ namespace DemoApplication.Core.Services
 
     public class UserAccountService : IDisposable, IUserAccountService
     {
-        IUserRepository userRepository;
-        readonly INotificationService notificationService;
-        readonly IPasswordPolicy passwordPolicy;
+        private IUserRepository userRepository;
+        private readonly INotificationService notificationService;
+        private readonly IPasswordPolicy passwordPolicy;
         private readonly IMembershipSettings _settings;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -101,7 +104,8 @@ namespace DemoApplication.Core.Services
             var account = userRepository.GetAll().SingleOrDefault(x => x.Tenant == tenant && x.Username == username);
             if (account == null)
             {
-                Tracing.Verbose(String.Format("[UserAccountService.GetByUsername] failed to locate account: {0}, {1}", tenant, username));
+                Tracing.Verbose(String.Format("[UserAccountService.GetByUsername] failed to locate account: {0}, {1}",
+                    tenant, username));
             }
             return account;
         }
@@ -124,7 +128,8 @@ namespace DemoApplication.Core.Services
             var account = userRepository.GetAll().SingleOrDefault(x => x.Tenant == tenant && x.Email == email);
             if (account == null)
             {
-                Tracing.Verbose(String.Format("[UserAccountService.GetByEmail] failed to locate account: {0}, {1}", tenant, email));
+                Tracing.Verbose(String.Format("[UserAccountService.GetByEmail] failed to locate account: {0}, {1}",
+                    tenant, email));
             }
             return account;
         }
@@ -146,7 +151,8 @@ namespace DemoApplication.Core.Services
             var account = userRepository.GetAll().Where(x => x.VerificationKey == key).SingleOrDefault();
             if (account == null)
             {
-                Tracing.Verbose(String.Format("[UserAccountService.GetByVerificationKey] failed to locate account: {0}", key));
+                Tracing.Verbose(String.Format(
+                    "[UserAccountService.GetByVerificationKey] failed to locate account: {0}", key));
             }
             return account;
         }
@@ -195,14 +201,17 @@ namespace DemoApplication.Core.Services
             return this.userRepository.GetAll().Any(x => x.Tenant == tenant && x.Email == email);
         }
 
-        public virtual IValidationContainer<User> CreateAccount(string username, string password, string email, string firstName, string lastName, string phone, string address)
+        public virtual IValidationContainer<User> CreateAccount(string username, string password, string email,
+            string firstName, string lastName, string phone, string address)
         {
             return CreateAccount(null, username, password, email, firstName, lastName, phone, address);
         }
 
-        public virtual IValidationContainer<User> CreateAccount(string tenant, string username, string password, string email, string firstName, string lastName, string phone, string address)
+        public virtual IValidationContainer<User> CreateAccount(string tenant, string username, string password,
+            string email, string firstName, string lastName, string phone, string address)
         {
-            Tracing.Information(String.Format("[UserAccountService.CreateAccount] called: {0}, {1}, {2}", tenant, username, email));
+            Tracing.Information(String.Format("[UserAccountService.CreateAccount] called: {0}, {1}, {2}", tenant,
+                username, email));
 
             if (_settings.EmailIsUsername)
             {
@@ -228,14 +237,17 @@ namespace DemoApplication.Core.Services
             var validator = new EmailAddressAttribute();
             if (!validator.IsValid(email))
             {
-                Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Email validation failed: {0}, {1}, {2}", tenant, username, email));
+                Tracing.Verbose(
+                    String.Format("[UserAccountService.CreateAccount] Email validation failed: {0}, {1}, {2}", tenant,
+                        username, email));
 
                 throw new ValidationException("Email is invalid.");
             }
 
             if (UsernameExists(tenant, username))
             {
-                Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Username already exists: {0}, {1}", tenant, username));
+                Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Username already exists: {0}, {1}",
+                    tenant, username));
 
                 var msg = _settings.EmailIsUsername ? "Email" : "Username";
                 throw new ValidationException(msg + " already in use.");
@@ -243,18 +255,19 @@ namespace DemoApplication.Core.Services
 
             if (EmailExists(tenant, username))
             {
-                Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Email already exists: {0}, {1}, {2}", tenant, username, email));
+                Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Email already exists: {0}, {1}, {2}",
+                    tenant, username, email));
 
                 throw new ValidationException("Email already in use.");
             }
 
             var account = new User(tenant, username, password, email)
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Address = address,
-                    PhoneNumber = phone
-                };
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Address = address,
+                PhoneNumber = phone
+            };
 
             var validation = account.GetValidationContainer();
             if (!validation.IsValid)
@@ -284,7 +297,8 @@ namespace DemoApplication.Core.Services
             {
                 if (!passwordPolicy.ValidatePassword(password))
                 {
-                    Tracing.Verbose(String.Format("[ValidatePassword] Failed: {0}, {1}, {2}", tenant, username, passwordPolicy.PolicyMessage));
+                    Tracing.Verbose(String.Format("[ValidatePassword] Failed: {0}, {1}, {2}", tenant, username,
+                        passwordPolicy.PolicyMessage));
 
                     throw new ValidationException("Invalid password: " + passwordPolicy.PolicyMessage);
                 }
@@ -300,11 +314,12 @@ namespace DemoApplication.Core.Services
 
             var container = account.GetValidationContainer();
 
-            Tracing.Verbose(String.Format("[UserAccountService.VerifyAccount] account located: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.VerifyAccount] account located: {0}, {1}", account.Tenant,
+                account.Username));
 
             var result = account.VerifyAccount(key);
             if (result == false)
-                container.ValidationErrors.Add("", new List<string>(){"Unable to verify account"});
+                container.ValidationErrors.Add("", new List<string>() {"Unable to verify account"});
 
             this.userRepository.SaveOrUpdate(account);
 
@@ -323,12 +338,14 @@ namespace DemoApplication.Core.Services
             var account = this.GetByVerificationKey(key);
             if (account == null) return false;
 
-            Tracing.Verbose(String.Format("[UserAccountService.CancelNewAccount] account located: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.CancelNewAccount] account located: {0}, {1}",
+                account.Tenant, account.Username));
 
             if (account.IsAccountVerified) return false;
             if (account.VerificationKey != key) return false;
 
-            Tracing.Verbose(String.Format("[UserAccountService.CancelNewAccount] deleting account: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.CancelNewAccount] deleting account: {0}, {1}",
+                account.Tenant, account.Username));
 
             DeleteAccount(account);
 
@@ -364,12 +381,14 @@ namespace DemoApplication.Core.Services
         {
             if (_settings.AllowAccountDeletion || !account.IsAccountVerified)
             {
-                Tracing.Verbose(String.Format("[UserAccountService.DeleteAccount] removing account record: {0}, {1}", account.Tenant, account.Username));
+                Tracing.Verbose(String.Format("[UserAccountService.DeleteAccount] removing account record: {0}, {1}",
+                    account.Tenant, account.Username));
                 this.userRepository.Delete(account);
             }
             else
             {
-                Tracing.Verbose(String.Format("[UserAccountService.DeleteAccount] marking account closed: {0}, {1}", account.Tenant, account.Username));
+                Tracing.Verbose(String.Format("[UserAccountService.DeleteAccount] marking account closed: {0}, {1}",
+                    account.Tenant, account.Username));
                 account.CloseAccount();
             }
 
@@ -428,7 +447,8 @@ namespace DemoApplication.Core.Services
             return Authenticate(account, password, failedLoginCount, lockoutDuration);
         }
 
-        protected internal virtual IValidationContainer<User> Authenticate(User account, string password, int failedLoginCount, TimeSpan lockoutDuration)
+        protected internal virtual IValidationContainer<User> Authenticate(User account, string password,
+            int failedLoginCount, TimeSpan lockoutDuration)
         {
             var container = account.GetValidationContainer();
             if (!container.IsValid)
@@ -442,7 +462,8 @@ namespace DemoApplication.Core.Services
             this.userRepository.SaveOrUpdate(account);
             _unitOfWork.Commit();
 
-            Tracing.Verbose(String.Format("[UserAccountService.Authenticate] authentication outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful Login" : "Failed Login"));
+            Tracing.Verbose(String.Format("[UserAccountService.Authenticate] authentication outcome: {0}, {1}, {2}",
+                account.Tenant, account.Username, result ? "Successful Login" : "Failed Login"));
 
             return container;
         }
@@ -498,11 +519,12 @@ namespace DemoApplication.Core.Services
             try
             {
                 result = account.ChangePassword(oldPassword, newPassword, failedLoginCount, lockoutDuration);
-                Tracing.Verbose(String.Format("[UserAccountService.ChangePassword] change password outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful" : "Failed"));
+                Tracing.Verbose(
+                    String.Format("[UserAccountService.ChangePassword] change password outcome: {0}, {1}, {2}",
+                        account.Tenant, account.Username, result ? "Successful" : "Failed"));
             }
             finally
             {
-
                 this.userRepository.SaveOrUpdate(account);
 
                 if (result && this.notificationService != null)
@@ -545,27 +567,33 @@ namespace DemoApplication.Core.Services
                 if (_settings.RequireAccountVerification &&
                     this.notificationService != null)
                 {
-                    Tracing.Verbose(String.Format("[UserAccountService.ResetPassword] account not verified, re-sending account create notification: {0}, {1}", account.Tenant, account.Username));
+                    Tracing.Verbose(
+                        String.Format(
+                            "[UserAccountService.ResetPassword] account not verified, re-sending account create notification: {0}, {1}",
+                            account.Tenant, account.Username));
 
                     this.notificationService.SendAccountCreate(account);
                     return container;
                 }
 
                 // if we don't have a notification system then not much we can do
-                Tracing.Warning(String.Format("[UserAccountService.ResetPassword] account not verified, no notification to re-send invite: {0}, {1}", account.Tenant, account.Username));
+                Tracing.Warning(
+                    String.Format(
+                        "[UserAccountService.ResetPassword] account not verified, no notification to re-send invite: {0}, {1}",
+                        account.Tenant, account.Username));
 
-                container.ValidationErrors.Add("", new List<string>() { "Account not yet verified" });
+                container.ValidationErrors.Add("", new List<string>() {"Account not yet verified"});
 
                 return container;
             }
 
             var result = account.ResetPassword();
 
-            Tracing.Verbose(String.Format("[UserAccountService.ResetPassword] reset password outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful" : "Failed"));
+            Tracing.Verbose(String.Format("[UserAccountService.ResetPassword] reset password outcome: {0}, {1}, {2}",
+                account.Tenant, account.Username, result ? "Successful" : "Failed"));
 
             if (result)
             {
-
                 this.userRepository.SaveOrUpdate(account);
 
                 if (this.notificationService != null)
@@ -588,13 +616,16 @@ namespace DemoApplication.Core.Services
             var account = this.GetByVerificationKey(key);
             if (account == null) return false;
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangePasswordFromResetKey] account located: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.ChangePasswordFromResetKey] account located: {0}, {1}",
+                account.Tenant, account.Username));
 
             ValidatePassword(account.Tenant, account.Username, newPassword);
 
             var result = account.ChangePasswordFromResetKey(key, newPassword);
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangePasswordFromResetKey] change password outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful" : "Failed"));
+            Tracing.Verbose(
+                String.Format("[UserAccountService.ChangePasswordFromResetKey] change password outcome: {0}, {1}, {2}",
+                    account.Tenant, account.Username, result ? "Successful" : "Failed"));
 
             if (result)
             {
@@ -621,7 +652,8 @@ namespace DemoApplication.Core.Services
                 throw new InvalidOperationException("NotificationService not configured.");
             }
 
-            Tracing.Information(String.Format("[UserAccountService.SendUsernameReminder] called: {0}, {1}", tenant, email));
+            Tracing.Information(String.Format("[UserAccountService.SendUsernameReminder] called: {0}, {1}", tenant,
+                email));
 
             if (!_settings.MultiTenant)
             {
@@ -634,7 +666,8 @@ namespace DemoApplication.Core.Services
             var account = this.GetByEmail(tenant, email);
             if (account != null)
             {
-                Tracing.Verbose(String.Format("[UserAccountService.SendUsernameReminder] account located: {0}, {1}", account.Tenant, account.Username));
+                Tracing.Verbose(String.Format("[UserAccountService.SendUsernameReminder] account located: {0}, {1}",
+                    account.Tenant, account.Username));
 
                 this.notificationService.SendAccountNameReminder(account);
             }
@@ -647,12 +680,16 @@ namespace DemoApplication.Core.Services
 
         public virtual bool ChangeEmailRequest(string tenant, string username, string newEmail)
         {
-            Tracing.Information(String.Format("[UserAccountService.ChangeEmailRequest] called: {0}, {1}, {2}", tenant, username, newEmail));
+            Tracing.Information(String.Format("[UserAccountService.ChangeEmailRequest] called: {0}, {1}, {2}", tenant,
+                username, newEmail));
 
             if (_settings.EmailIsUsername &&
                 !_settings.AllowEmailChangeWhenEmailIsUsername)
             {
-                Tracing.Warning(String.Format("[UserAccountService.ChangeEmailRequest] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is false, so change request failed: {0}, {1}, {2}", tenant, username, newEmail));
+                Tracing.Warning(
+                    String.Format(
+                        "[UserAccountService.ChangeEmailRequest] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is false, so change request failed: {0}, {1}, {2}",
+                        tenant, username, newEmail));
 
                 return false;
             }
@@ -669,7 +706,9 @@ namespace DemoApplication.Core.Services
             EmailAddressAttribute validator = new EmailAddressAttribute();
             if (!validator.IsValid(newEmail))
             {
-                Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailRequest] email validation failed: {0}, {1}, {2}", tenant, username, newEmail));
+                Tracing.Verbose(
+                    String.Format("[UserAccountService.ChangeEmailRequest] email validation failed: {0}, {1}, {2}",
+                        tenant, username, newEmail));
 
                 throw new ValidationException("Email is invalid.");
             }
@@ -677,11 +716,14 @@ namespace DemoApplication.Core.Services
             var account = this.GetByUsername(tenant, username);
             if (account == null) return false;
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailRequest] account located: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailRequest] account located: {0}, {1}",
+                account.Tenant, account.Username));
 
             var result = account.ChangeEmailRequest(newEmail);
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailRequest] change request outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful" : "Failed"));
+            Tracing.Verbose(
+                String.Format("[UserAccountService.ChangeEmailRequest] change request outcome: {0}, {1}, {2}",
+                    account.Tenant, account.Username, result ? "Successful" : "Failed"));
 
             if (result)
             {
@@ -718,7 +760,10 @@ namespace DemoApplication.Core.Services
             if (_settings.EmailIsUsername &&
                 !_settings.AllowEmailChangeWhenEmailIsUsername)
             {
-                Tracing.Warning(String.Format("[UserAccountService.ChangeEmailFromKey] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is false, so change request failed: key: {0}, new email: {1}", key, newEmail));
+                Tracing.Warning(
+                    String.Format(
+                        "[UserAccountService.ChangeEmailFromKey] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is false, so change request failed: key: {0}, new email: {1}",
+                        key, newEmail));
 
                 return false;
             }
@@ -730,7 +775,8 @@ namespace DemoApplication.Core.Services
             var account = this.GetByVerificationKey(key);
             if (account == null) return false;
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailFromKey] account located: {0}, {1}", account.Tenant, account.Username));
+            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailFromKey] account located: {0}, {1}",
+                account.Tenant, account.Username));
 
             if (!Authenticate(account, password, failedLoginCount, lockoutDuration).IsValid)
             {
@@ -744,11 +790,16 @@ namespace DemoApplication.Core.Services
                 _settings.EmailIsUsername &&
                 _settings.AllowEmailChangeWhenEmailIsUsername)
             {
-                Tracing.Warning(String.Format("[UserAccountService.ChangeEmailFromKey] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is true, so changing username: {0}, to: {1}", account.Username, newEmail));
+                Tracing.Warning(
+                    String.Format(
+                        "[UserAccountService.ChangeEmailFromKey] security setting EmailIsUsername is true and AllowEmailChangeWhenEmailIsUsername is true, so changing username: {0}, to: {1}",
+                        account.Username, newEmail));
                 account.Username = newEmail;
             }
 
-            Tracing.Verbose(String.Format("[UserAccountService.ChangeEmailFromKey] change email outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful" : "Failed"));
+            Tracing.Verbose(String.Format(
+                "[UserAccountService.ChangeEmailFromKey] change email outcome: {0}, {1}, {2}", account.Tenant,
+                account.Username, result ? "Successful" : "Failed"));
 
             if (result)
             {

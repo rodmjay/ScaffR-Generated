@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Users
 {
     #region
@@ -35,9 +38,12 @@ namespace DemoApplication.Controllers.Users
             model.InjectFrom<UnflatLoopValueInjection>(user);
             model.Username = user.Username;
 
-            model.Logs = _logging.Find(x => x.Username == user.Username && x.Tenant == user.Tenant).OrderByDescending(x=>x.Created).ToList();
+            model.Logs =
+                _logging.Find(x => x.Username == user.Username && x.Tenant == user.Tenant)
+                    .OrderByDescending(x => x.Created)
+                    .ToList();
 
             return View(model);
-        }       
+        }
     }
 }

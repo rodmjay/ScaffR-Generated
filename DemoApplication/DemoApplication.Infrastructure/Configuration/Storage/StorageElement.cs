@@ -10,10 +10,7 @@ namespace DemoApplication.Infrastructure.Configuration.Storage
         [ConfigurationProperty("providers")]
         public ProviderSettingsCollection Providers
         {
-            get
-            {
-                return (ProviderSettingsCollection)base["providers"];
-            }
+            get { return (ProviderSettingsCollection) base["providers"]; }
         }
 
         /// <summary>
@@ -23,15 +20,9 @@ namespace DemoApplication.Infrastructure.Configuration.Storage
         [ConfigurationProperty("defaultProvider", DefaultValue = "FileSystem")]
         public string DefaultProvider
         {
-            get
-            {
-                return (string)base["defaultProvider"];
-            }
+            get { return (string) base["defaultProvider"]; }
 
-            set
-            {
-                base["defaultProvider"] = value;
-            }
+            set { base["defaultProvider"] = value; }
         }
     }
 }

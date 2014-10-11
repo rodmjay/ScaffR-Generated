@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -37,5 +40,5 @@ namespace DemoApplication.Infrastructure.Data
             modelBuilder.Entity<Profile>().ToTable("Org_Profile");
             modelBuilder.Entity<Vendor>().ToTable("Vendor");
         }
-    }    
+    }
 }

@@ -1,18 +1,18 @@
 ﻿var urlRoot = urlRoot || '/';
 
-(function ($) {
+(function($) {
 
-    $(function () {
+    $(function() {
 
-        $('[data-click-outside-behavior]').bind('click', function (e) {
+        $('[data-click-outside-behavior]').bind('click', function(e) {
             if (e.target.nodeName != "A" && e.target.nodeName != "INPUT") {
                 e.stopPropagation();
             }
         });
 
-        $(document).delegate('html', 'click', function (e) {
+        $(document).delegate('html', 'click', function(e) {
 
-            $('[data-click-outside-behavior=close]').each(function () {
+            $('[data-click-outside-behavior=close]').each(function() {
                 $(this).closest('[data-click-outside-container=true]').removeClass('open');
             });
 
@@ -20,12 +20,10 @@
     });
 
 
-
-
-    var init = function () {
+    var init = function() {
         // normalize all select lists
-        $('select').each(function () {
-            $(this).find('option').each(function () {
+        $('select').each(function() {
+            $(this).find('option').each(function() {
                 var a = $(this).attr('value');
                 if (!a) {
                     $(this).attr('value', '');
@@ -35,20 +33,20 @@
         });
 
         // any dropdown listener
-        $('[data-dropdownlistener]').each(function (idx, value) {
+        $('[data-dropdownlistener]').each(function(idx, value) {
 
             var parent, callback;
 
             parent = $(this).attr('data-dropdownlistener-parent');
             callback = $(this).attr('data-dropdownlistener-callback');
 
-            $('#' + parent).bind('change', function () {
+            $('#' + parent).bind('change', function() {
                 window[callback].apply(this, [parent]);
             });
 
         });
 
-        $('[data-dropdownlistenerwithspecificvalue]').each(function (idx, value) {
+        $('[data-dropdownlistenerwithspecificvalue]').each(function(idx, value) {
 
             var parent, match, callback;
 
@@ -56,21 +54,21 @@
             match = $(this).attr('data-dropdownlistenerwithspecificvalue-match');
             callback = $(this).attr('data-dropdownlistenerwithspecificvalue-callback');
 
-            $('#' + parent).bind('change', function () {
+            $('#' + parent).bind('change', function() {
                 if ($(this).val() == match) {
                     window[callback].apply(this, [parent, match]);
                 }
             });
         });
-        
-        $('[data-enum]').each(function (idx, value) {
+
+        $('[data-enum]').each(function(idx, value) {
 
             var message, $this;
 
             message = $(this).data('message');
             $this = this;
 
-            var factory = function (msg) {
+            var factory = function(msg) {
 
                 // here is where you decide
                 var x;
@@ -81,16 +79,16 @@
                 }
 
                 return {
-                    buildValueSet: function (list) {
+                    buildValueSet: function(list) {
                         return x.buildValueSet.call($this, list);
                     },
-                    setEmpty: function () {
+                    setEmpty: function() {
                         return x.setEmpty.call($this);
                     },
-                    disable: function () {
+                    disable: function() {
                         return x.disable.call($this);
                     },
-                    enable: function () {
+                    enable: function() {
                         return x.enable.call($this);
                     }
                 };
@@ -99,7 +97,7 @@
         });
 
         // any cascading dropdown
-        $('[data-cascading-parent]').each(function (idx, value) {
+        $('[data-cascading-parent]').each(function(idx, value) {
 
             var parentId, method, message, heirarchy, $parent, $this;
 
@@ -110,7 +108,7 @@
             $this = this;
             $parent = $('[name="' + parentId + '"]');
 
-            var factory = function (msg) {
+            var factory = function(msg) {
 
                 // here is where you decide if it's a picklist or select list
                 var x;
@@ -120,27 +118,27 @@
                     x = dropdown.call($this, msg);
 
                 return {
-                    buildValueSet: function (list) {
+                    buildValueSet: function(list) {
                         return x.buildValueSet.call($this, list);
                     },
-                    setEmpty: function () {
+                    setEmpty: function() {
                         return x.setEmpty.call($this);
                     },
-                    disable: function () {
+                    disable: function() {
                         return x.disable.call($this);
                     },
-                    enable: function () {
+                    enable: function() {
                         return x.enable.call($this);
                     }
                 };
             }(message);
 
-            var getVal = function () {
+            var getVal = function() {
                 if (heirarchy == 'True') {
 
                     var data = [];
 
-                    var parentData = function (p) {
+                    var parentData = function(p) {
                         data.push(p.val());
                         if (p.data('parent')) {
                             var q = $('#' + p.data('parent'));
@@ -155,7 +153,7 @@
                 }
             };
 
-            var reload = function () {
+            var reload = function() {
                 factory.disable();
                 $.ajax({
                     url: urlRoot + 'dropdown/getdropdownfor',
@@ -164,7 +162,7 @@
                         method: method,
                         parameter: getVal()
                     },
-                    success: function (data) {
+                    success: function(data) {
                         factory.buildValueSet(data);
                         factory.enable();
                         $(value).trigger('reloaded');
@@ -173,7 +171,7 @@
                 });
             };
 
-            $parent.bind('change', function () {
+            $parent.bind('change', function() {
 
                 // parent is not selected (or empty.. which should never happen)
                 if (!$parent.val() || $parent.val() == "~")
@@ -183,7 +181,7 @@
             });
 
             // child of a cascading dropdown..
-            $parent.bind('reloaded', function () {
+            $parent.bind('reloaded', function() {
                 factory.setEmpty();
             });
 
@@ -193,7 +191,7 @@
             }
         });
 
-        $('.picklist-header').bind('click', function (e) {
+        $('.picklist-header').bind('click', function(e) {
 
             $(this).backgroundColor = '';
             e.stopPropagation();
@@ -203,12 +201,12 @@
 
     };
 
-   
+
     // cascading dropdown control
-    var dropdown = function (msg) {
+    var dropdown = function(msg) {
 
         return {
-            buildValueSet: function (list) {
+            buildValueSet: function(list) {
                 $(this).empty();
                 var html = "";
                 if (list.length == 0)
@@ -223,7 +221,7 @@
                     }
                 }
             },
-            setEmpty: function () {
+            setEmpty: function() {
                 $(this).empty();
                 $(this).append('<option value="">' + msg + '</option>');
                 $(this).attr('disabled', 'disabled');
@@ -239,7 +237,7 @@
     };
 
     // picklist control
-    var picklist = function (msg) {
+    var picklist = function(msg) {
 
         var $selectall = $(this).find('[data-dropdown-selectall]');
         var $filter = $(this).find('[data-dropdown-filter]');
@@ -249,7 +247,7 @@
         var $name = $(this).find('.picklist-header span');
         var pageHeight = $(window).height(); //Catch the height of page
 
-        $inner.css("overflow", "auto");//Define a scrollbar
+        $inner.css("overflow", "auto"); //Define a scrollbar
         $inner.css("max-height", pageHeight / 3 + "px"); //Define the height for the picklist
 
         $selectall.bind('click', function(e) {
@@ -312,14 +310,14 @@
             });
         });
 
-        var enable = function () {
+        var enable = function() {
             $inner.attr('enabled', 'enabled');
         };
 
         enable();
 
         return {
-            buildValueSet: function (list) {
+            buildValueSet: function(list) {
                 var first = $inner.children().first().detach();
 
                 $inner.empty().append(first);
@@ -343,14 +341,14 @@
                 }
 
             },
-            setEmpty: function () {
+            setEmpty: function() {
                 var first = $inner.children().first().detach();
                 $inner.empty().append(first);
             },
-            disable: function () {
+            disable: function() {
                 $inner.removeAttr('enabled');
             },
-            enable: function () {
+            enable: function() {
                 enable();
             }
         };

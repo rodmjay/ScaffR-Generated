@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Models.Components
 {
     #region
@@ -18,7 +21,6 @@ namespace DemoApplication.Models.Components
 
     public class SampleVideoModel
     {
-
         [Video(VideoEmbedding = VideoEmbedding.Html5, VideoType = VideoType.Youtube, AutoPlay = true)]
         public VideoModel YoutubeHtml5 { get; set; }
 
@@ -27,14 +29,10 @@ namespace DemoApplication.Models.Components
 
         [Video(VideoEmbedding = VideoEmbedding.Html5, VideoType = VideoType.MP4, AutoPlay = true, Width = 600)]
         public VideoModel Mp4Html5 { get; set; }
-
     }
 
     public class VideoModel
     {
-
         public string Source { get; set; }
-
     }
-   
 }

@@ -6,34 +6,32 @@
     }
     else
     {
-        
-    <div class="control-group">
+        <div class="control-group">
 
-        @if (prop.IsPropertyBool())
-        {
-            <div class="controls">
-                <label class="checkbox">
-                    @Html.Editor(prop.PropertyName)
+            @if (prop.IsPropertyBool())
+            {
+                <div class="controls">
+                    <label class="checkbox">
+                        @Html.Editor(prop.PropertyName)
+                        @prop.GetDisplayName()
+                    </label>
+                </div>
+            }
+            else
+            {
+                <label class="control-label">
                     @prop.GetDisplayName()
+                    @if (prop.IsRequired)
+                    {
+                        <span class="required">*</span>
+                    }
                 </label>
-            </div>
+                <div class="controls">
+                    @Html.Editor(prop.PropertyName)
+                    @Html.ValidationMessage(prop.PropertyName, new {@class = "help-inline"})
+                </div>
+            }
 
-        }
-        else
-        {
-            <label class="control-label">
-                @prop.GetDisplayName()
-                @if (prop.IsRequired)
-                {
-                    <span class="required">*</span>
-                }
-            </label>
-            <div class="controls">
-                @Html.Editor(prop.PropertyName)
-                @Html.ValidationMessage(prop.PropertyName, new { @class = "help-inline" })
-            </div>
-        }
-
-    </div>                 
+        </div>
     }
 }

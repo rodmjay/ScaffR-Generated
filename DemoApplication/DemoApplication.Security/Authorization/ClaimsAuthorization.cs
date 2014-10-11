@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authorization
 {
     #region
@@ -105,7 +108,8 @@ namespace DemoApplication.Security.Authorization
             return AuthorizationManager.CheckAccess(context);
         }
 
-        public static AuthorizationContext CreateAuthorizationContext(ClaimsPrincipal principal, string action, params string[] resources)
+        public static AuthorizationContext CreateAuthorizationContext(ClaimsPrincipal principal, string action,
+            params string[] resources)
         {
             var actionClaims = new Collection<Claim>
             {

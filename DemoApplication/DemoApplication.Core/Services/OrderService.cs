@@ -10,7 +10,7 @@ namespace DemoApplication.Core.Services
     {
         private readonly IRepository<OrderItem> _itemRepository;
 
-        public OrderService(IUnitOfWork unitOfWork, IRepository<OrderItem> itemRepository ) : base(unitOfWork)
+        public OrderService(IUnitOfWork unitOfWork, IRepository<OrderItem> itemRepository) : base(unitOfWork)
         {
             _itemRepository = itemRepository;
         }

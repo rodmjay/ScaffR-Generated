@@ -7,7 +7,6 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum OrderType
     {
-        [EnumMember]
-        None = 0
+        [EnumMember] None = 0
     }
 }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Lists
 {
     #region
@@ -19,13 +22,13 @@ namespace DemoApplication.Core.Common.Lists
     public static partial class Lists
     {
         public static readonly IDictionary<string, string> CanadianProvinces = new Dictionary<string, string>
-            {
-                {"Manatoba", "MB"},
-                {"British Columbia", "CA"},
-                {"Sescatchewan", "S"}
-            };
+        {
+            {"Manatoba", "MB"},
+            {"British Columbia", "CA"},
+            {"Sescatchewan", "S"}
+        };
 
-    public static readonly IDictionary<string, string> UnitedStates = new Dictionary<string, string> 
+        public static readonly IDictionary<string, string> UnitedStates = new Dictionary<string, string>
         {
             {"Alabama", "AL"},
             {"Alaska", "AK"},

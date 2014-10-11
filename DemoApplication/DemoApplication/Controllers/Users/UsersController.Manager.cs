@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Users
 {
     #region
@@ -18,7 +21,7 @@ namespace DemoApplication.Controllers.Users
     #endregion
 
     public partial class UsersController
-    {        
+    {
         public ActionResult Manager(int page = 1, int pageSize = 10)
         {
             var model = UserService.GetAll("default").ToList();

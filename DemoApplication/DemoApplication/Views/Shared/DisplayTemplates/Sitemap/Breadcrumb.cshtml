@@ -2,11 +2,14 @@
 
 
 <div class="breadcrumb container-fluid">
-    @foreach (var node in Model) { 
-    @Html.DisplayFor(m => node);
-    
-    if (node != Model.Last()) {
-        <text> &gt; </text>
+    @foreach (var node in Model)
+    {
+        @Html.DisplayFor(m => node)
+        ;
+
+        if (node != Model.Last())
+        {
+            <text> &gt; </text>
+        }
     }
-}
 </div>

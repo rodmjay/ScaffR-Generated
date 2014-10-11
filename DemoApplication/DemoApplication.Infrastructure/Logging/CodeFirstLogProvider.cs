@@ -15,17 +15,17 @@
             var applicationInformation = WebBaseEvent.ApplicationInformation;
 
             var log = new Log
-                {
-                    EventCode = raisedEvent.EventCode,
-                    EventType = raisedEvent.GetType().ToString(),
-                    EventSequence = raisedEvent.EventSequence,
-                    EventOccurrence = raisedEvent.EventOccurrence,
-                    Message = raisedEvent.Message,
-                    EventDetailCode = raisedEvent.EventDetailCode,
-                    ApplicationPath = applicationInformation.ApplicationPath,
-                    ApplicationVirtualPath = applicationInformation.ApplicationVirtualPath,
-                    MachineName = applicationInformation.MachineName
-                };
+            {
+                EventCode = raisedEvent.EventCode,
+                EventType = raisedEvent.GetType().ToString(),
+                EventSequence = raisedEvent.EventSequence,
+                EventOccurrence = raisedEvent.EventOccurrence,
+                Message = raisedEvent.Message,
+                EventDetailCode = raisedEvent.EventDetailCode,
+                ApplicationPath = applicationInformation.ApplicationPath,
+                ApplicationVirtualPath = applicationInformation.ApplicationVirtualPath,
+                MachineName = applicationInformation.MachineName
+            };
 
             if (raisedEvent is IUserInfoEvent)
             {
@@ -33,17 +33,15 @@
                 log.Tenant = (raisedEvent as IUserInfoEvent).Tenant;
             }
 
-            repo.SaveOrUpdate(log);                        
+            repo.SaveOrUpdate(log);
         }
 
         public override void Shutdown()
         {
-            
         }
 
         public override void Flush()
         {
-            
         }
     }
 }

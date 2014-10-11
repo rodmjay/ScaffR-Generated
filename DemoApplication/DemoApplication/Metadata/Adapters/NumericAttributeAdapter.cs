@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Adapters
 {
     #region
@@ -22,15 +25,17 @@ namespace DemoApplication.Metadata.Adapters
 
     public class NumericAttributeAdapter : DataAnnotationsModelValidator<NumericTextboxAttribute>
     {
-        private static readonly HashSet<Type> NumericTypes = new HashSet<Type>(new Type[] {
-            typeof(byte), typeof(sbyte),
-            typeof(short), typeof(ushort),
-            typeof(int), typeof(uint),
-            typeof(long), typeof(ulong),
-            typeof(float), typeof(double), typeof(decimal)
+        private static readonly HashSet<Type> NumericTypes = new HashSet<Type>(new Type[]
+        {
+            typeof (byte), typeof (sbyte),
+            typeof (short), typeof (ushort),
+            typeof (int), typeof (uint),
+            typeof (long), typeof (ulong),
+            typeof (float), typeof (double), typeof (decimal)
         });
 
-        public NumericAttributeAdapter(ModelMetadata metadata, ControllerContext context, NumericTextboxAttribute textboxAttribute)
+        public NumericAttributeAdapter(ModelMetadata metadata, ControllerContext context,
+            NumericTextboxAttribute textboxAttribute)
             : base(metadata, context, textboxAttribute)
         {
         }

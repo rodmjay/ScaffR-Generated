@@ -7,10 +7,8 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum MembershipStatus
     {
-        [EnumMember]
-        None = 0,
+        [EnumMember] None = 0,
 
-        [EnumMember]
-        Created = 1
+        [EnumMember] Created = 1
     }
 }

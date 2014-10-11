@@ -6,7 +6,6 @@ namespace DemoApplication.Core.Model
     [Flags, DataContract]
     public enum VendorStatus
     {
-        [EnumMember]
-        None = 0
+        [EnumMember] None = 0
     }
 }

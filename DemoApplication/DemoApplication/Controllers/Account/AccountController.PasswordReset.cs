@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -54,7 +57,6 @@ namespace DemoApplication.Controllers.Account
                         return View("ResetSuccess");
                     }
                     ModelState.AddModelError("", "Error resetting password. The email might be invalid.");
-
                 }
                 catch (ValidationException ex)
                 {

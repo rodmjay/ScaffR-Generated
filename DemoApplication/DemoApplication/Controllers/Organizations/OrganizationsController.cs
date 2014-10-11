@@ -9,6 +9,5 @@ namespace DemoApplication.Controllers.Organizations
         {
             return View();
         }
-
     }
 }

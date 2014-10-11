@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System.Data.Entity.Core.Objects;
@@ -23,12 +25,13 @@ namespace DemoApplication.Infrastructure.Data
 
     #endregion
 
-    public class BaseContext<TContext> : DbContext , IDataContext where TContext : DbContext
+    public class BaseContext<TContext> : DbContext, IDataContext where TContext : DbContext
     {
         static BaseContext()
         {
             Database.SetInitializer<TContext>(null);
-        } 
+        }
+
         protected BaseContext() : base("name=DataContext")
         {
             this.Configuration.ProxyCreationEnabled = true;

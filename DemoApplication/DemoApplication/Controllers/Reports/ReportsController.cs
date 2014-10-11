@@ -16,6 +16,5 @@ namespace DemoApplication.Controllers.Reports
         {
             return View();
         }
-
     }
 }

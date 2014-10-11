@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Photos
 {
     #region
@@ -169,7 +172,7 @@ namespace DemoApplication.Infrastructure.Photos
                 // create the error message
                 string error =
                     string.Format(
-                        "Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.", 
+                        "Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.",
                         quality);
 
                 // throw a helpful exception

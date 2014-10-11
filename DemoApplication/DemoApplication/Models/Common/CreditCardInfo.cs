@@ -8,7 +8,7 @@ namespace DemoApplication.Models.Common
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
 
-        [Display(Name="Card Number")]
+        [Display(Name = "Card Number")]
         public string CardNumber { get; set; }
 
         [DropDown("CreditCardTypes")]

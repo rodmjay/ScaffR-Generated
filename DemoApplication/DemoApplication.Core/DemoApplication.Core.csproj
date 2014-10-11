@@ -134,7 +134,6 @@
     <Compile Include="Model\Campaign.cs" />
     <Compile Include="Model\CampaignItem.cs" />
     <Compile Include="Model\CampaignStatus.cs" />
-    <Compile Include="Model\CampaignTemplate.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\Invoice.cs" />
