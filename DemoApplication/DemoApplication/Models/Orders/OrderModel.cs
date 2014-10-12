@@ -8,13 +8,10 @@
         [DataMember, Display(Name = "Details")]
         public string Details { get; set; }
 
-        [DataMember, Display(Name = "PO Number")]
+        [DataMember, Display(Name = "Reference Number")]
         public string PoNumber { get; set; }
 
-        [DataMember, Display(Name = "Invoice Number")]
-        public string InvoiceNumber { get; set; }
-
-        [DataMember, Display(Name = "Special Instructions")]
+        [DataMember, Display(Name = "Special Instructions"), DataType(DataType.MultilineText)]
         public string OrderInstructions { get; set; }
     }
 }

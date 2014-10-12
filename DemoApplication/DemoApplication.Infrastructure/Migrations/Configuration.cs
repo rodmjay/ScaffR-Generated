@@ -173,6 +173,18 @@ namespace DemoApplication.Infrastructure.Migrations
                 
             };
 
+            var product = new Product()
+            {
+                Created = DateTime.UtcNow,
+                Description = "Test Product",
+                Id = 1,
+                ImageUrl = "",
+                LastUpdated = DateTime.UtcNow,
+                Name = "Product ABC"
+            };
+
+
+            context.Products.AddOrUpdate(x=>x.Id,product);
             context.Users.AddOrUpdate(x=>x.Id,user);
             context.Users.AddOrUpdate(x => x.Id, member);
             context.Users.AddOrUpdate(x => x.Id, superAdmin);

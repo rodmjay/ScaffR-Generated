@@ -13,19 +13,19 @@
         This is more about Christian Kropf
     </p>
 }
-else if (User.IsInRole("Admin"))
+@if (User.IsInRole("Admin"))
 {
     <h1>admin</h1>
     
     @Html.Partial("~/Views/Dashboards/AdminDashboard.cshtml")
-}dd
-else if (User.IsInRole("Super Admin"))
+}
+@if (User.IsInRole("Super Admin"))
 {
     <h1>super</h1>
 
     @Html.Partial("~/Views/Dashboards/SuperDashboard.cshtml")
 }
-else if (User.IsInRole("Member"))
+@if (User.IsInRole("Member"))
 {
     <h1>member</h1>
 

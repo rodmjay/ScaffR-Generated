@@ -4,18 +4,10 @@
     ViewBag.Title = "Create Order";
 }
 
-
 <form method="POST" action="" class="form-horizontal">
 
     @Html.ValidationSummary(true, "Unable to create order. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
 
-    @Html.EditorFor(x=>x.Shopper)
-    <hr/>
-    @Html.EditorFor(x=>x.Order)
-    <hr />
-    @Html.EditorFor(x=>x.CreditCard)
+    @Html.EditorForModel()
 
-    <div class="form-actions">
-        <input type="submit" value="Create" class="btn btn-inverse btn-large" />
-    </div>
 </form>

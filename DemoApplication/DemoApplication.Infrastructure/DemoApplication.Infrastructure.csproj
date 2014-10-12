@@ -171,6 +171,14 @@
     <Compile Include="Migrations\201409280800527_RemovedNavigationPropertyDistributorOrganization.Designer.cs">
       <DependentUpon>201409280800527_RemovedNavigationPropertyDistributorOrganization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410120300153_AddedProductNameDescriptionAndImageUrl.cs" />
+    <Compile Include="Migrations\201410120300153_AddedProductNameDescriptionAndImageUrl.Designer.cs">
+      <DependentUpon>201410120300153_AddedProductNameDescriptionAndImageUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410120305009_RemovedComplexRelationshipsWithProduct.cs" />
+    <Compile Include="Migrations\201410120305009_RemovedComplexRelationshipsWithProduct.Designer.cs">
+      <DependentUpon>201410120305009_RemovedComplexRelationshipsWithProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Membership\UserRepository.cs" />
@@ -226,7 +234,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409280800527_RemovedNavigationPropertyDistributorOrganization.resx">
       <DependentUpon>201409280800527_RemovedNavigationPropertyDistributorOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410120300153_AddedProductNameDescriptionAndImageUrl.resx">
+      <DependentUpon>201410120300153_AddedProductNameDescriptionAndImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410120305009_RemovedComplexRelationshipsWithProduct.resx">
+      <DependentUpon>201410120305009_RemovedComplexRelationshipsWithProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

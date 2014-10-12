@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,15 +16,13 @@ namespace DemoApplication.Controllers.Campaigns
     public class CampaignsController : Controller
     {
         private readonly IRepository<Campaign> _campaignRepository;
+        private readonly IRepository<Product> _productRepository;
 
-        public CampaignsController(IRepository<Campaign> campaignRepository)
+        public CampaignsController(IRepository<Campaign> campaignRepository, IRepository<Product> productRepository)
         {
             _campaignRepository = campaignRepository;
+            _productRepository = productRepository;
         }
-
-        //
-        // GET: /Campaigns/
-
 
         public ActionResult Manager()
         {
@@ -33,7 +32,21 @@ namespace DemoApplication.Controllers.Campaigns
 
         public ActionResult Create()
         {
-            return View(new CampaignModel());
+            var products = _productRepository.GetAll();
+            var model = new CreateCampaignModel();
+            model.Products = new Collection<ChooseProductViewModel>();
+
+            foreach (var product in products)
+            {
+                model.Products.Add(new ChooseProductViewModel()
+                {
+                    Details = product.Description,
+                    ProductName = product.Name,
+                    Selected = false
+                });
+            }
+
+            return View(model);
         }
     }
 }

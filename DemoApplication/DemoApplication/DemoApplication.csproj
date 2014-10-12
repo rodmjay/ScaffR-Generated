@@ -250,6 +250,8 @@
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
     <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
     <Compile Include="Models\Campaigns\CampaignModel.cs" />
+    <Compile Include="Models\Campaigns\CreateCampaignModel.cs" />
+    <Compile Include="Models\Campaigns\ChooseProductViewModel.cs" />
     <Compile Include="Models\Common\CreditCardInfo.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\Dropdowns\DropdownController.cs" />
@@ -344,6 +346,7 @@
     <Compile Include="Models\Contacts\ContactModel.cs" />
     <Compile Include="Models\Invitations\InvitationModel.cs" />
     <Compile Include="Models\Members\MembershipInfo.cs" />
+    <Compile Include="Models\Orders\ChooseItemModel.cs" />
     <Compile Include="Models\Orders\OrderItemModel.cs" />
     <Compile Include="Models\Orders\CreateOrderModel.cs" />
     <Compile Include="Models\Orders\OrderModel.cs" />
@@ -1447,6 +1450,7 @@
     <Content Include="Views\Dashboards\SuperDashboard.cshtml" />
     <Content Include="Views\Dashboards\AdminDashboard.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Packages.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

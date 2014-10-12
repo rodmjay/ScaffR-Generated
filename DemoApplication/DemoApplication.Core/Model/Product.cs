@@ -11,12 +11,14 @@ namespace DemoApplication.Core.Model
         [Key, DataMember, Column("Item_Control_ID")]
         public int Id { get; set; }
 
-        [DataMember, Column("Contents_ID")]
-        public int ItemContentsId { get; set; }
+        [DataMember]
+        public string Name { get; set; }
 
-        [ForeignKey("ItemContentsId")]
-        public virtual ItemContents ItemContents { get; set; }
+        [DataMember]
+        public string Description { get; set; }
 
-        public virtual ICollection<Inventory> Inventories { get; set; }  
+        [DataMember]
+        public string ImageUrl { get; set; }
+
     }
 }
