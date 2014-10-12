@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -22,7 +25,10 @@ namespace DemoApplication.Metadata.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class MaxAttribute : DataTypeAttribute
     {
-        public object Max { get { return _max; } }
+        public object Max
+        {
+            get { return _max; }
+        }
 
         private readonly double _max;
 

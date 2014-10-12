@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Common
 // Author	: Rod Johnson
@@ -7,10 +8,10 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 #region
-
-
 
 #endregion
 
@@ -34,4 +35,3 @@ namespace DemoApplication.Common.Extensions
         }
     }
 }
-

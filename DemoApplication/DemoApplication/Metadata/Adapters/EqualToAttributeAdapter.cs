@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Adapters
 {
     #region
@@ -33,7 +36,7 @@ namespace DemoApplication.Metadata.Adapters
 
             var otherProp = FormatPropertyForClientValidation(Attribute.OtherProperty);
             //We'll just use the built-in System.Web.Mvc client validation rule
-            return new[] { new ModelClientValidationEqualToRule(ErrorMessage, otherProp) };
+            return new[] {new ModelClientValidationEqualToRule(ErrorMessage, otherProp)};
         }
 
         private string GetOtherPropertyDisplayName()
@@ -41,8 +44,8 @@ namespace DemoApplication.Metadata.Adapters
             if (Metadata.ContainerType != null && !String.IsNullOrEmpty(Attribute.OtherProperty))
             {
                 var propertyMetaData = ModelMetadataProviders.Current.GetMetadataForProperty(() => Metadata.Model,
-                                                                                             Metadata.ContainerType,
-                                                                                             Attribute.OtherProperty);
+                    Metadata.ContainerType,
+                    Attribute.OtherProperty);
 
                 return propertyMetaData.GetDisplayName();
             }

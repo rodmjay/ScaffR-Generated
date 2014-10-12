@@ -6,12 +6,10 @@ using System.Web.Mvc;
 using DemoApplication.Core.Interfaces.Data;
 using DemoApplication.Core.Interfaces.Service;
 using DemoApplication.Core.Model;
-using DemoApplication.Extensions.TempDataHelpers;
-using DemoApplication.Models.Contacts;
 
 namespace DemoApplication.Controllers.Contacts
 {
-    [Authorize(Roles = "Member,Admin")]
+    [Authorize(Roles = "Member,Admin,Super Admin")]
     public class ContactsController : Controller
     {
         private readonly IRepository<Contact> _contactService;
@@ -36,21 +34,9 @@ namespace DemoApplication.Controllers.Contacts
             return View();
         }
 
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(ContactModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                TempData.AddSuccessMessage("Contact was created successfully");
-                return RedirectToAction("Index");
-            }
-            return View(model);
         }
     }
 }

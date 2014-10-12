@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using System;
@@ -25,8 +27,6 @@ namespace DemoApplication.Infrastructure.Migrations
     #endregion
 
     #region
-
-    
 
     #endregion
 
@@ -135,7 +135,7 @@ namespace DemoApplication.Infrastructure.Migrations
 
             var distributor = new Distributor()
             {
-                Id=1,
+                Id = 1,
                 LastUpdated = DateTime.UtcNow,
                 Created = DateTime.UtcNow
             };
@@ -170,7 +170,6 @@ namespace DemoApplication.Infrastructure.Migrations
                 Email = "ckfrsys1@ideafortune.com",
                 Created = DateTime.UtcNow,
                 LastUpdated = DateTime.UtcNow
-                
             };
 
             var product = new Product()
@@ -185,7 +184,7 @@ namespace DemoApplication.Infrastructure.Migrations
 
 
             context.Products.AddOrUpdate(x=>x.Id,product);
-            context.Users.AddOrUpdate(x=>x.Id,user);
+            context.Users.AddOrUpdate(x => x.Id, user);
             context.Users.AddOrUpdate(x => x.Id, member);
             context.Users.AddOrUpdate(x => x.Id, superAdmin);
             context.Distributors.AddOrUpdate(x => x.Id, distributor);

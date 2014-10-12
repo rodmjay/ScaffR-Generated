@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Error
 {
     #region
@@ -18,22 +21,22 @@ namespace DemoApplication.Controllers.Error
     #endregion
 
     [AllowAnonymous]
-  [ShowMainMenu(false), ShowBreadcrumb(false), ShowAlerts(false), ShowPageHeadingText(false)]
-  public class ErrorController : Controller
-  {
-    public ActionResult Index()
+    [ShowMainMenu(false), ShowBreadcrumb(false), ShowAlerts(false), ShowPageHeadingText(false)]
+    public class ErrorController : Controller
     {
-      return View();
-    }
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-    public ActionResult NotFound()
-    {
-      return View();
-    }
+        public ActionResult NotFound()
+        {
+            return View();
+        }
 
-    public ActionResult AccessDenied()
-    {
-      return View();
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
     }
-  }
 }

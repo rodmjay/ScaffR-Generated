@@ -8,7 +8,7 @@
     <h3>Login</h3>
     @using (Html.BeginForm())
     {
-        @Html.ValidationSummary(true, "", new { @class = "alert alert-block alert-error" })
+        @Html.ValidationSummary(true, "", new {@class = "alert alert-block alert-error"})
 
         @Html.EditorForModel()
 
@@ -20,7 +20,6 @@
 
             </button>
         </div>
-
     }
     Christian Kropf &copy; 2014
     <div class="pull-right">

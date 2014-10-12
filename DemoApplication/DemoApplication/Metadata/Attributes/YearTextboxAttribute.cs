@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -25,10 +28,7 @@ namespace DemoApplication.Metadata.Attributes
 
         public string Regex
         {
-            get
-            {
-                return _regex.ToString();
-            }
+            get { return _regex.ToString(); }
         }
 
         public YearTextboxAttribute()

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Areas.Api.Controllers
 {
     #region
@@ -60,9 +63,9 @@ namespace DemoApplication.Areas.Api.Controllers
                 if (ModelState.Process(result))
                 {
                     var response = new HttpResponseMessage(HttpStatusCode.Created);
-                    string uri = Url.Link("DefaultApi", new { id = entity.Id });
+                    string uri = Url.Link("DefaultApi", new {id = entity.Id});
                     response.Headers.Location = new Uri(uri);
-                    return Get(entity.Id);    
+                    return Get(entity.Id);
                 }
             }
 
@@ -75,16 +78,16 @@ namespace DemoApplication.Areas.Api.Controllers
             {
                 Service.SaveOrUpdate(entity);
                 var response = Request.CreateResponse(HttpStatusCode.Created, entity);
-                string uri = Url.Link("DefaultApi", new { id = entity.Id });
+                string uri = Url.Link("DefaultApi", new {id = entity.Id});
                 response.Headers.Location = new Uri(uri);
-                return response;    
+                return response;
             }
 
             return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
         }
 
         [HttpGet]
-		public virtual IEnumerable<T> Page(int page, int pageSize)
+        public virtual IEnumerable<T> Page(int page, int pageSize)
         {
             var p = Service.Page(page, pageSize);
             return p.Entities.ToList();

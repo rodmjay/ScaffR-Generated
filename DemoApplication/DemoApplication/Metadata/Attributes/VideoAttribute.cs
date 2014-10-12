@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -19,7 +22,6 @@ namespace DemoApplication.Metadata.Attributes
 
     public class VideoAttribute : DataTypeAttribute, IMetadataAware
     {
-
         private VideoEmbedding _embedding = VideoEmbedding.Flash;
         private VideoType _videoType;
         private bool _autoPlay;
@@ -31,18 +33,15 @@ namespace DemoApplication.Metadata.Attributes
         public VideoAttribute()
             : this("Video")
         {
-
         }
 
         public VideoAttribute(DataType dataType) : base(dataType)
         {
-            
         }
 
         public VideoAttribute(string dataType)
             : base(dataType)
         {
-
         }
 
         public VideoEmbedding VideoEmbedding
@@ -93,11 +92,9 @@ namespace DemoApplication.Metadata.Attributes
             metadata.AdditionalValues["videoType"] = _videoType;
             metadata.AdditionalValues["autoplay"] = _autoPlay;
             metadata.AdditionalValues["width"] = _width;
-            metadata.AdditionalValues["height"] = _height;            
+            metadata.AdditionalValues["height"] = _height;
             metadata.AdditionalValues["title"] = _title;
             metadata.AdditionalValues["poster"] = _poster;
-
         }
     }
-
 }

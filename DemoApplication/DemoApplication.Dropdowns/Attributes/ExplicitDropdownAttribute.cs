@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Attributes
 {
     #region
@@ -19,9 +22,8 @@ namespace DemoApplication.Dropdowns.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class ExplicitDropdownAttribute : DropDownAttribute
     {
-        public ExplicitDropdownAttribute(): base(null, null)
+        public ExplicitDropdownAttribute() : base(null, null)
         {
-            
         }
     }
 

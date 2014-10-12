@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 namespace DemoApplication.Infrastructure.Storage
@@ -33,11 +35,19 @@ namespace DemoApplication.Infrastructure.Storage
         public string delete_type { get; set; }
         public string error { get; set; }
 
-        public FilesStatus() { }
+        public FilesStatus()
+        {
+        }
 
-        public FilesStatus(FileInfo fileInfo) { SetValues(fileInfo.Name, (int)fileInfo.Length, fileInfo.FullName); }
+        public FilesStatus(FileInfo fileInfo)
+        {
+            SetValues(fileInfo.Name, (int) fileInfo.Length, fileInfo.FullName);
+        }
 
-        public FilesStatus(string fileName, int fileLength, string fullPath) { SetValues(fileName, fileLength, fullPath); }
+        public FilesStatus(string fileName, int fileLength, string fullPath)
+        {
+            SetValues(fileName, fileLength, fullPath);
+        }
 
         private void SetValues(string fileName, int fileLength, string fullPath)
         {
@@ -50,7 +60,7 @@ namespace DemoApplication.Infrastructure.Storage
             delete_type = "DELETE";
 
             var ext = Path.GetExtension(fullPath);
-            
+
             var fileSize = ConvertBytesToMegabytes(new FileInfo(fullPath).Length);
             if (fileSize > 3 || !IsImage(ext)) thumbnail_url = "/Content/img/generalFile.png";
             else thumbnail_url = @"data:image/png;base64," + EncodeFile(fullPath);
@@ -66,9 +76,9 @@ namespace DemoApplication.Infrastructure.Storage
             return Convert.ToBase64String(File.ReadAllBytes(fileName));
         }
 
-        static double ConvertBytesToMegabytes(long bytes)
+        private static double ConvertBytesToMegabytes(long bytes)
         {
-            return (bytes / 1024f) / 1024f;
+            return (bytes/1024f)/1024f;
         }
     }
 }

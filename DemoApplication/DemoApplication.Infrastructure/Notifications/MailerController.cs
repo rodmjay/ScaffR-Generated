@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Notifications
 {
     #region
@@ -34,7 +37,7 @@ namespace DemoApplication.Infrastructure.Notifications
             To.Add(model.Email);
             From = "noreply@scaffr.com";
             Subject = "Account Created";
-            return Email("SendAccountCreate", model);            
+            return Email("SendAccountCreate", model);
         }
 
         public RazorEmailResult SendAccountVerified(User model)
@@ -42,7 +45,7 @@ namespace DemoApplication.Infrastructure.Notifications
             To.Add(model.Email);
             From = "noreply@scaffr.com";
             Subject = "Account Verification";
-            return Email("SendAccountVerified", model); 
+            return Email("SendAccountVerified", model);
         }
 
         public RazorEmailResult SendPasswordReset(User model)
@@ -92,6 +95,5 @@ namespace DemoApplication.Infrastructure.Notifications
             Subject = "Email Changed Notification";
             return Email("SendEmailChangedNotice", model);
         }
-
     }
 }

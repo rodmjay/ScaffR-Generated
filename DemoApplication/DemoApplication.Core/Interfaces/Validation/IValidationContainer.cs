@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Interfaces.Validation
 {
     #region
@@ -17,8 +20,8 @@ namespace DemoApplication.Core.Interfaces.Validation
     #endregion
 
     public interface IValidationContainer<out T> : IValidationContainer
-    {        
-        T Entity { get;  }
+    {
+        T Entity { get; }
     }
 
     public interface IValidationContainer

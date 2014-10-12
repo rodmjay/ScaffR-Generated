@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Encryption
 {
     #region
@@ -24,19 +27,21 @@ namespace DemoApplication.Security.Encryption
     {
         public MachineKeySessionSecurityTokenHandler()
             : base(CreateTransforms())
-        { }
+        {
+        }
 
         public MachineKeySessionSecurityTokenHandler(TimeSpan tokenLifetime)
             : base(CreateTransforms(), tokenLifetime)
-        { }
+        {
+        }
 
         private static ReadOnlyCollection<CookieTransform> CreateTransforms()
         {
             return new List<CookieTransform>
-                {
-                    new DeflateCookieTransform(),
-                    new MachineKeyCookieTransform()
-                }.AsReadOnly();
+            {
+                new DeflateCookieTransform(),
+                new MachineKeyCookieTransform()
+            }.AsReadOnly();
         }
     }
 }

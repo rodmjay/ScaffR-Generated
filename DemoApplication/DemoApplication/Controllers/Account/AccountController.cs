@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -37,13 +40,14 @@ namespace DemoApplication.Controllers.Account
         /// <param name="authenticationService">The authentication service.</param>
         /// <param name="messageBus">The message bus.</param>
         /// <param name="membershipSettings"></param>
-        public AccountController(IUserAccountService userService, IAuthenticationService authenticationService, IMessageBus messageBus, IMembershipSettings membershipSettings, IOrganizationService organizationService)
+        public AccountController(IUserAccountService userService, IAuthenticationService authenticationService,
+            IMessageBus messageBus, IMembershipSettings membershipSettings, IOrganizationService organizationService)
         {
             _organizationService = organizationService;
             _membershipSettings = membershipSettings;
             _messageBus = messageBus;
             _userService = userService;
             _authenticationService = authenticationService;
-        }       
+        }
     }
 }

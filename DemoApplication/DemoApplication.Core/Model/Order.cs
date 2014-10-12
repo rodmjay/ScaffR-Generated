@@ -17,15 +17,12 @@ namespace DemoApplication.Core.Model
         public int Id { get; set; }
     }
 
-    [DataContract,Table("Org_Orders")]
+    [DataContract, Table("Org_Orders")]
     public class Order : DomainObject
     {
-        public Order()
-        {
-            this.OrderItems = new Collection<OrderItem>();
-        }
+        private ICollection<OrderItem> _orderItems;
 
-        [DataMember,Key]
+        [DataMember, Key]
         public int Id { get; set; }
 
         [DataMember, Column("Order_Type")]
@@ -64,8 +61,6 @@ namespace DemoApplication.Core.Model
         [DataMember, Column("Order_Log")]
         public string OrderLog { get; set; }
 
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
-
         [ForeignKey("ShopperId")]
         public virtual Shopper Shopper { get; set; }
 
@@ -74,5 +69,11 @@ namespace DemoApplication.Core.Model
 
         [ForeignKey("MemberId")]
         public virtual Membership Member { get; set; }
+
+        public virtual ICollection<OrderItem> OrderItems
+        {
+            get { return _orderItems ?? (_orderItems = new Collection<OrderItem>()); }
+            set { _orderItems = value; }
+        }
     }
 }

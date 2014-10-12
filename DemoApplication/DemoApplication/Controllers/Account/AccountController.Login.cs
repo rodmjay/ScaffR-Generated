@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -68,7 +71,7 @@ namespace DemoApplication.Controllers.Account
                     }
                     return RedirectToAction("Index", "Home");
                 }
-               
+
                 ModelState.AddModelError("", "Invalid Username or Password");
             }
             return View(model);

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Photos.Providers
 {
     #region
@@ -88,13 +91,13 @@ namespace DemoApplication.Infrastructure.Photos.Providers
                 List<Photo> photos =
                     photoResizes.Select(
                         resize =>
-                        SaveImage(
-                            stream,
-                            resize.Value.Width,
-                            resize.Value.Height,
-                            resize.Key,
-                            name,
-                            item.MimeType ?? "image/jpeg")).ToList();
+                            SaveImage(
+                                stream,
+                                resize.Value.Width,
+                                resize.Value.Height,
+                                resize.Key,
+                                name,
+                                item.MimeType ?? "image/jpeg")).ToList();
 
                 if (keepOriginalSize)
                 {
@@ -158,12 +161,12 @@ namespace DemoApplication.Infrastructure.Photos.Providers
                 GetFilesByExtensions(physicalPath, SearchPattern.Split(',')).Where(
                     c => ids.Contains(c.Name.Split('.')[0])).Select(
                         c =>
-                        new Photo
-                        {
-                            Id = c.Name,
-                            ResizeName = resizeName,
-                            Url = string.Format("{0}/{1}{2}", _filePath.TrimEnd('/'), resizeFolder, c.Name)
-                        }).ToList();
+                            new Photo
+                            {
+                                Id = c.Name,
+                                ResizeName = resizeName,
+                                Url = string.Format("{0}/{1}{2}", _filePath.TrimEnd('/'), resizeFolder, c.Name)
+                            }).ToList();
 
             return photos;
         }
@@ -247,9 +250,10 @@ namespace DemoApplication.Infrastructure.Photos.Providers
                 if (file != null)
                 {
                     string resizeFolder = resizeName != null ? string.Format("{0}/", resizeName) : string.Empty;
-                    string virtualImagePath = string.Format("{0}/{1}{2}", _filePath.TrimEnd('/'), resizeFolder, file.Name);
+                    string virtualImagePath = string.Format("{0}/{1}{2}", _filePath.TrimEnd('/'), resizeFolder,
+                        file.Name);
 
-                    photo = new Photo { Id = file.Name.Split('.')[0], ResizeName = resizeName, Url = virtualImagePath };
+                    photo = new Photo {Id = file.Name.Split('.')[0], ResizeName = resizeName, Url = virtualImagePath};
                 }
             }
 

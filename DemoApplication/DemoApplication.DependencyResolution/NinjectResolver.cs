@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.DependencyResolution
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.DependencyResolution
 {
     #region
@@ -23,6 +26,7 @@ namespace DemoApplication.DependencyResolution
     public class NinjectResolver : NinjectScope, System.Web.Mvc.IDependencyResolver
     {
         private readonly IKernel _kernel;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NinjectResolver"/> class.
         /// </summary>

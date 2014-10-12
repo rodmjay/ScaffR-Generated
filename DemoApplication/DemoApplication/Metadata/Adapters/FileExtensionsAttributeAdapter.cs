@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Adapters
 {
     #region
@@ -21,15 +24,15 @@ namespace DemoApplication.Metadata.Adapters
 
     public class FileExtensionsAttributeAdapter : DataAnnotationsModelValidator<FileExtensionsAttribute>
     {
-        public FileExtensionsAttributeAdapter(ModelMetadata metadata, ControllerContext context, FileExtensionsAttribute attribute)
+        public FileExtensionsAttributeAdapter(ModelMetadata metadata, ControllerContext context,
+            FileExtensionsAttribute attribute)
             : base(metadata, context, attribute)
         {
-            
         }
 
         public override IEnumerable<ModelClientValidationRule> GetClientValidationRules()
         {
-            return new[] { new ModelClientValidationFileExtensionsRule(ErrorMessage, Attribute.Extensions) };
+            return new[] {new ModelClientValidationFileExtensionsRule(ErrorMessage, Attribute.Extensions)};
         }
     }
 }

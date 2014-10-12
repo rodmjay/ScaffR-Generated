@@ -3,9 +3,9 @@
 
 @if (Model != null)
 {
-    @Html.Hidden("", Model.Latitude.Value.ToString("G", CultureInfo.InvariantCulture) + "," + Model.Longitude.Value.ToString("G", CultureInfo.InvariantCulture), new { @class = "hidden-for-dbgeography" })
+    @Html.Hidden("", Model.Latitude.Value.ToString("G", CultureInfo.InvariantCulture) + "," + Model.Longitude.Value.ToString("G", CultureInfo.InvariantCulture), new {@class = "hidden-for-dbgeography"})
 }
 else
 {
-    @Html.Hidden("", "", new { @class = "hidden-for-dbgeography" })
+    @Html.Hidden("", "", new {@class = "hidden-for-dbgeography"})
 }

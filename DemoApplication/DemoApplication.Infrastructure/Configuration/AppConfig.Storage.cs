@@ -8,10 +8,7 @@ namespace DemoApplication.Infrastructure.Configuration
         [ConfigurationProperty("storage", IsRequired = true)]
         public StorageElement Storage
         {
-            get
-            {
-                return (StorageElement)base["storage"];
-            }
+            get { return (StorageElement) base["storage"]; }
         }
     }
 }

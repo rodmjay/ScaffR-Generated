@@ -12,15 +12,15 @@
 /*jslint nomen: true, unparam: true, regexp: true */
 /*global $, window, document */
 
-$(function () {
+$(function() {
     'use strict';
 
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload();
 
     $('#fileupload').fileupload('option', {
-            maxFileSize: 500000000,
-            resizeMaxWidth: 1920,
-            resizeMaxHeight: 1200
-        });
+        maxFileSize: 500000000,
+        resizeMaxWidth: 1920,
+        resizeMaxHeight: 1200
+    });
 });

@@ -11,7 +11,7 @@
         private readonly string _culture;
 
         public MembershipEvent(MembershipEventCode code, User user)
-            : base(code.GetDescription(), user, WebEventCodes.WebExtendedBase, (int)code)
+            : base(code.GetDescription(), user, WebEventCodes.WebExtendedBase, (int) code)
         {
             _user = user;
             _culture = CultureInfo.CurrentCulture.Name;

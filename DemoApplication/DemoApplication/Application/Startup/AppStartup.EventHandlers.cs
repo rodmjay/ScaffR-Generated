@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,14 +8,16 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 #region
 
 using DemoApplication.Application.Startup;
 
 #endregion
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "EventHandlers")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof (AppStartup), "EventHandlers")]
 
 namespace DemoApplication.Application.Startup
 {

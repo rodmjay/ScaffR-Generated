@@ -23,7 +23,7 @@ namespace DemoApplication.Models.Campaigns
         [DataMember, Display(Name = "Start Date")]
         public DateTime SaleStart { get; set; }
 
-        [DataMember, Display(Name="End Date")]
+        [DataMember, Display(Name = "End Date")]
         public DateTime SaleEnd { get; set; }
 
         [DataMember, Display(Name = "Pre Order Deadline")]

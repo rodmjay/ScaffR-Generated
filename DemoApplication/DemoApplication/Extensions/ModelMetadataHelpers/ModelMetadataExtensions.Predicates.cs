@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.ModelMetadataHelpers
 {
     #region
@@ -36,7 +39,7 @@ namespace DemoApplication.Extensions.ModelMetadataHelpers
         /// <returns><c>true</c> if [is property bool] [the specified meta]; otherwise, <c>false</c>.</returns>
         public static bool IsPropertyBool(this ModelMetadata meta)
         {
-            return meta.ModelType == typeof(bool) || meta.ModelType == typeof(bool?);
+            return meta.ModelType == typeof (bool) || meta.ModelType == typeof (bool?);
         }
     }
 }

@@ -14,7 +14,8 @@ namespace DemoApplication.Infrastructure.Organizations
         private readonly IUserAccountService _accountService;
         private IRepository<Profile> _repository;
 
-        public OrganizationProfileService(IUnitOfWork unitOfWork, IRepository<Profile> repository, IUserAccountService accountService)
+        public OrganizationProfileService(IUnitOfWork unitOfWork, IRepository<Profile> repository,
+            IUserAccountService accountService)
             : base(unitOfWork)
         {
             _accountService = accountService;

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Interfaces.Data
 {
     #region
@@ -17,7 +20,7 @@ namespace DemoApplication.Core.Interfaces.Data
     #endregion
 
     public partial interface IUserRepository : IRepository<User>
-    {		
-		// Add extra datainterface methods in a partial interface
-	}
+    {
+        // Add extra datainterface methods in a partial interface
+    }
 }

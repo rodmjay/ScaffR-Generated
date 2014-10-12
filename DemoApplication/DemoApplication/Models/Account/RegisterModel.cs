@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Models.Account
 {
     #region
@@ -23,8 +26,8 @@ namespace DemoApplication.Models.Account
         [Display(Name = "User Name")]
         [Textbox(TextboxSize = TextboxSize.Large)]
         public string Username { get; set; }
-		
-		[Required]
+
+        [Required]
         [Display(Name = "First Name")]
         [Textbox(TextboxSize = TextboxSize.Large)]
         public string FirstName { get; set; }
@@ -60,7 +63,7 @@ namespace DemoApplication.Models.Account
         [Required]
         [Display(Name = "Address")]
         public string Address { get; set; }
-        
+
         [Required]
         [Display(Name = "Phone Number")]
         [PhoneNumberTextbox]

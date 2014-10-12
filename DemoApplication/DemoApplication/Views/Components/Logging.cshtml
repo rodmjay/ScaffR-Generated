@@ -3,11 +3,11 @@
     ViewBag.Title = "Logging";
 }
 
-@using (Html.BeginForm("Logging", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Logging", "Components", FormMethod.Post, new {@class = "form-horizontal"}))
 {
     @Html.EditorForModel()
-        
+
     <div class="form-actions">
         <input type="submit" value="Update" class="btn btn-inverse btn-large" />
-    </div>        
-}                           
+    </div>
+}

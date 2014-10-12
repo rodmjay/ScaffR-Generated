@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Filters
 {
     #region
@@ -45,7 +48,7 @@ namespace DemoApplication.Dropdowns.Filters
                         {
                             var data = ModelMetadata.FromStringExpression(cascadingAttr.ParentName, viewData);
 
-                            if (data == null || string.IsNullOrEmpty(data.PropertyName)  )
+                            if (data == null || string.IsNullOrEmpty(data.PropertyName))
                                 throw new Exception(string.Format("Unable to find property '{0}'",
                                     cascadingAttr.ParentName));
 
@@ -54,7 +57,6 @@ namespace DemoApplication.Dropdowns.Filters
                                     GetParentValues(cascadingAttr, viewData).ToArray());
                             else
                                 SetViewdataWithValue(cascadingAttr, prop.Name, viewData, data.Model);
-
                         }
                         else if (enumAttr != null)
                         {
@@ -96,26 +98,29 @@ namespace DemoApplication.Dropdowns.Filters
             yield return parentMetadata.Model;
         }
 
-        private static void SetExplicitViewdata(string name, IDictionary<string, object> viewData, IEnumerable<DropdownOptionAttribute> attributes)
+        private static void SetExplicitViewdata(string name, IDictionary<string, object> viewData,
+            IEnumerable<DropdownOptionAttribute> attributes)
         {
             IEnumerable<SelectListItem> items = attributes.OrderBy(x => x.Order).Select(x => new SelectListItem()
-                {
-                    Text = x.Text,
-                    Value = x.Value
-                });
+            {
+                Text = x.Text,
+                Value = x.Value
+            });
 
             var viewDataKey = "DDKey_" + name;
             viewData[viewDataKey] = viewData[viewDataKey] ?? items;
         }
 
 
-        private static void SetViewdataWithValues(CascadingDropDownAttribute attr, string name, IDictionary<string, object> viewData, params object[] values)
+        private static void SetViewdataWithValues(CascadingDropDownAttribute attr, string name,
+            IDictionary<string, object> viewData, params object[] values)
         {
             var viewDataKey = "DDKey_" + name;
             viewData[viewDataKey] = viewData[viewDataKey] ?? attr.GetMethodResult(values);
         }
 
-        private static void SetViewdataWithValue(DropDownAttribute attr, string name, IDictionary<string, object> viewData, object value)
+        private static void SetViewdataWithValue(DropDownAttribute attr, string name,
+            IDictionary<string, object> viewData, object value)
         {
             var viewDataKey = "DDKey_" + name;
             viewData[viewDataKey] = viewData[viewDataKey] ?? attr.GetMethodResult(value);
@@ -126,7 +131,7 @@ namespace DemoApplication.Dropdowns.Filters
             if (!string.IsNullOrWhiteSpace(attr.DependsOn))
             {
                 var metaData = ModelMetadata.FromStringExpression(attr.DependsOn, viewData);
-                SetViewdataWithValue((DropDownAttribute)attr, name, viewData, metaData.Model);
+                SetViewdataWithValue((DropDownAttribute) attr, name, viewData, metaData.Model);
             }
             else
             {
@@ -147,16 +152,19 @@ namespace DemoApplication.Dropdowns.Filters
 
         private static bool propertyFilter(PropertyInfo prop)
         {
-            return (!(prop.PropertyType.IsClass && !(prop.PropertyType == typeof(string)) && !(prop.PropertyType == typeof(DbGeography))));
+            return
+                (!(prop.PropertyType.IsClass && !(prop.PropertyType == typeof (string)) &&
+                   !(prop.PropertyType == typeof (DbGeography))));
         }
 
-        private static IEnumerable<PropertyInfo> GetPropertyInfo(Type viewModelType, IDictionary<string, object> viewData, int count)
+        private static IEnumerable<PropertyInfo> GetPropertyInfo(Type viewModelType,
+            IDictionary<string, object> viewData, int count)
         {
             if (count < 4) // dont recurse too much
             {
                 foreach (var property in viewModelType.GetProperties().Where(propertyFilter))
                 {
-                    if (property.PropertyType.IsClass && property.PropertyType != typeof(string))
+                    if (property.PropertyType.IsClass && property.PropertyType != typeof (string))
                     {
                         foreach (var prop in GetPropertyInfo(property.PropertyType, viewData, count + 1))
                         {
@@ -172,7 +180,10 @@ namespace DemoApplication.Dropdowns.Filters
                     }
                 }
 
-                foreach (var property in viewModelType.GetProperties().Where(prop => prop.PropertyType.IsClass && !(prop.PropertyType == typeof(string))))
+                foreach (
+                    var property in
+                        viewModelType.GetProperties()
+                            .Where(prop => prop.PropertyType.IsClass && !(prop.PropertyType == typeof (string))))
                 {
                     foreach (var prop in GetPropertyInfo(property.PropertyType, viewData, count + 1))
                     {
@@ -180,7 +191,6 @@ namespace DemoApplication.Dropdowns.Filters
                     }
                 }
             }
-
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Extensions
 {
     #region
@@ -29,13 +32,13 @@ namespace DemoApplication.Infrastructure.Extensions
                 {
                     RequestContext ctx;
                     if (HttpContext.Current.Handler is MvcHandler)
-                        ctx = ((MvcHandler)HttpContext.Current.Handler).RequestContext;
+                        ctx = ((MvcHandler) HttpContext.Current.Handler).RequestContext;
                     else
                         ctx = new RequestContext(new HttpContextWrapper(HttpContext.Current), new RouteData());
 
                     HttpContext.Current.Items["UrlHelper"] = new UrlHelper(ctx);
                 }
-                return (UrlHelper)HttpContext.Current.Items["UrlHelper"];
+                return (UrlHelper) HttpContext.Current.Items["UrlHelper"];
             }
         }
 
@@ -61,7 +64,7 @@ namespace DemoApplication.Infrastructure.Extensions
 
         public static string PasswordResetUrl(this User user)
         {
-            return BuildUrl(user, "PasswordResetConfirm", "Account", new { id = user.VerificationKey });
+            return BuildUrl(user, "PasswordResetConfirm", "Account", new {id = user.VerificationKey});
         }
     }
 }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Model
 {
     #region
@@ -41,7 +44,7 @@ namespace DemoApplication.Core.Model
             Claims = new List<UserClaim>();
         }
 
-        internal protected User(string tenant, string username, string password, string email)
+        protected internal User(string tenant, string username, string password, string email)
         {
             if (String.IsNullOrWhiteSpace(tenant)) throw new ArgumentException("tenant");
             if (String.IsNullOrWhiteSpace(username)) throw new ArgumentException("username");
@@ -67,9 +70,11 @@ namespace DemoApplication.Core.Model
         [StringLength(50)]
         [Required]
         public virtual string Tenant { get; set; }
+
         [StringLength(100)]
         [Required]
         public virtual string Username { get; set; }
+
         [EmailAddress]
         [StringLength(100)]
         [Required]
@@ -88,6 +93,7 @@ namespace DemoApplication.Core.Model
 
         [StringLength(100)]
         public virtual string VerificationKey { get; set; }
+
         public virtual DateTime? VerificationKeySent { get; set; }
 
         [Required]
@@ -121,13 +127,17 @@ namespace DemoApplication.Core.Model
             return true;
         }
 
-        protected internal virtual bool ChangePassword(string oldPassword, string newPassword, int failedLoginCount, TimeSpan lockoutDuration)
+        protected internal virtual bool ChangePassword(string oldPassword, string newPassword, int failedLoginCount,
+            TimeSpan lockoutDuration)
         {
             if (Authenticate(oldPassword, failedLoginCount, lockoutDuration))
             {
                 if (oldPassword == newPassword)
                 {
-                    Tracing.Verbose(String.Format("[UserAccount.ChangePassword] failed for tenant:user {0}:{1} -- new password same as old password", this.Tenant, this.Username));
+                    Tracing.Verbose(
+                        String.Format(
+                            "[UserAccount.ChangePassword] failed for tenant:user {0}:{1} -- new password same as old password",
+                            this.Tenant, this.Username));
 
                     throw new ValidationException("The new password must be different than the old password.");
                 }
@@ -136,7 +146,9 @@ namespace DemoApplication.Core.Model
                 return true;
             }
 
-            Tracing.Verbose(String.Format("[UserAccount.ChangePassword] failed for tentant:username {0}:{1} -- auth failed", this.Tenant, this.Username));
+            Tracing.Verbose(
+                String.Format("[UserAccount.ChangePassword] failed for tentant:username {0}:{1} -- auth failed",
+                    this.Tenant, this.Username));
 
             return false;
         }
@@ -358,7 +370,8 @@ namespace DemoApplication.Core.Model
                     }
                     else
                     {
-                        Tracing.Verbose("[UserAccount.ChangeEmailFromKey] failed -- verification key is not marked as a email change verificaiton key");
+                        Tracing.Verbose(
+                            "[UserAccount.ChangeEmailFromKey] failed -- verification key is not marked as a email change verificaiton key");
                     }
                 }
                 else
@@ -461,7 +474,8 @@ namespace DemoApplication.Core.Model
                 select claim;
             foreach (var claim in claimsToRemove.ToArray())
             {
-                Tracing.Verbose(String.Format("[UserAccount.RemoveClaim] {0}, {1}, {2}, {3}", Tenant, Username, type, claim.Value));
+                Tracing.Verbose(String.Format("[UserAccount.RemoveClaim] {0}, {1}, {2}, {3}", Tenant, Username, type,
+                    claim.Value));
                 this.Claims.Remove(claim);
             }
         }
@@ -477,13 +491,15 @@ namespace DemoApplication.Core.Model
                 select claim;
             foreach (var claim in claimsToRemove.ToArray())
             {
-                Tracing.Verbose(String.Format("[UserAccount.RemoveClaim] {0}, {1}, {2}, {3}", Tenant, Username, type, value));
+                Tracing.Verbose(String.Format("[UserAccount.RemoveClaim] {0}, {1}, {2}, {3}", Tenant, Username, type,
+                    value));
                 this.Claims.Remove(claim);
             }
         }
 
-        static readonly string[] UglyBase64 = { "+", "/", "=" };
-        static string StripUglyBase64(string s)
+        private static readonly string[] UglyBase64 = {"+", "/", "="};
+
+        private static string StripUglyBase64(string s)
         {
             if (s == null) return s;
             foreach (var ugly in UglyBase64)
@@ -515,10 +531,7 @@ namespace DemoApplication.Core.Model
 
         protected internal virtual DateTime UtcNow
         {
-            get
-            {
-                return DateTime.UtcNow;
-            }
+            get { return DateTime.UtcNow; }
         }
     }
 }

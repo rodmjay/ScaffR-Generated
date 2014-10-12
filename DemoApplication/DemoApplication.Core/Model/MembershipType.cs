@@ -7,19 +7,14 @@ namespace DemoApplication.Core.Model
     [Flags]
     public enum MembershipType
     {
-        [EnumMember]
-        None = 0,
+        [EnumMember] None = 0,
 
-        [EnumMember]
-        Created = 1,
+        [EnumMember] Created = 1,
 
-        [EnumMember]
-        Activated = 2,
+        [EnumMember] Activated = 2,
 
-        [EnumMember]
-        Deactivated = 3,
+        [EnumMember] Deactivated = 3,
 
-        [EnumMember]
-        Deleted = 4
+        [EnumMember] Deleted = 4
     }
 }

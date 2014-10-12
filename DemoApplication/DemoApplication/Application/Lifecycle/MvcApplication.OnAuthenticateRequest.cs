@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Application
 {
     /// <summary>
@@ -19,8 +22,7 @@ namespace DemoApplication.Application
         /// Fired when the security module has established the current user's identity as valid. At this point, the user's credentials have been validated.
         /// </summary>
         protected void Application_AuthenticateRequest()
-        {            
-
+        {
         }
     }
 }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 using DemoApplication.Infrastructure.Configuration.Storage;
@@ -25,12 +27,7 @@ namespace DemoApplication.Infrastructure.Configuration
         [ConfigurationProperty("photos", IsRequired = true)]
         public PhotoElement Photos
         {
-            get
-            {
-                return (PhotoElement)base["photos"];
-            }
+            get { return (PhotoElement) base["photos"]; }
         }
     }
-
-
 }

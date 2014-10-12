@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,14 +8,17 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 #region
 
 using DemoApplication.Application.Startup;
 
 #endregion
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "RegisterValidationExtensions")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof (AppStartup), "RegisterValidationExtensions")]
+
 namespace DemoApplication.Application.Startup
 {
     #region
@@ -29,18 +33,28 @@ namespace DemoApplication.Application.Startup
     {
         public static void RegisterValidationExtensions()
         {
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(EmailTextboxAttribute), typeof(EmailAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(UrlTextboxAttribute), typeof(UrlAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(CreditCardTextboxAttribute), typeof(CreditCardAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(EqualToAttribute), typeof(EqualToAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(FileExtensionsAttribute), typeof(FileExtensionsAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(NumericTextboxAttribute), typeof(NumericAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DigitsTextboxAttribute), typeof(DigitsAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(MinAttribute), typeof(MinAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(MaxAttribute), typeof(MaxAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DateTextboxAttribute), typeof(DateAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(IntegerAttribute), typeof(IntegerAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(YearTextboxAttribute), typeof(YearAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (EmailTextboxAttribute),
+                typeof (EmailAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (UrlTextboxAttribute),
+                typeof (UrlAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (CreditCardTextboxAttribute),
+                typeof (CreditCardAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (EqualToAttribute),
+                typeof (EqualToAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (FileExtensionsAttribute),
+                typeof (FileExtensionsAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (NumericTextboxAttribute),
+                typeof (NumericAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (DigitsTextboxAttribute),
+                typeof (DigitsAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (MinAttribute), typeof (MinAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (MaxAttribute), typeof (MaxAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (DateTextboxAttribute),
+                typeof (DateAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (IntegerAttribute),
+                typeof (IntegerAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof (YearTextboxAttribute),
+                typeof (YearAttributeAdapter));
         }
     }
 }

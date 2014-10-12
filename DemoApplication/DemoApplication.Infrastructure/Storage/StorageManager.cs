@@ -62,7 +62,7 @@ namespace DemoApplication.Infrastructure.Storage
                     var section = AppConfig.Instance.Storage;
 
                     _providers = new StorageProviderCollection();
-                    ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof(StorageProvider));
+                    ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof (StorageProvider));
                     _provider = _providers[section.DefaultProvider];
 
                     if (_provider == null)

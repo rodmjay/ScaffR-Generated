@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Adapters
 {
     #region
@@ -21,14 +24,15 @@ namespace DemoApplication.Metadata.Adapters
 
     public class DigitsAttributeAdapter : DataAnnotationsModelValidator<DigitsTextboxAttribute>
     {
-        public DigitsAttributeAdapter(ModelMetadata metadata, ControllerContext context, DigitsTextboxAttribute textboxAttribute)
+        public DigitsAttributeAdapter(ModelMetadata metadata, ControllerContext context,
+            DigitsTextboxAttribute textboxAttribute)
             : base(metadata, context, textboxAttribute)
         {
         }
 
         public override IEnumerable<ModelClientValidationRule> GetClientValidationRules()
         {
-            return new[] { new ModelClientValidationDigitsRule(ErrorMessage) };
+            return new[] {new ModelClientValidationDigitsRule(ErrorMessage)};
         }
     }
 
@@ -41,7 +45,7 @@ namespace DemoApplication.Metadata.Adapters
 
         public override IEnumerable<ModelClientValidationRule> GetClientValidationRules()
         {
-            return new[] { new ModelClientValidationIntegerRule(ErrorMessage) };
+            return new[] {new ModelClientValidationIntegerRule(ErrorMessage)};
         }
     }
 }

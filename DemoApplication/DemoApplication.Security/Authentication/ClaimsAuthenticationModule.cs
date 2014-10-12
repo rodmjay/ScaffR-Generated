@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authentication
 {
     #region
@@ -34,7 +37,7 @@ namespace DemoApplication.Security.Authentication
         protected bool RequireSsl { get; set; }
 
         protected override void InitializeModule(HttpApplication context)
-        {            
+        {
             base.InitializeModule(context);
 
             context.EndRequest += context_EndRequest;
@@ -45,7 +48,7 @@ namespace DemoApplication.Security.Authentication
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        void context_EndRequest(object sender, EventArgs e)
+        private void context_EndRequest(object sender, EventArgs e)
         {
             var context = (sender as HttpApplication).Context;
 
@@ -55,7 +58,8 @@ namespace DemoApplication.Security.Authentication
 
                 if (noRedirect == null)
                 {
-                    var loginUrl = LoginUrl + "?returnUrl=" + HttpUtility.UrlEncode(context.Request.RawUrl, context.Request.ContentEncoding);
+                    var loginUrl = LoginUrl + "?returnUrl=" +
+                                   HttpUtility.UrlEncode(context.Request.RawUrl, context.Request.ContentEncoding);
                     context.Response.Redirect(loginUrl);
                 }
             }
@@ -79,7 +83,7 @@ namespace DemoApplication.Security.Authentication
             // configure cookie handler
             CookieHandler.Name = CookieName;
             CookieHandler.Domain = CookieDomain;
-            CookieHandler.RequireSsl = RequireSsl;            
+            CookieHandler.RequireSsl = RequireSsl;
         }
 
         /// <summary>
@@ -125,8 +129,8 @@ namespace DemoApplication.Security.Authentication
         {
             DateTime utcNow = DateTime.UtcNow;
 
-            TimeSpan span = (TimeSpan)(utcNow - token.ValidFrom);
-            TimeSpan span2 = (TimeSpan)(token.ValidTo - utcNow);
+            TimeSpan span = (TimeSpan) (utcNow - token.ValidFrom);
+            TimeSpan span2 = (TimeSpan) (token.ValidTo - utcNow);
 
             if (span2 > span)
             {

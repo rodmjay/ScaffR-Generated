@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Models.Components
 {
     #region
@@ -28,6 +31,5 @@ namespace DemoApplication.Models.Components
 
         [CKEditor(ToolBar = CKEditorToolbar.Full)]
         public virtual string Description { get; set; }
-
     }
 }

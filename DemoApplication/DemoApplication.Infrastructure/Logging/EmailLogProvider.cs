@@ -35,6 +35,4 @@ namespace DemoApplication.Infrastructure.Logging
             throw new NotImplementedException();
         }
     }
-
-
 }

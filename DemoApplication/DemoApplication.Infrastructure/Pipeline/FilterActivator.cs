@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Pipeline
 {
     #region
@@ -45,14 +48,14 @@ namespace DemoApplication.Infrastructure.Pipeline
 
                 Type t = Type.GetType(typeName);
 
-                Type pipelineType = typeof(Filter<T>);
+                Type pipelineType = typeof (Filter<T>);
 
                 if (!pipelineType.IsAssignableFrom(t))
                 {
                     throw new ArgumentException("wrong type");
                 }
 
-                filter = (Filter<T>)Activator.CreateInstance(t, false);
+                filter = (Filter<T>) Activator.CreateInstance(t, false);
                 filter.Initialize(settings.Name, settings.Parameters);
 
                 var parameters = settings.Parameters;

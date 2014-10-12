@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Controls
 {
     #region
@@ -30,7 +33,7 @@ namespace DemoApplication.Dropdowns.Controls
             return DropDownHelper(helper, metadata, model, attrs);
         }
 
-        private static void NormalizeAttributes(ModelMetadata metadata, ref IDictionary<string, object> attributes )
+        private static void NormalizeAttributes(ModelMetadata metadata, ref IDictionary<string, object> attributes)
         {
             if (metadata.AdditionalValues.ContainsKey("parentName"))
                 attributes.Add("data-cascading-parent", metadata.AdditionalValues["parentName"]);
@@ -52,29 +55,32 @@ namespace DemoApplication.Dropdowns.Controls
             return "All " + metadata.GetDisplayName();
         }
 
-        private static MvcHtmlString DropDownHelper<T>(this HtmlHelper<T> helper, ModelMetadata metadata, object model, IDictionary<string, object> attrs )
+        private static MvcHtmlString DropDownHelper<T>(this HtmlHelper<T> helper, ModelMetadata metadata, object model,
+            IDictionary<string, object> attrs)
         {
             if (attrs == null)
                 attrs = new Dictionary<string, object>();
             NormalizeAttributes(metadata, ref attrs);
             var enumerable = model as IEnumerable<string>;
-            if (typeof(IEnumerable<string>).IsAssignableFrom(metadata.ModelType))
+            if (typeof (IEnumerable<string>).IsAssignableFrom(metadata.ModelType))
             {
-                return PicklistHelper(helper, metadata, (IList<string>)model, attrs);     
+                return PicklistHelper(helper, metadata, (IList<string>) model, attrs);
             }
 
-            var optionLabel = metadata.AdditionalValues.ContainsKey("option-label") ?
-                            metadata.AdditionalValues["option-label"] != null ? metadata.AdditionalValues["option-label"].ToString() : null
-                                          : null;
+            var optionLabel = metadata.AdditionalValues.ContainsKey("option-label")
+                ? metadata.AdditionalValues["option-label"] != null
+                    ? metadata.AdditionalValues["option-label"].ToString()
+                    : null
+                : null;
             attrs.Add("data-dropdown", "select");
 
             return helper.DropDownList("", helper.GetAutomatedList(metadata).SetSelected(model), optionLabel, attrs);
         }
 
-        private static MvcHtmlString PicklistHelper<T>(this HtmlHelper<T> helper, ModelMetadata metadata, IList<string> model,
+        private static MvcHtmlString PicklistHelper<T>(this HtmlHelper<T> helper, ModelMetadata metadata,
+            IList<string> model,
             IDictionary<string, object> attrs)
         {
-
             var isAllSelected = false;
 
             var name = helper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName("");
@@ -93,7 +99,7 @@ namespace DemoApplication.Dropdowns.Controls
             headerDiv.AddCssClass("picklist-header");
 
             var headerText = new TagBuilder("span");
-            
+
 
             var downCaret = new TagBuilder("i");
             downCaret.AddCssClass("icon-caret-down");
@@ -121,7 +127,7 @@ namespace DemoApplication.Dropdowns.Controls
 
             selectAllCheckbox.MergeAttribute("type", "checkbox");
             selectAllCheckbox.MergeAttribute("data-dropdown-selectall", "true");
-            selectAllCheckbox.MergeAttribute("value", "~");  
+            selectAllCheckbox.MergeAttribute("value", "~");
             selectAllCheckbox.MergeAttribute("name", name);
 
             if (model != null && model.Contains("~"))
@@ -132,8 +138,8 @@ namespace DemoApplication.Dropdowns.Controls
 
             // render select all
             selectAll.InnerHtml += selectAllCheckbox.ToString(TagRenderMode.SelfClosing) + " Select All " +
-                metadata.GetDisplayName();
-            
+                                   metadata.GetDisplayName();
+
             // build and render items from list
             // render inner div
             innerDiv.InnerHtml += selectAll.ToString(TagRenderMode.Normal);
@@ -142,7 +148,7 @@ namespace DemoApplication.Dropdowns.Controls
             foreach (var item in helper.GetAutomatedList(metadata))
             {
                 itemCount++;
-                var listRow = new TagBuilder("div");                   
+                var listRow = new TagBuilder("div");
                 var checkbox = new TagBuilder("input");
 
                 checkbox.MergeAttribute("type", "checkbox");
@@ -154,9 +160,9 @@ namespace DemoApplication.Dropdowns.Controls
                     checkbox.MergeAttribute("checked", "checked");
                     selectedItemCount++;
                 }
-                
+
                 // render item
-                listRow.InnerHtml += checkbox.ToString(TagRenderMode.SelfClosing)  + item.Text;
+                listRow.InnerHtml += checkbox.ToString(TagRenderMode.SelfClosing) + item.Text;
                 innerDiv.InnerHtml += listRow.ToString(TagRenderMode.Normal);
             }
 
@@ -180,7 +186,6 @@ namespace DemoApplication.Dropdowns.Controls
             outerDiv.InnerHtml += bodyDiv.ToString(TagRenderMode.Normal);
 
             return MvcHtmlString.Create(outerDiv.ToString(TagRenderMode.Normal));
-
         }
     }
 }

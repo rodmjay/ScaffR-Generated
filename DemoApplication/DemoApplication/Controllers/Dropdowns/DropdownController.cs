@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Dropdowns
 {
     #region
@@ -28,7 +31,7 @@ namespace DemoApplication.Controllers.Dropdowns
         /// <returns>JsonResult.</returns>
         public JsonResult GetDropdownFor(string method, string parameter)
         {
-            var staticType = typeof(Dropdowns);
+            var staticType = typeof (Dropdowns);
             MethodInfo methodInfo = staticType.GetMethod(method, BindingFlags.Static | BindingFlags.Public);
 
             object[] param = null;
@@ -38,6 +41,5 @@ namespace DemoApplication.Controllers.Dropdowns
             var listObj = methodInfo.Invoke(null, param);
             return Json(listObj, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

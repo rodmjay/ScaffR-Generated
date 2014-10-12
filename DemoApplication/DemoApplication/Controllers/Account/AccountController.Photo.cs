@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -38,7 +41,7 @@ namespace DemoApplication.Controllers.Account
                 return View(photo);
             }
 
-            return View(new Photo { Url = Url.Content("~/Content/images/Medium/Male.jpg") });
+            return View(new Photo {Url = Url.Content("~/Content/images/Medium/Male.jpg")});
         }
 
         /// <summary>
@@ -56,7 +59,6 @@ namespace DemoApplication.Controllers.Account
             _userService.SetProfilePicture(UserProfile.Current.Tenant, UserProfile.Current.Username, photo[0].Id);
 
             return View();
-            
         }
     }
 }

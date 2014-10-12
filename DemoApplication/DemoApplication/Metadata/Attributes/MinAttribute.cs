@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -22,10 +25,13 @@ namespace DemoApplication.Metadata.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class MinAttribute : DataTypeAttribute
     {
-        public object Min { get { return _min; } }
+        public object Min
+        {
+            get { return _min; }
+        }
 
         private readonly double _min;
-        
+
         public MinAttribute(int min) : base("min")
         {
             _min = min;
@@ -49,7 +55,7 @@ namespace DemoApplication.Metadata.Attributes
         public override bool IsValid(object value)
         {
             if (value == null) return true;
-            
+
             double valueAsDouble;
 
             var isDouble = double.TryParse(Convert.ToString(value), out valueAsDouble);

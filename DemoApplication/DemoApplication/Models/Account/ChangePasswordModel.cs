@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Models.Account
 {
     #region
@@ -46,7 +49,7 @@ namespace DemoApplication.Models.Account
         /// </summary>
         /// <value>The confirm password.</value>
         [PasswordTextbox]
-        [Display(Name = "Confirm new password")] 
+        [Display(Name = "Confirm new password")]
         [EqualTo("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }

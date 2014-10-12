@@ -22,12 +22,14 @@ namespace DemoApplication.Infrastructure.Storage
                 _storageRoot = HttpContext.Current.Server.MapPath(_storageRoot);
             }
 
-            _js = new JavaScriptSerializer { MaxJsonLength = 41943040 };
+            _js = new JavaScriptSerializer {MaxJsonLength = 41943040};
         }
 
         public override void UploadPartialFile(string fileName, HttpContext context, List<FilesStatus> status)
         {
-            if (context.Request.Files.Count != 1) throw new HttpRequestValidationException("Attempt to upload chunked file containing more than one fragment per request");
+            if (context.Request.Files.Count != 1)
+                throw new HttpRequestValidationException(
+                    "Attempt to upload chunked file containing more than one fragment per request");
             var inputStream = context.Request.Files[0].InputStream;
             var fullName = _storageRoot + Path.GetFileName(fileName);
 
@@ -55,7 +57,7 @@ namespace DemoApplication.Infrastructure.Storage
                 var path = Path.Combine(_storageRoot, fullName);
 
                 file.SaveAs(path);
-            
+
                 return new FilesStatus(fullName, file.ContentLength, path);
             }
             throw new Exception();
@@ -63,7 +65,7 @@ namespace DemoApplication.Infrastructure.Storage
 
         public void UploadWholeFileEx(HttpFileCollection files, List<FilesStatus> status)
         {
-            for (var i = 0; i< files.Count; i++)
+            for (var i = 0; i < files.Count; i++)
             {
                 HttpPostedFile file = files[i];
 
@@ -121,7 +123,9 @@ namespace DemoApplication.Infrastructure.Storage
             context.Response.AddHeader("Vary", "Accept");
             try
             {
-                context.Response.ContentType = context.Request["HTTP_ACCEPT"].Contains("application/json") ? "application/json" : "text/plain";
+                context.Response.ContentType = context.Request["HTTP_ACCEPT"].Contains("application/json")
+                    ? "application/json"
+                    : "text/plain";
             }
             catch
             {

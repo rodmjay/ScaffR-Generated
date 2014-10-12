@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authorization
 {
     #region
@@ -21,10 +24,11 @@ namespace DemoApplication.Security.Authorization
         public string _action;
         public string[] _resources;
 
-        private static readonly string _label = typeof(ClaimsAuthorizeAttribute).FullName;
+        private static readonly string _label = typeof (ClaimsAuthorizeAttribute).FullName;
 
         public ClaimsAuthorizeAttribute()
-        { }
+        {
+        }
 
         public ClaimsAuthorizeAttribute(string action, params string[] resources)
         {
@@ -35,7 +39,7 @@ namespace DemoApplication.Security.Authorization
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             filterContext.HttpContext.Items[_label] = filterContext;
-            base.OnAuthorization(filterContext); 
+            base.OnAuthorization(filterContext);
         }
 
         protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)

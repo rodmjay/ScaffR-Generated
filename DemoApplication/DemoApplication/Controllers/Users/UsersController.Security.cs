@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Users
 {
     #region
@@ -19,7 +22,7 @@ namespace DemoApplication.Controllers.Users
     #endregion
 
     public partial class UsersController
-    {        
+    {
         /// <summary>
         /// Securities the specified id.
         /// </summary>
@@ -35,6 +38,6 @@ namespace DemoApplication.Controllers.Users
             model.Username = user.Username;
 
             return View(model);
-        }       
+        }
     }
 }

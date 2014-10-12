@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Photos
 {
     #region
@@ -98,7 +101,7 @@ namespace DemoApplication.Infrastructure.Photos
                     var section = AppConfig.Instance.Photos;
 
                     _providers = new PhotoProviderCollection();
-                    ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof(PhotoProvider));
+                    ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof (PhotoProvider));
                     _provider = _providers[section.DefaultProvider];
 
                     _photoResize = new Dictionary<string, PhotoResize>();

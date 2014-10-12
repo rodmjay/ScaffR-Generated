@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,6 +8,7 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
 
 namespace DemoApplication.Infrastructure.Storage
@@ -23,7 +25,10 @@ namespace DemoApplication.Infrastructure.Storage
     /// </summary>
     public class UploadHandler : IHttpHandler
     {
-        public bool IsReusable { get { return false; } }
+        public bool IsReusable
+        {
+            get { return false; }
+        }
 
         public void ProcessRequest(HttpContext context)
         {

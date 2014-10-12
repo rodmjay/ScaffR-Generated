@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Eventing
 {
     #region
@@ -24,7 +27,9 @@ namespace DemoApplication.Infrastructure.Eventing
     {
         private static MessageBus _instance;
 
-        private MessageBus(){}
+        private MessageBus()
+        {
+        }
 
         public static MessageBus Instance
         {
@@ -33,6 +38,7 @@ namespace DemoApplication.Infrastructure.Eventing
 
         private readonly Dictionary<Type, List<WeakReference>> _eventSubscriberLists =
             new Dictionary<Type, List<WeakReference>>();
+
         private readonly object _lock = new object();
 
         public void Subscribe(object subscriber)
@@ -40,7 +46,9 @@ namespace DemoApplication.Infrastructure.Eventing
             lock (_lock)
             {
                 var subscriberTypes =
-                    subscriber.GetType().GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IHandles<>));
+                    subscriber.GetType()
+                        .GetInterfaces()
+                        .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof (IHandles<>));
 
                 var weakReference = new WeakReference(subscriber);
                 foreach (var subscriberType in subscriberTypes)
@@ -53,7 +61,7 @@ namespace DemoApplication.Infrastructure.Eventing
 
         public void Publish<TEvent>(TEvent eventToPublish)
         {
-            var subscriberType = typeof(IHandles<>).MakeGenericType(typeof(TEvent));
+            var subscriberType = typeof (IHandles<>).MakeGenericType(typeof (TEvent));
             var subscribers = GetSubscribers(subscriberType);
             var subscribersToRemove = new List<WeakReference>();
 
@@ -61,7 +69,7 @@ namespace DemoApplication.Infrastructure.Eventing
             {
                 if (weakSubscriber.IsAlive)
                 {
-                    var subscriber = (IHandles<TEvent>)weakSubscriber.Target;
+                    var subscriber = (IHandles<TEvent>) weakSubscriber.Target;
                     var syncContext = SynchronizationContext.Current;
                     if (syncContext == null)
                         syncContext = new SynchronizationContext();

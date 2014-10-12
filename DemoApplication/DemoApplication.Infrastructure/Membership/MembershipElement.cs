@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Membership
 {
     #region
@@ -23,97 +26,97 @@ namespace DemoApplication.Infrastructure.Membership
         [ConfigurationProperty("multiTenant", DefaultValue = false)]
         public bool MultiTenant
         {
-            get { return (bool)this["multiTenant"]; }
+            get { return (bool) this["multiTenant"]; }
             set { this["multiTenant"] = value; }
         }
 
         [ConfigurationProperty("defaultTenant", DefaultValue = "default")]
         public string DefaultTenant
         {
-            get { return (string)this["defaultTenant"]; }
+            get { return (string) this["defaultTenant"]; }
             set { this["defaultTenant"] = value; }
         }
 
         [ConfigurationProperty("emailIsUsername", DefaultValue = false)]
         public bool EmailIsUsername
         {
-            get { return (bool)this["emailIsUsername"]; }
+            get { return (bool) this["emailIsUsername"]; }
             set { this["emailIsUsername"] = value; }
         }
 
         [ConfigurationProperty("usernamesUniqueAcrossTenants", DefaultValue = false)]
         public bool UsernamesUniqueAcrossTenants
         {
-            get { return (bool)this["usernamesUniqueAcrossTenants"]; }
+            get { return (bool) this["usernamesUniqueAcrossTenants"]; }
             set { this["usernamesUniqueAcrossTenants"] = value; }
         }
 
         [ConfigurationProperty("requireAccountVerification", DefaultValue = true)]
         public bool RequireAccountVerification
         {
-            get { return (bool)this["requireAccountVerification"]; }
+            get { return (bool) this["requireAccountVerification"]; }
             set { this["requireAccountVerification"] = value; }
         }
 
         [ConfigurationProperty("allowLoginAfterAccountCreation", DefaultValue = true)]
         public bool AllowLoginAfterAccountCreation
         {
-            get { return (bool)this["allowLoginAfterAccountCreation"]; }
+            get { return (bool) this["allowLoginAfterAccountCreation"]; }
             set { this["allowLoginAfterAccountCreation"] = value; }
         }
 
         [ConfigurationProperty("accountLockoutFailedLoginAttempts", DefaultValue = 10)]
         public int AccountLockoutFailedLoginAttempts
         {
-            get { return (int)this["accountLockoutFailedLoginAttempts"]; }
+            get { return (int) this["accountLockoutFailedLoginAttempts"]; }
             set { this["accountLockoutFailedLoginAttempts"] = value; }
         }
 
         public TimeSpan AccountLockoutDuration
         {
             get { return TimeSpan.FromMinutes(AccountLockoutMinutes); }
-            set { AccountLockoutMinutes = (int)value.TotalMinutes; }
+            set { AccountLockoutMinutes = (int) value.TotalMinutes; }
         }
 
         [ConfigurationProperty("accountLockoutDuration", DefaultValue = 10)]
         public int AccountLockoutMinutes
         {
-            get { return (int)this["accountLockoutDuration"]; }
+            get { return (int) this["accountLockoutDuration"]; }
             set { this["accountLockoutDuration"] = value; }
         }
 
         [ConfigurationProperty("allowAccountDeletion", DefaultValue = true)]
         public bool AllowAccountDeletion
         {
-            get { return (bool)this["allowAccountDeletion"]; }
+            get { return (bool) this["allowAccountDeletion"]; }
             set { this["allowAccountDeletion"] = value; }
         }
 
         [ConfigurationProperty("minPasswordLength", DefaultValue = 4)]
         public int MinimumPasswordLength
         {
-            get { return (int)this["minPasswordLength"]; }
+            get { return (int) this["minPasswordLength"]; }
             set { this["minPasswordLength"] = value; }
         }
 
         [ConfigurationProperty("passwordResetFrequency", DefaultValue = 0)]
         public int PasswordResetFrequency
         {
-            get { return (int)this["passwordResetFrequency"]; }
+            get { return (int) this["passwordResetFrequency"]; }
             set { this["passwordResetFrequency"] = value; }
         }
 
         [ConfigurationProperty("passwordHashingIterationCount", DefaultValue = 0)]
         public int PasswordHashingIterationCount
         {
-            get { return (int)this["passwordHashingIterationCount"]; }
+            get { return (int) this["passwordHashingIterationCount"]; }
             set { this["passwordHashingIterationCount"] = value; }
         }
 
         [ConfigurationProperty("allowEmailChangeWhenEmailIsUsername", DefaultValue = false)]
         public bool AllowEmailChangeWhenEmailIsUsername
         {
-            get { return (bool)this["allowEmailChangeWhenEmailIsUsername"]; }
+            get { return (bool) this["allowEmailChangeWhenEmailIsUsername"]; }
             set { this["allowEmailChangeWhenEmailIsUsername"] = value; }
         }
     }

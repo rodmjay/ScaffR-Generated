@@ -28,6 +28,5 @@ namespace DemoApplication.Core.Model
 
         [Column("Email_Validated")]
         public bool EmailValidated { get; set; }
-
     }
 }

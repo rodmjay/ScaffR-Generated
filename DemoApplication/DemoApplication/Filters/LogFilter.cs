@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Filters
 {
     #region
@@ -24,7 +27,6 @@ namespace DemoApplication.Filters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
             //_logger.InfoFormat(CultureInfo.InvariantCulture, 
             //    "Executing action {0}.{1}", 
             //    filterContext.ActionDescriptor.ControllerDescriptor.ControllerName,

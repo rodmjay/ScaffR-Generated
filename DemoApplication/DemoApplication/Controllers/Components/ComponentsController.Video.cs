@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Controllers.Components
 {
     #region
@@ -27,13 +30,13 @@ namespace DemoApplication.Controllers.Components
         public ActionResult Video()
         {
             var model = new SampleVideoModel
-                {
-                    YoutubeHtml5 = new VideoModel { Source = "http://www.youtube.com/embed/pAwR6w2TgxY" },
-                    YoutubeFlash = new VideoModel { Source = "http://www.youtube.com/v/qs1bG6BIYlo" },
-                    Mp4Html5 = new VideoModel { Source = "http://www.w3schools.com/html/mov_bbb.mp4" }
-                };
+            {
+                YoutubeHtml5 = new VideoModel {Source = "http://www.youtube.com/embed/pAwR6w2TgxY"},
+                YoutubeFlash = new VideoModel {Source = "http://www.youtube.com/v/qs1bG6BIYlo"},
+                Mp4Html5 = new VideoModel {Source = "http://www.w3schools.com/html/mov_bbb.mp4"}
+            };
 
             return View(model);
-        }      
+        }
     }
 }

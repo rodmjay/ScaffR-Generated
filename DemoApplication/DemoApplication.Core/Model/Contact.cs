@@ -10,15 +10,12 @@ using System.Runtime.Serialization;
 
 namespace DemoApplication.Core.Model
 {
-    [DataContract,Table("Org_Contact")]
+    [DataContract, Table("Org_Contact"), DisplayColumn("Title")]
     public class Contact : DomainObject
     {
-        public Contact()
-        {
-            this.Invoices = new Collection<Invoice>();
-        }
+        private ICollection<Invoice> _invoices;
 
-        [DataMember,Key]
+        [DataMember, Key]
         public int Id { get; set; }
 
         [DataMember, Column("Profile_ID")]
@@ -105,6 +102,10 @@ namespace DemoApplication.Core.Model
         [ForeignKey("ProfileId")]
         public Profile Profile { get; set; }
 
-        public virtual ICollection<Invoice> Invoices { get; set; } 
+        public virtual ICollection<Invoice> Invoices
+        {
+            get { return _invoices ?? (_invoices = new Collection<Invoice>()); }
+            set { _invoices = value; }
+        }
     }
 }

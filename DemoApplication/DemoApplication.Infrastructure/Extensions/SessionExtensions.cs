@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Extensions
 {
     #region
@@ -19,18 +22,21 @@ namespace DemoApplication.Infrastructure.Extensions
     public static class SessionHelpers
     {
         private static int _sessionTimeout;
+
         public static int GetSessionTimeoutInMinutes
         {
             get
             {
                 if (_sessionTimeout == 0)
                 {
-                    var conf = WebConfigurationManager.OpenWebConfiguration(System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
-                    var section = (SessionStateSection)conf.GetSection("system.web/sessionState");
-                    _sessionTimeout = (int)section.Timeout.TotalMinutes;
+                    var conf =
+                        WebConfigurationManager.OpenWebConfiguration(
+                            System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
+                    var section = (SessionStateSection) conf.GetSection("system.web/sessionState");
+                    _sessionTimeout = (int) section.Timeout.TotalMinutes;
                 }
                 return _sessionTimeout;
-            }            
+            }
         }
     }
 }

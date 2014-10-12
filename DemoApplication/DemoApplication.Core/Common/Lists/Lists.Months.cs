@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Core.Common.Lists
 {
     #region
@@ -18,7 +21,7 @@ namespace DemoApplication.Core.Common.Lists
 
     public static partial class Lists
     {
-        public static readonly IDictionary<string, string> MonthDictionary = new Dictionary<string, string> 
+        public static readonly IDictionary<string, string> MonthDictionary = new Dictionary<string, string>
         {
             {"January", "01"},
             {"February", "02"},

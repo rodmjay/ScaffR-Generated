@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Metadata.Attributes
 {
     #region
@@ -33,9 +36,11 @@ namespace DemoApplication.Metadata.Attributes
         public FileExtensionsAttribute(string allowedExtensions = "png,jpg,jpeg,gif")
             : base("fileextension")
         {
-            Extensions = string.IsNullOrWhiteSpace(allowedExtensions) ? "png,jpg,jpeg,gif" : allowedExtensions.Replace("|", ",").Replace(" ", "");
+            Extensions = string.IsNullOrWhiteSpace(allowedExtensions)
+                ? "png,jpg,jpeg,gif"
+                : allowedExtensions.Replace("|", ",").Replace(" ", "");
         }
-        
+
         public override string FormatErrorMessage(string name)
         {
             if (ErrorMessage == null && ErrorMessageResourceName == null)
@@ -75,7 +80,7 @@ namespace DemoApplication.Metadata.Attributes
         {
             try
             {
-                return Extensions.Split(',').Contains(Path.GetExtension(fileName).Replace(".","").ToLowerInvariant());
+                return Extensions.Split(',').Contains(Path.GetExtension(fileName).Replace(".", "").ToLowerInvariant());
             }
             catch (ArgumentException)
             {

@@ -17,17 +17,15 @@
 
             @if (Request.IsAuthenticated)
             {
-
                 <ul class="nav pull-right">
                     <li @Html.ActiveWhen("Profile", "Account")><a href="@Url.Action("Profile", "Account")" data-toggle="tooltip" title="Profile">
-                        <i class="icon-user"></i>@UserProfile.Current.FullName</a></li>
+                                                                   <i class="icon-user"></i>@UserProfile.Current.FullName</a></li>
                     <li @Html.ActiveWhen("Settings", "Account")><a href="@Url.Action("ChangePassword", "Account")"  data-toggle="tooltip" title="Change Password"><i class="icon-cog"></i></a></li>
                     <li><a href="@Url.Action("LogOff", "Account")" data-toggle="tooltip" title="Signout"><i class="icon-signout"></i></a></li>
                 </ul>
-
             }
             else
-            {         
+            {
                 <div class="nav-collapse collapse">
                     <ul class="nav pull-right">
                         <li @Html.ActiveWhen("Login", "Account")><a href="@Url.Action("Login", "Account")"><i class="icon-user icon-white"></i>Login</a></li>

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Dropdowns
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Dropdowns.Dropdowns
 {
     #region
@@ -29,27 +32,27 @@ namespace DemoApplication.Dropdowns.Dropdowns
         /// <returns>SelectList.</returns>
         public static SelectList ForEnum<TEnum>(TEnum enumType)
         {
-            IEnumerable<TEnum> values = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
+            IEnumerable<TEnum> values = Enum.GetValues(typeof (TEnum)).Cast<TEnum>();
 
             IEnumerable<SelectListItem> items = from value in values
-                                                select new SelectListItem
-                                                {
-                                                    Text = value.ToString(),
-                                                    Value = value.ToString()
-                                                };
+                select new SelectListItem
+                {
+                    Text = value.ToString(),
+                    Value = value.ToString()
+                };
             return new SelectList(items);
         }
 
         public static IEnumerable<SelectListItem> ForEnum(Type enumType)
         {
-            ICollection<SelectListItem> items = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            ICollection<SelectListItem> items = new List<SelectListItem>() {new SelectListItem {Text = "", Value = ""}};
             foreach (var value in Enum.GetValues(enumType))
             {
                 items.Add(new SelectListItem
-                              {
-                                  Text = value.ToString(),
-                                  Value = ((int)value).ToString()
-                              });
+                {
+                    Text = value.ToString(),
+                    Value = ((int) value).ToString()
+                });
             }
 
             return items;

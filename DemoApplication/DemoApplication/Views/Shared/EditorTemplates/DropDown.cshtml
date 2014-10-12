@@ -1,4 +1,3 @@
-
 @using DemoApplication.Dropdowns.Controls
 @model object
 
@@ -6,8 +5,8 @@
     IDictionary<string, object> Attr = new Dictionary<string, object>();
 
     var x = ViewData.ModelMetadata
-                    .BuildDropdownListenerAttributes(ViewData.TemplateInfo, ref Attr)
-                    .BuildDropdownListenerWithSpecificValue(ViewData.TemplateInfo, ref Attr);          
+        .BuildDropdownListenerAttributes(ViewData.TemplateInfo, ref Attr)
+        .BuildDropdownListenerWithSpecificValue(ViewData.TemplateInfo, ref Attr);
 }
 
 @Html.DropDownFor(m => m, Model, Attr)

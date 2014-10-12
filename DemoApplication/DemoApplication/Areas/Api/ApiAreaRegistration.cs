@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Areas.Api
 {
     #region
@@ -20,10 +23,7 @@ namespace DemoApplication.Areas.Api
     {
         public override string AreaName
         {
-            get
-            {
-                return "Api";
-            }
+            get { return "Api"; }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)

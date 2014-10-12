@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.DependencyResolution
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 #region
 
 using DemoApplication.DependencyResolution;
@@ -18,8 +21,8 @@ using DemoApplication.Infrastructure.Products;
 
 #endregion
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(AppStartup), "Stop")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof (AppStartup), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof (AppStartup), "Stop")]
 
 namespace DemoApplication.DependencyResolution
 {
@@ -65,8 +68,8 @@ namespace DemoApplication.DependencyResolution
         /// </summary>
         public static void Start()
         {
-            DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
-            DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+            DynamicModuleUtility.RegisterModule(typeof (OnePerRequestHttpModule));
+            DynamicModuleUtility.RegisterModule(typeof (NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
 
@@ -87,7 +90,7 @@ namespace DemoApplication.DependencyResolution
             var kernel = new StandardKernel();
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            DependencyResolver.SetResolver(new NinjectResolver(kernel));  
+            DependencyResolver.SetResolver(new NinjectResolver(kernel));
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(kernel));
             RegisterServices(kernel);
             return kernel;
@@ -153,9 +156,10 @@ namespace DemoApplication.DependencyResolution
                 ninjectKernel = kernel;
             }
 
-            protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, Type controllerType)
+            protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext,
+                Type controllerType)
             {
-                return controllerType == null ? null : (IController)ninjectKernel.Get(controllerType);
+                return controllerType == null ? null : (IController) ninjectKernel.Get(controllerType);
             }
         }
     }

@@ -1,9 +1,8 @@
-﻿
-@model DemoApplication.Models.Sitemap.MainMenuSitemapHelperModel
+﻿@model DemoApplication.Models.Sitemap.MainMenuSitemapHelperModel
 
 @{
     var topLevel = Model.Nodes;
-    SiteMapNodeModel activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));                                            
+    SiteMapNodeModel activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));
 }
 <div id="primary-nav">
     <div>
@@ -13,7 +12,7 @@
                     @foreach (var node in topLevel)
                     {
                         bool isActive = (node).IsActiveNode(ViewContext);
-                           
+
                         <li class="nav-mainMenu @(isActive ? "active" : "")">
 
                             @if (node.IsClickable)
@@ -24,14 +23,14 @@
                             {
                                 if (node.Children.Any())
                                 {
-                                <a href="@node.Children[0].Url">@node.Title</a>
+                                    <a href="@node.Children[0].Url">@node.Title</a>
                                 }
                                 else
                                 {
-                                <a>@node.Title</a> 
+                                    <a>@node.Title</a>
                                 }
                             }
-                        </li>    
+                        </li>
                     }
                 </ul>
             </div>

@@ -12,39 +12,38 @@
     var type = values.ContainsKey("videoType") ? values["videoType"].ToString().ToLower() : String.Empty;
     var autoplay = values.ContainsKey("autoplay") ? Convert.ToInt16(values["autoplay"]) : 0;
     var poster = values.ContainsKey("poster") ? values["poster"] : String.Empty;
-
-
 }
 
-@if (Model==null) 
-    {return;}
-@{var source = Model.Source;}
+@if (Model == null)
+{
+    return;
+}
+@{ var source = Model.Source; }
 @if (embedding.Equals("Html5"))
 {
     switch (type)
     {
         case "youtube":
-             <text><iframe id="@elementId" width="@w" height="@h" src="@source?autoplay=@autoplay" title="@title" frameborder="0" allowfullscreen></iframe></text>
-            break;
-            
-        case "vimeo":
-             <text><iframe id="@elementId" width="@w" height="@h" src="@source&html5=True"></iframe></text>
-            break;
-        
-        default:
-            <text>
-            <video type="video/@type" src="@source" autoplay="@autoplay" poster="@poster"  width="@w" height="@h" controls style="border:0px">                
-                    This is fallback content to display if the browser
-                    does not support the video element.
-            </video>
-            </text>
+            <text><iframe id="@elementId" width="@w" height="@h" src="@source?autoplay=@autoplay" title="@title" frameborder="0" allowfullscreen></iframe></text>
             break;
 
+        case "vimeo":
+            <text><iframe id="@elementId" width="@w" height="@h" src="@source&html5=True"></iframe></text>
+            break;
+
+        default:
+            <text>
+                <video type="video/@type" src="@source" autoplay="@autoplay" poster="@poster"  width="@w" height="@h" controls style="border: 0px">                
+                    This is fallback content to display if the browser
+                    does not support the video element.
+                </video>
+            </text>
+            break;
     }
 }
 else if (embedding.Equals("Flash"))
 {
-        switch (type)
+    switch (type)
     {
         case "youtube":
             <text>
@@ -56,15 +55,9 @@ else if (embedding.Equals("Flash"))
                 </object>
             </text>
             break;
-            
+
         case "vimeo":
-             <text><iframe id="@elementId" width="@w" height="@h" src="@source?html5=True"></iframe></text>
+            <text><iframe id="@elementId" width="@w" height="@h" src="@source?html5=True"></iframe></text>
             break;
-            
     }
-    
 }
-
-
-
-

@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Security.Authorization
 {
     #region
@@ -75,7 +78,8 @@ namespace DemoApplication.Security.Authorization
             {
                 routes.Values[routeValue.Key] = routeValue.Value;
             }
-            if (originalRoutes != null && (!routes.Route.Equals(originalRoutes.Route) || originalPath != nodeUrl || mvcNode.Area == String.Empty))
+            if (originalRoutes != null &&
+                (!routes.Route.Equals(originalRoutes.Route) || originalPath != nodeUrl || mvcNode.Area == String.Empty))
             {
                 routes.DataTokens.Remove("area");
                 //routes.DataTokens.Remove("Namespaces");
@@ -92,7 +96,9 @@ namespace DemoApplication.Security.Authorization
             try
             {
                 string controllerName = requestContext.RouteData.GetRequiredString("controller");
-                controllerContext.Controller = ControllerBuilder.Current.GetControllerFactory().CreateController(requestContext, controllerName) as ControllerBase;
+                controllerContext.Controller =
+                    ControllerBuilder.Current.GetControllerFactory().CreateController(requestContext, controllerName) as
+                        ControllerBase;
                 factoryBuiltController = true;
             }
             catch
@@ -107,11 +113,11 @@ namespace DemoApplication.Security.Authorization
             }
 
             ControllerDescriptor controllerDescriptor = null;
-            if (typeof(IController).IsAssignableFrom(controllerType))
+            if (typeof (IController).IsAssignableFrom(controllerType))
             {
                 controllerDescriptor = new ReflectedControllerDescriptor(controllerType);
             }
-            else if (typeof(IAsyncController).IsAssignableFrom(controllerType))
+            else if (typeof (IAsyncController).IsAssignableFrom(controllerType))
             {
                 controllerDescriptor = new ReflectedAsyncControllerDescriptor(controllerType);
             }
@@ -126,7 +132,8 @@ namespace DemoApplication.Security.Authorization
             }
             if (actionDescriptor == null)
             {
-                actionDescriptor = controllerDescriptor.GetCanonicalActions().FirstOrDefault(a => a.ActionName == mvcNode.Action);
+                actionDescriptor =
+                    controllerDescriptor.GetCanonicalActions().FirstOrDefault(a => a.ActionName == mvcNode.Action);
             }
 
             // Verify security
@@ -150,7 +157,7 @@ namespace DemoApplication.Security.Authorization
                     {
                         filters = filterProvider.GetFilters(controllerContext, actionDescriptor);
                     }
-                    // Otherwise use FilterProviders.Providers
+                        // Otherwise use FilterProviders.Providers
                     else
                     {
                         filters = FilterProviders.Providers.GetFilters(controllerContext, actionDescriptor);
@@ -170,9 +177,10 @@ namespace DemoApplication.Security.Authorization
 
                             var builder = new AuthorizeAttributeBuilder();
                             var subclassedAttribute =
-                                currentAuthorizationAttributeType == typeof(AuthorizeAttribute) ?
-                                   new InternalAuthorize(authorizeAttribute) : // No need to use Reflection.Emit when ASP.NET MVC built-in attribute is used
-                                   (IAuthorizeAttribute)builder.Build(currentAuthorizationAttributeType).Invoke(null);
+                                currentAuthorizationAttributeType == typeof (AuthorizeAttribute)
+                                    ? new InternalAuthorize(authorizeAttribute)
+                                    : // No need to use Reflection.Emit when ASP.NET MVC built-in attribute is used
+                                    (IAuthorizeAttribute) builder.Build(currentAuthorizationAttributeType).Invoke(null);
 
                             // Copy all properties
                             ObjectCopier.Copy(authorizeAttribute, subclassedAttribute);
@@ -205,6 +213,7 @@ namespace DemoApplication.Security.Authorization
         }
 
         protected string filterProviderCacheKey = "__MVCSITEMAP_F255D59E-D3E4-4BA9-8A5F-2AF0CAB282F4";
+
         protected IFilterProvider ResolveFilterProvider()
         {
             if (HttpContext.Current != null)
@@ -214,7 +223,7 @@ namespace DemoApplication.Security.Authorization
                     HttpContext.Current.Items[filterProviderCacheKey] =
                         DependencyResolver.Current.GetService<IFilterProvider>();
                 }
-                return (IFilterProvider)HttpContext.Current.Items[filterProviderCacheKey];
+                return (IFilterProvider) HttpContext.Current.Items[filterProviderCacheKey];
             }
             return DependencyResolver.Current.GetService<IFilterProvider>();
         }

@@ -16,10 +16,7 @@ namespace DemoApplication.Infrastructure.Storage
         /// </returns>
         public new StorageProvider this[string name]
         {
-            get
-            {
-                return (StorageProvider)base[name];
-            }
+            get { return (StorageProvider) base[name]; }
         }
 
         /// <summary>

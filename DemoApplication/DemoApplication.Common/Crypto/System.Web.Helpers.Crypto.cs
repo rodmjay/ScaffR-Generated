@@ -1,4 +1,5 @@
 ﻿#region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Common
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 //using System.Web.Helpers.Resources;
 
 namespace DemoApplication.Common.Crypto
@@ -25,10 +28,11 @@ namespace DemoApplication.Common.Crypto
     internal static class Crypto
     {
         private const int PBKDF2IterCount = 1000; // default for Rfc2898DeriveBytes
-        private const int PBKDF2SubkeyLength = 256 / 8; // 256 bits
-        private const int SaltSize = 128 / 8; // 128 bits
+        private const int PBKDF2SubkeyLength = 256/8; // 256 bits
+        private const int SaltSize = 128/8; // 128 bits
 
-        [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "byte", Justification = "It really is a byte length")]
+        [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "byte",
+            Justification = "It really is a byte length")]
         internal static byte[] GenerateSaltInternal(int byteLength = SaltSize)
         {
             byte[] buf = new byte[byteLength];
@@ -39,7 +43,8 @@ namespace DemoApplication.Common.Crypto
             return buf;
         }
 
-        [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "byte", Justification = "It really is a byte length")]
+        [SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "byte",
+            Justification = "It really is a byte length")]
         public static string GenerateSalt(int byteLength = SaltSize)
         {
             return Convert.ToBase64String(GenerateSaltInternal(byteLength));
@@ -71,18 +76,21 @@ namespace DemoApplication.Common.Crypto
                 }
                 else
                 {
-                    throw new InvalidOperationException();//String.Format(CultureInfo.InvariantCulture, HelpersResources.Crypto_NotSupportedHashAlg, algorithm));
+                    throw new InvalidOperationException();
+                        //String.Format(CultureInfo.InvariantCulture, HelpersResources.Crypto_NotSupportedHashAlg, algorithm));
                 }
             }
         }
 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SHA", Justification = "Consistent with the Framework, which uses SHA")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SHA",
+            Justification = "Consistent with the Framework, which uses SHA")]
         public static string SHA1(string input)
         {
             return Hash(input, "sha1");
         }
 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SHA", Justification = "Consistent with the Framework, which uses SHA")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SHA",
+            Justification = "Consistent with the Framework, which uses SHA")]
         public static string SHA256(string input)
         {
             return Hash(input, "sha256");
@@ -121,7 +129,8 @@ namespace DemoApplication.Common.Crypto
         }
 
         // hashedPassword must be of the format of HashWithPassword (salt + Hash(salt+input)
-        public static bool VerifyHashedPassword(string hashedPassword, string password, int iterationCount = PBKDF2IterCount)
+        public static bool VerifyHashedPassword(string hashedPassword, string password,
+            int iterationCount = PBKDF2IterCount)
         {
             if (hashedPassword == null)
             {
@@ -157,14 +166,14 @@ namespace DemoApplication.Common.Crypto
 
         internal static string BinaryToHex(byte[] data)
         {
-            char[] hex = new char[data.Length * 2];
+            char[] hex = new char[data.Length*2];
 
             for (int iter = 0; iter < data.Length; iter++)
             {
-                byte hexChar = ((byte)(data[iter] >> 4));
-                hex[iter * 2] = (char)(hexChar > 9 ? hexChar + 0x37 : hexChar + 0x30);
-                hexChar = ((byte)(data[iter] & 0xF));
-                hex[(iter * 2) + 1] = (char)(hexChar > 9 ? hexChar + 0x37 : hexChar + 0x30);
+                byte hexChar = ((byte) (data[iter] >> 4));
+                hex[iter*2] = (char) (hexChar > 9 ? hexChar + 0x37 : hexChar + 0x30);
+                hexChar = ((byte) (data[iter] & 0xF));
+                hex[(iter*2) + 1] = (char) (hexChar > 9 ? hexChar + 0x37 : hexChar + 0x30);
             }
             return new string(hex);
         }

@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Filters
 {
     #region
@@ -20,14 +23,13 @@ namespace DemoApplication.Filters
     #endregion
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
-	public class MultiResponseFormatAttribute : ActionFilterAttribute
-	{
-		public override void OnActionExecuted(ActionExecutedContext filterContext)
-		{
-			
-			var viewResult = filterContext.Result as ViewResult;
-			if (viewResult == null)
-				return;
+    public class MultiResponseFormatAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            var viewResult = filterContext.Result as ViewResult;
+            if (viewResult == null)
+                return;
 
             var request = filterContext.HttpContext.Request;
             var modelState = filterContext.Controller.ViewData.ModelState;
@@ -41,9 +43,9 @@ namespace DemoApplication.Filters
                 }
             }
 
-			if (request.IsAjaxRequest())
-			{
-                if ( request["format"].Equals("json") )
+            if (request.IsAjaxRequest())
+            {
+                if (request["format"].Equals("json"))
                 {
                     // Replace result with JsonResult
                     filterContext.Result = new JsonResult
@@ -56,16 +58,17 @@ namespace DemoApplication.Filters
                         }
                     };
                 }
-                else { 
-				    // Replace result with PartialViewResult
-				    filterContext.Result = new PartialViewResult
-				    {
-					    TempData = viewResult.TempData,
-					    ViewData = viewResult.ViewData,
-					    ViewName = viewResult.ViewName,
-				    };
+                else
+                {
+                    // Replace result with PartialViewResult
+                    filterContext.Result = new PartialViewResult
+                    {
+                        TempData = viewResult.TempData,
+                        ViewData = viewResult.ViewData,
+                        ViewName = viewResult.ViewName,
+                    };
                 }
-			}
-		}
-	}
+            }
+        }
+    }
 }

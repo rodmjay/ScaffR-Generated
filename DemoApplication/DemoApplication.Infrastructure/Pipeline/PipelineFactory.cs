@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Infrastructure.Pipeline
 {
     #region
@@ -29,11 +32,11 @@ namespace DemoApplication.Infrastructure.Pipeline
             FilterActivator<T>.InstantiateFilters(pipelineSettings.Filters, filterChain);
 
             return new PipelineManager<T>(filterChain)
-                       {
-                           Processor = processor
-                       };
+            {
+                Processor = processor
+            };
         }
-                
+
         private static class ObjectFactory
         {
             public static object Create(string typeName)

@@ -26,7 +26,7 @@ namespace DemoApplication.Core.Model
         [DataMember, Column("Invoice_Contact_ID")]
         public int ContactId { get; set; }
 
-        [DataMember,ForeignKey("ContactId")]
+        [DataMember, ForeignKey("ContactId")]
         public virtual Contact Contact { get; set; }
     }
 }

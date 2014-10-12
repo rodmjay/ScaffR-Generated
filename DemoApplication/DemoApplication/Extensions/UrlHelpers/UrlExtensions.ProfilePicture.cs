@@ -1,4 +1,5 @@
 #region credits
+
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -7,7 +8,9 @@
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
+
 #endregion
+
 namespace DemoApplication.Extensions.UrlHelpers
 {
     #region
@@ -20,11 +23,10 @@ namespace DemoApplication.Extensions.UrlHelpers
     public static partial class UrlExtensions
     {
         public static string ProfilePicture(this UrlHelper url, string photoId, string resize, Gender gender)
-        {            
+        {
             string defaultUrl = string.Format("~/Content/images/{0}/{1}.jpg", resize, gender.ToString());
 
             return GetPhotoUrl(url, photoId, resize, defaultUrl);
         }
-      
     }
 }
